@@ -50,11 +50,18 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix" />
+    <Reference Include="NLog">
+      <HintPath>..\..\QSProjects\packages\NLog.4.4.1\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\QSProjects\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Icons\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -62,6 +69,25 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConfigureDeletion.cs" />
+    <Compile Include="CreateProjectParam.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\QSProjects\QSProjectsLib\QSProjectsLib.csproj">
+      <Project>{A6C1914F-7732-49F5-BABA-8BBBA521FAAB}</Project>
+      <Name>QSProjectsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSSupportLib\QSSupportLib.csproj">
+      <Project>{9DF71899-3CE4-48F4-B3C3-0B21B15037B1}</Project>
+      <Name>QSSupportLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSOrmProject\QSOrmProject.csproj">
+      <Project>{00D32969-612C-417E-9565-BEC6A7719F80}</Project>
+      <Name>QSOrmProject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config" />
+  </ItemGroup>
 </Project>
