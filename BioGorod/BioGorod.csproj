@@ -86,6 +86,14 @@
       <Project>{00D32969-612C-417E-9565-BEC6A7719F80}</Project>
       <Name>QSOrmProject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSTDI\QSTDI.csproj">
+      <Project>{4B35C969-8C74-440F-8189-57047C9215FD}</Project>
+      <Name>QSTDI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSUpdater\QSUpdater.csproj">
+      <Project>{6D755374-6EAF-44B6-8C6C-6FE5E5AB3432}</Project>
+      <Name>QSUpdater</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config" />

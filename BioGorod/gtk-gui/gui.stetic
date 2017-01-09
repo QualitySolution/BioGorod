@@ -1,16 +1,149 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../../../QSProjects/QSProjectsLib/bin/Debug/QSProjectsLib.dll" />
+    <widget-library name="../../../QSProjects/QSSupportLib/bin/Debug/QSSupportLib.dll" />
+    <widget-library name="../../../QSProjects/QSOrmProject/bin/Debug/QSOrmProject.dll" />
     <widget-library name="../bin/Debug/BioGorod.exe" internal="true" />
+    <widget-library name="../../../QSProjects/QSTDI/bin/Debug/QSTDI.dll" />
+    <widget-library name="../../../QSProjects/QSUpdater/bin/Debug/QSUpdater.dll" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="568 300">
+    <action-group name="Default">
+      <action id="Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">База</property>
+        <property name="ShortLabel" translatable="yes">База</property>
+      </action>
+      <action id="ActionPassword">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Изменить пароль</property>
+        <property name="ShortLabel" translatable="yes">Изменить пароль</property>
+        <signal name="Activated" handler="OnActionPasswordActivated" />
+      </action>
+      <action id="ActionUsers">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Пользователи</property>
+        <property name="ShortLabel" translatable="yes">Пользователи</property>
+        <property name="StockId">gtk-preferences</property>
+        <signal name="Activated" handler="OnActionUsersActivated" />
+      </action>
+      <action id="quitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">В_ыход</property>
+        <property name="ShortLabel" translatable="yes">В_ыход</property>
+        <property name="StockId">gtk-quit</property>
+        <signal name="Activated" handler="OnQuitActionActivated" />
+      </action>
+      <action id="Action2">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Справочники</property>
+        <property name="ShortLabel" translatable="yes">Справочники</property>
+      </action>
+      <action id="Action3">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Справка</property>
+        <property name="ShortLabel" translatable="yes">Справка</property>
+      </action>
+      <action id="ActionHistory">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">История версий</property>
+        <property name="Sensitive">False</property>
+        <property name="ShortLabel" translatable="yes">История версий</property>
+        <signal name="Activated" handler="OnActionHistoryActivated" />
+      </action>
+      <action id="ActionCheckUpdate">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Проверить обновление...</property>
+        <property name="ShortLabel" translatable="yes">Проверить обновление...</property>
+        <property name="StockId">gtk-go-down</property>
+        <signal name="Activated" handler="OnActionCheckUpdateActivated" />
+      </action>
+      <action id="aboutAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">_О программе</property>
+        <property name="ShortLabel" translatable="yes">_О программе</property>
+        <property name="StockId">gtk-about</property>
+        <signal name="Activated" handler="OnAboutActionActivated" />
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.MenuBar" id="menubar1">
+            <property name="MemberName" />
+            <node name="__gtksharp_102_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="Action">
+                <node type="Menuitem" action="ActionPassword" />
+                <node type="Menuitem" action="ActionUsers" />
+                <node type="Separator" />
+                <node type="Menuitem" action="quitAction" />
+              </node>
+              <node type="Menu" action="Action2" />
+              <node type="Menu" action="Action3">
+                <node type="Menuitem" action="ActionHistory" />
+                <node type="Menuitem" action="ActionCheckUpdate" />
+                <node type="Separator" />
+                <node type="Menuitem" action="aboutAction" />
+              </node>
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="QSTDI.TdiNotebook" id="tdiMain">
+            <property name="MemberName" />
+            <property name="CurrentPage">0</property>
+            <property name="ShowTabs">False</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Statusbar" id="statusbar1">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="labelStatus">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">label1</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
 </stetic-interface>
