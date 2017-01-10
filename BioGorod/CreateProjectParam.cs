@@ -32,6 +32,7 @@ namespace BioGorod
 
 			OrmMain.ConfigureOrm (db, new System.Reflection.Assembly[] {
 				System.Reflection.Assembly.GetAssembly (typeof(MainClass)),
+				System.Reflection.Assembly.GetAssembly (typeof(QSBanks.QSBanksMain)),
 			});
 			OrmMain.ClassMappingList = new List<IOrmObjectMapping> {
 				//Простые справочники
@@ -48,7 +49,7 @@ namespace BioGorod
 				OrmObjectMapping<Price>.Create().Dialog<PriceDlg>().DefaultTableView().SearchColumn("Дата", x => x.Date.ToString("d")).SearchColumn("Комментарий", x => x.Comment).SearchColumn("Поставщик", x => x.Provider.Name).End(),
 		*/
 			};
-
+			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
 		}
 	}
 }

@@ -4,6 +4,8 @@ using QSProjectsLib;
 using QSTDI;
 using QSSupportLib;
 using QSUpdater;
+using QSBanks;
+using QSOrmProject;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -41,6 +43,7 @@ public partial class MainWindow: Gtk.Window
 
 		ActionUsers.Sensitive = QSMain.User.Admin;
 
+		BanksUpdater.Update (false);
 	}
 
 	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -86,6 +89,19 @@ public partial class MainWindow: Gtk.Window
 	protected void OnActionHistoryActivated(object sender, EventArgs e)
 	{
 		QSMain.RunChangeLogDlg (this);
+	}
+
+	protected void OnActionBanksActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<Bank>(),
+			() => new OrmReference(typeof(Bank))
+		);
+	}
+
+	protected void OnActionBankUpdateActivated(object sender, EventArgs e)
+	{
+		BanksUpdater.Update (true);
 	}
 
 }

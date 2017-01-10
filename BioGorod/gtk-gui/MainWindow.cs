@@ -23,6 +23,16 @@ public partial class MainWindow
 	
 	private global::Gtk.Action aboutAction;
 	
+	private global::Gtk.Action Action4;
+	
+	private global::Gtk.Action Action5;
+	
+	private global::Gtk.Action Action6;
+	
+	private global::Gtk.Action ActionBanks;
+	
+	private global::Gtk.Action ActionBankUpdate;
+	
 	private global::Gtk.VBox vbox1;
 	
 	private global::Gtk.MenuBar menubar1;
@@ -67,6 +77,21 @@ public partial class MainWindow
 		this.aboutAction = new global::Gtk.Action ("aboutAction", global::Mono.Unix.Catalog.GetString ("_О программе"), null, "gtk-about");
 		this.aboutAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("_О программе");
 		w1.Add (this.aboutAction, null);
+		this.Action4 = new global::Gtk.Action ("Action4", global::Mono.Unix.Catalog.GetString ("Наша организация"), null, null);
+		this.Action4.ShortLabel = global::Mono.Unix.Catalog.GetString ("Наша организация");
+		w1.Add (this.Action4, null);
+		this.Action5 = new global::Gtk.Action ("Action5", global::Mono.Unix.Catalog.GetString ("Клиенты"), null, null);
+		this.Action5.ShortLabel = global::Mono.Unix.Catalog.GetString ("Клиенты");
+		w1.Add (this.Action5, null);
+		this.Action6 = new global::Gtk.Action ("Action6", global::Mono.Unix.Catalog.GetString ("Банки"), null, null);
+		this.Action6.ShortLabel = global::Mono.Unix.Catalog.GetString ("Банки");
+		w1.Add (this.Action6, null);
+		this.ActionBanks = new global::Gtk.Action ("ActionBanks", global::Mono.Unix.Catalog.GetString ("Банки РФ"), null, null);
+		this.ActionBanks.ShortLabel = global::Mono.Unix.Catalog.GetString ("Банки РФ");
+		w1.Add (this.ActionBanks, null);
+		this.ActionBankUpdate = new global::Gtk.Action ("ActionBankUpdate", global::Mono.Unix.Catalog.GetString ("Обновить банки с сайта РБК"), null, null);
+		this.ActionBankUpdate.ShortLabel = global::Mono.Unix.Catalog.GetString ("Обновить банки с сайта РБК");
+		w1.Add (this.ActionBankUpdate, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -77,7 +102,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action2' action='Action2'/><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action2' action='Action2'><menuitem name='Action4' action='Action4'/><menuitem name='Action5' action='Action5'/><menu name='Action6' action='Action6'><menuitem name='ActionBanks' action='ActionBanks'/><menuitem name='ActionBankUpdate' action='ActionBankUpdate'/></menu></menu><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
 		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 		this.menubar1.Name = "menubar1";
 		this.vbox1.Add (this.menubar1);
@@ -125,5 +150,7 @@ public partial class MainWindow
 		this.ActionHistory.Activated += new global::System.EventHandler (this.OnActionHistoryActivated);
 		this.ActionCheckUpdate.Activated += new global::System.EventHandler (this.OnActionCheckUpdateActivated);
 		this.aboutAction.Activated += new global::System.EventHandler (this.OnAboutActionActivated);
+		this.ActionBanks.Activated += new global::System.EventHandler (this.OnActionBanksActivated);
+		this.ActionBankUpdate.Activated += new global::System.EventHandler (this.OnActionBankUpdateActivated);
 	}
 }

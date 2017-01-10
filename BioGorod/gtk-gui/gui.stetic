@@ -11,6 +11,7 @@
     <widget-library name="../bin/Debug/BioGorod.exe" internal="true" />
     <widget-library name="../../../QSProjects/QSTDI/bin/Debug/QSTDI.dll" />
     <widget-library name="../../../QSProjects/QSUpdater/bin/Debug/QSUpdater.dll" />
+    <widget-library name="../../../QSProjects/Modules/QSBanks/bin/Debug/QSBanks.dll" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="568 300">
     <action-group name="Default">
@@ -70,6 +71,33 @@
         <property name="StockId">gtk-about</property>
         <signal name="Activated" handler="OnAboutActionActivated" />
       </action>
+      <action id="Action4">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Наша организация</property>
+        <property name="ShortLabel" translatable="yes">Наша организация</property>
+      </action>
+      <action id="Action5">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Клиенты</property>
+        <property name="ShortLabel" translatable="yes">Клиенты</property>
+      </action>
+      <action id="Action6">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Банки</property>
+        <property name="ShortLabel" translatable="yes">Банки</property>
+      </action>
+      <action id="ActionBanks">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Банки РФ</property>
+        <property name="ShortLabel" translatable="yes">Банки РФ</property>
+        <signal name="Activated" handler="OnActionBanksActivated" />
+      </action>
+      <action id="ActionBankUpdate">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Обновить банки с сайта РБК</property>
+        <property name="ShortLabel" translatable="yes">Обновить банки с сайта РБК</property>
+        <signal name="Activated" handler="OnActionBankUpdateActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
@@ -89,7 +117,14 @@
                 <node type="Separator" />
                 <node type="Menuitem" action="quitAction" />
               </node>
-              <node type="Menu" action="Action2" />
+              <node type="Menu" action="Action2">
+                <node type="Menuitem" action="Action4" />
+                <node type="Menuitem" action="Action5" />
+                <node type="Menu" action="Action6">
+                  <node type="Menuitem" action="ActionBanks" />
+                  <node type="Menuitem" action="ActionBankUpdate" />
+                </node>
+              </node>
               <node type="Menu" action="Action3">
                 <node type="Menuitem" action="ActionHistory" />
                 <node type="Menuitem" action="ActionCheckUpdate" />
