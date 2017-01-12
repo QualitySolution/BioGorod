@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using QSOrmProject;
-using QSOrmProject.DomainMapping;
 using QSProjectsLib;
+using QSContacts;
 
 namespace BioGorod
 {
@@ -33,8 +33,10 @@ namespace BioGorod
 			OrmMain.ConfigureOrm (db, new System.Reflection.Assembly[] {
 				System.Reflection.Assembly.GetAssembly (typeof(MainClass)),
 				System.Reflection.Assembly.GetAssembly (typeof(QSBanks.QSBanksMain)),
+				System.Reflection.Assembly.GetAssembly (typeof(QSContactsMain)),
 			});
 			OrmMain.ClassMappingList = new List<IOrmObjectMapping> {
+				//
 				//Простые справочники
 				/*		OrmObjectMapping<User>.Create().DefaultTableView().SearchColumn("Название", x => x.Name).End(),
 				OrmObjectMapping<Provider>.Create().DefaultTableView().SearchColumn("Название", x => x.Name).End(),
@@ -50,6 +52,7 @@ namespace BioGorod
 		*/
 			};
 			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
+			OrmMain.ClassMappingList.AddRange (QSContactsMain.GetModuleMaping ());
 		}
 	}
 }

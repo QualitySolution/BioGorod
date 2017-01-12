@@ -6,6 +6,7 @@ using QSSupportLib;
 using QSUpdater;
 using QSBanks;
 using QSOrmProject;
+using QSContacts;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -104,4 +105,26 @@ public partial class MainWindow: Gtk.Window
 		BanksUpdater.Update (true);
 	}
 
+	protected void OnActionPostActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<Post>(),
+			() => new OrmReference(typeof(Post))
+		);
+	}
+	protected void OnEMailActionActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<EmailType>(),
+			() => new OrmReference(typeof(EmailType))
+		);
+	}
+
+	protected void OnActionPhoneTypeActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<PhoneType>(),
+			() => new OrmReference(typeof(PhoneType))
+		);
+	}
 }

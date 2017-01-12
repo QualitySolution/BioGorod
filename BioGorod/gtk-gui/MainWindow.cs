@@ -13,7 +13,7 @@ public partial class MainWindow
 	
 	private global::Gtk.Action quitAction;
 	
-	private global::Gtk.Action Action2;
+	private global::Gtk.Action Action16;
 	
 	private global::Gtk.Action Action3;
 	
@@ -23,15 +23,31 @@ public partial class MainWindow
 	
 	private global::Gtk.Action aboutAction;
 	
-	private global::Gtk.Action Action4;
+	private global::Gtk.Action Action7;
 	
-	private global::Gtk.Action Action5;
+	private global::Gtk.Action Action11;
 	
 	private global::Gtk.Action Action6;
 	
 	private global::Gtk.Action ActionBanks;
 	
 	private global::Gtk.Action ActionBankUpdate;
+	
+	private global::Gtk.Action ActionOrganization;
+	
+	private global::Gtk.Action ActionEmployee;
+	
+	private global::Gtk.Action ActionCars;
+	
+	private global::Gtk.Action ActionCounterparty;
+	
+	private global::Gtk.Action ActionAddress;
+	
+	private global::Gtk.Action ActionPhoneType;
+	
+	private global::Gtk.Action ActionEMail;
+	
+	private global::Gtk.Action ActionPost;
 	
 	private global::Gtk.VBox vbox1;
 	
@@ -61,9 +77,9 @@ public partial class MainWindow
 		this.quitAction = new global::Gtk.Action ("quitAction", global::Mono.Unix.Catalog.GetString ("В_ыход"), null, "gtk-quit");
 		this.quitAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("В_ыход");
 		w1.Add (this.quitAction, null);
-		this.Action2 = new global::Gtk.Action ("Action2", global::Mono.Unix.Catalog.GetString ("Справочники"), null, null);
-		this.Action2.ShortLabel = global::Mono.Unix.Catalog.GetString ("Справочники");
-		w1.Add (this.Action2, null);
+		this.Action16 = new global::Gtk.Action ("Action16", global::Mono.Unix.Catalog.GetString ("Справочники"), null, null);
+		this.Action16.ShortLabel = global::Mono.Unix.Catalog.GetString ("Справочники");
+		w1.Add (this.Action16, null);
 		this.Action3 = new global::Gtk.Action ("Action3", global::Mono.Unix.Catalog.GetString ("Справка"), null, null);
 		this.Action3.ShortLabel = global::Mono.Unix.Catalog.GetString ("Справка");
 		w1.Add (this.Action3, null);
@@ -77,12 +93,12 @@ public partial class MainWindow
 		this.aboutAction = new global::Gtk.Action ("aboutAction", global::Mono.Unix.Catalog.GetString ("_О программе"), null, "gtk-about");
 		this.aboutAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("_О программе");
 		w1.Add (this.aboutAction, null);
-		this.Action4 = new global::Gtk.Action ("Action4", global::Mono.Unix.Catalog.GetString ("Наша организация"), null, null);
-		this.Action4.ShortLabel = global::Mono.Unix.Catalog.GetString ("Наша организация");
-		w1.Add (this.Action4, null);
-		this.Action5 = new global::Gtk.Action ("Action5", global::Mono.Unix.Catalog.GetString ("Клиенты"), null, null);
-		this.Action5.ShortLabel = global::Mono.Unix.Catalog.GetString ("Клиенты");
-		w1.Add (this.Action5, null);
+		this.Action7 = new global::Gtk.Action ("Action7", global::Mono.Unix.Catalog.GetString ("Наша организация"), null, null);
+		this.Action7.ShortLabel = global::Mono.Unix.Catalog.GetString ("Наша организация");
+		w1.Add (this.Action7, null);
+		this.Action11 = new global::Gtk.Action ("Action11", global::Mono.Unix.Catalog.GetString ("Клиенты"), null, null);
+		this.Action11.ShortLabel = global::Mono.Unix.Catalog.GetString ("Клиенты");
+		w1.Add (this.Action11, null);
 		this.Action6 = new global::Gtk.Action ("Action6", global::Mono.Unix.Catalog.GetString ("Банки"), null, null);
 		this.Action6.ShortLabel = global::Mono.Unix.Catalog.GetString ("Банки");
 		w1.Add (this.Action6, null);
@@ -92,6 +108,30 @@ public partial class MainWindow
 		this.ActionBankUpdate = new global::Gtk.Action ("ActionBankUpdate", global::Mono.Unix.Catalog.GetString ("Обновить банки с сайта РБК"), null, null);
 		this.ActionBankUpdate.ShortLabel = global::Mono.Unix.Catalog.GetString ("Обновить банки с сайта РБК");
 		w1.Add (this.ActionBankUpdate, null);
+		this.ActionOrganization = new global::Gtk.Action ("ActionOrganization", global::Mono.Unix.Catalog.GetString ("Организации"), null, null);
+		this.ActionOrganization.ShortLabel = global::Mono.Unix.Catalog.GetString ("Организации");
+		w1.Add (this.ActionOrganization, null);
+		this.ActionEmployee = new global::Gtk.Action ("ActionEmployee", global::Mono.Unix.Catalog.GetString ("Сотрудники"), null, null);
+		this.ActionEmployee.ShortLabel = global::Mono.Unix.Catalog.GetString ("Сотрудники");
+		w1.Add (this.ActionEmployee, null);
+		this.ActionCars = new global::Gtk.Action ("ActionCars", global::Mono.Unix.Catalog.GetString ("Автомобили"), null, null);
+		this.ActionCars.ShortLabel = global::Mono.Unix.Catalog.GetString ("Автомобили");
+		w1.Add (this.ActionCars, null);
+		this.ActionCounterparty = new global::Gtk.Action ("ActionCounterparty", global::Mono.Unix.Catalog.GetString ("Контрагенты"), null, null);
+		this.ActionCounterparty.ShortLabel = global::Mono.Unix.Catalog.GetString ("Контрагенты");
+		w1.Add (this.ActionCounterparty, null);
+		this.ActionAddress = new global::Gtk.Action ("ActionAddress", global::Mono.Unix.Catalog.GetString ("Адреса объектов"), null, null);
+		this.ActionAddress.ShortLabel = global::Mono.Unix.Catalog.GetString ("Адреса объектов");
+		w1.Add (this.ActionAddress, null);
+		this.ActionPhoneType = new global::Gtk.Action ("ActionPhoneType", global::Mono.Unix.Catalog.GetString ("Типы телефонов"), null, null);
+		this.ActionPhoneType.ShortLabel = global::Mono.Unix.Catalog.GetString ("Типы телефонов");
+		w1.Add (this.ActionPhoneType, null);
+		this.ActionEMail = new global::Gtk.Action ("ActionEMail", global::Mono.Unix.Catalog.GetString ("Типы E-mail-ов"), null, null);
+		this.ActionEMail.ShortLabel = global::Mono.Unix.Catalog.GetString ("Типы E-mail-ов");
+		w1.Add (this.ActionEMail, null);
+		this.ActionPost = new global::Gtk.Action ("ActionPost", global::Mono.Unix.Catalog.GetString ("Должности"), null, null);
+		this.ActionPost.ShortLabel = global::Mono.Unix.Catalog.GetString ("Должности");
+		w1.Add (this.ActionPost, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -102,7 +142,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action2' action='Action2'><menuitem name='Action4' action='Action4'/><menuitem name='Action5' action='Action5'/><menu name='Action6' action='Action6'><menuitem name='ActionBanks' action='ActionBanks'/><menuitem name='ActionBankUpdate' action='ActionBankUpdate'/></menu></menu><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action16' action='Action16'><menu name='Action7' action='Action7'><menuitem name='ActionOrganization' action='ActionOrganization'/><menuitem name='ActionEmployee' action='ActionEmployee'/><menuitem name='ActionCars' action='ActionCars'/></menu><menu name='Action11' action='Action11'><menuitem name='ActionCounterparty' action='ActionCounterparty'/><menuitem name='ActionAddress' action='ActionAddress'/><separator/><menuitem name='ActionPost' action='ActionPost'/><separator/><menuitem name='ActionPhoneType' action='ActionPhoneType'/><menuitem name='ActionEMail' action='ActionEMail'/></menu><menu name='Action6' action='Action6'><menuitem name='ActionBanks' action='ActionBanks'/><menuitem name='ActionBankUpdate' action='ActionBankUpdate'/></menu></menu><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
 		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 		this.menubar1.Name = "menubar1";
 		this.vbox1.Add (this.menubar1);
@@ -152,5 +192,8 @@ public partial class MainWindow
 		this.aboutAction.Activated += new global::System.EventHandler (this.OnAboutActionActivated);
 		this.ActionBanks.Activated += new global::System.EventHandler (this.OnActionBanksActivated);
 		this.ActionBankUpdate.Activated += new global::System.EventHandler (this.OnActionBankUpdateActivated);
+		this.ActionPhoneType.Activated += new global::System.EventHandler (this.OnActionPhoneTypeActivated);
+		this.ActionEMail.Activated += new global::System.EventHandler (this.OnEMailActionActivated);
+		this.ActionPost.Activated += new global::System.EventHandler (this.OnActionPostActivated);
 	}
 }
