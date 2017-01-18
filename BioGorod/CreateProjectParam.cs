@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using QSOrmProject;
-using QSProjectsLib;
-using QSContacts;
-using QSOrmProject.DomainMapping;
-using BioGorod.Domain.Company;
+using BioGorod.Dialogs.Client;
 using BioGorod.Dialogs.Company;
+using BioGorod.Domain.Client;
+using BioGorod.Domain.Company;
 using BioGorod.JournalFilters;
 using Gamma.Utilities;
+using QSContacts;
+using QSOrmProject;
+using QSOrmProject.DomainMapping;
+using QSProjectsLib;
 
 namespace BioGorod
 {
@@ -46,6 +48,10 @@ namespace BioGorod
 				OrmObjectMapping<Employee>.Create().Dialog<EmployeeDlg>().JournalFilter<EmployeeFilter>()
 					.DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Ф.И.О.", x => x.FullName).Column("Категория", x => x.Category.GetEnumTitle()).OrderAsc(x => x.LastName).OrderAsc(x => x.Name).OrderAsc(x => x.Patronymic).End(),
 				OrmObjectMapping<Organization>.Create().Dialog<OrganizationDlg>().DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Название", x => x.Name).End(),
+					//Клиент
+				OrmObjectMapping<Contact>.Create().Dialog <ContactDlg>()
+					.DefaultTableView().SearchColumn("Фамилия", x => x.Surname).SearchColumn("Имя", x => x.Name).SearchColumn("Отчество", x => x.Patronymic).End(),
+
 			};
 			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
 			OrmMain.ClassMappingList.AddRange (QSContactsMain.GetModuleMaping ());
