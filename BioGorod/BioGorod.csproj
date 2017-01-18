@@ -84,6 +84,12 @@
     <Compile Include="Repository\Company\EmployeeRepository.cs" />
     <Compile Include="JournalFilters\EmployeeFilter.cs" />
     <Compile Include="gtk-gui\BioGorod.JournalFilters.EmployeeFilter.cs" />
+    <Compile Include="Domain\Client\Contact.cs" />
+    <Compile Include="Domain\Client\DeliveryPoint.cs" />
+    <Compile Include="Domain\Client\Counterparty.cs" />
+    <Compile Include="Hmap\Client\ContactMap.cs" />
+    <Compile Include="Hmap\Client\CounterpartyMap.cs" />
+    <Compile Include="Hmap\Client\DeliveryPointMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -127,6 +133,14 @@
       <Project>{CE5179E8-3172-4C08-9FE3-9C48C58A3831}</Project>
       <Name>QSValidation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSOsm\QSOsm.csproj">
+      <Project>{5CFB297D-4964-4CBD-9102-A5E795BE7B85}</Project>
+      <Name>QSOsm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Gtk.DataBindings\System.Data.Bindings\System.Data.Bindings.csproj">
+      <Project>{54F958F5-7E58-4C89-9A04-8835E63B97C3}</Project>
+      <Name>System.Data.Bindings</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
@@ -151,5 +165,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Repository\Company\" />
     <Folder Include="JournalFilters\" />
+    <Folder Include="Hmap\Client\" />
   </ItemGroup>
 </Project>
