@@ -137,4 +137,11 @@ public partial class MainWindow: Gtk.Window
 		);
 	}
 
+	protected void OnActionOrganizationActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<Organization>(),
+			() => new OrmReference(typeof(Organization))
+		);
+	}
 }

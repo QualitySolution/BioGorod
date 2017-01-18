@@ -41,20 +41,11 @@ namespace BioGorod
 				System.Reflection.Assembly.GetAssembly (typeof(QSContactsMain)),
 			});
 			OrmMain.ClassMappingList = new List<IOrmObjectMapping> {
+				//Компания
 				OrmObjectMapping<User>.Create().DefaultTableView().SearchColumn("Название", x => x.Name).End(),
 				OrmObjectMapping<Employee>.Create().Dialog<EmployeeDlg>().JournalFilter<EmployeeFilter>()
 					.DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Ф.И.О.", x => x.FullName).Column("Категория", x => x.Category.GetEnumTitle()).OrderAsc(x => x.LastName).OrderAsc(x => x.Name).OrderAsc(x => x.Patronymic).End(),
-/*				OrmObjectMapping<Provider>.Create().DefaultTableView().SearchColumn("Название", x => x.Name).End(),
-				OrmObjectMapping<BodyMaterial>.Create().Dialog<BodyMaterialDlg>().DefaultTableView().SearchColumn("Русское название", x => x.NameRus).SearchColumn("Английское название", x => x.NameEng).End(),
-				OrmObjectMapping<Conductor>.Create().Dialog<ConductorDlg>().DefaultTableView().SearchColumn("Русское название", x => x.NameRus).SearchColumn("Английское название", x => x.NameEng).End(),
-				OrmObjectMapping<Fittings.Domain.ConnectionType>.Create().Dialog<ConnectionTypeDlg>().DefaultTableView().SearchColumn("Русское название", x => x.NameRus).SearchColumn("Английское название", x => x.NameEng).End(),
-				OrmObjectMapping<FittingType>.Create().Dialog<FittingTypeDlg>().DefaultTableView().SearchColumn("Кат. №", x => x.ModelCode).SearchColumn("Русское название", x => x.NameRus).SearchColumn("Английское название", x => x.NameEng).End(),
-				OrmObjectMapping<Pressure>.Create().Dialog<PressureDlg>().DefaultTableView().SearchColumn("PN", x => x.Pn).SearchColumn("class", x => x.Pclass).OrderAsc(x => x.Pn).End(),
-				OrmObjectMapping<Diameter>.Create().Dialog<DiameterDlg>().DefaultTableView().SearchColumn("Дюймы", x => x.Inch).SearchColumn("Миллиметры", x => x.DN).OrderAsc(x => x.Mm).End(),
-				OrmObjectMapping<Fitting>.Create().Dialog<FittingDlg>().DefaultTableView().SearchColumn("Код", x => x.Id.ToString()).SearchColumn("Артикул", x => x.Code).End(),
-				OrmObjectMapping<Project>.Create().Dialog<ProjectDlg>().UseSlider(false).DefaultTableView().SearchColumn("Заказчик", x => x.Customer).SearchColumn("Название проекта", x => x.ProjectName).End(),
-				OrmObjectMapping<Price>.Create().Dialog<PriceDlg>().DefaultTableView().SearchColumn("Дата", x => x.Date.ToString("d")).SearchColumn("Комментарий", x => x.Comment).SearchColumn("Поставщик", x => x.Provider.Name).End(),
-*/		
+				OrmObjectMapping<Organization>.Create().Dialog<OrganizationDlg>().DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Название", x => x.Name).End(),
 			};
 			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
 			OrmMain.ClassMappingList.AddRange (QSContactsMain.GetModuleMaping ());
