@@ -7,6 +7,7 @@ using QSUpdater;
 using QSBanks;
 using QSOrmProject;
 using QSContacts;
+using BioGorod.Domain.Company;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -127,4 +128,13 @@ public partial class MainWindow: Gtk.Window
 			() => new OrmReference(typeof(PhoneType))
 		);
 	}
+
+	protected void OnActionEmployeeActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<Employee>(),
+			() => new OrmReference(typeof(Employee))
+		);
+	}
+
 }

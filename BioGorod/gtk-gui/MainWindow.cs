@@ -192,6 +192,7 @@ public partial class MainWindow
 		this.aboutAction.Activated += new global::System.EventHandler (this.OnAboutActionActivated);
 		this.ActionBanks.Activated += new global::System.EventHandler (this.OnActionBanksActivated);
 		this.ActionBankUpdate.Activated += new global::System.EventHandler (this.OnActionBankUpdateActivated);
+		this.ActionEmployee.Activated += new global::System.EventHandler (this.OnActionEmployeeActivated);
 		this.ActionPhoneType.Activated += new global::System.EventHandler (this.OnActionPhoneTypeActivated);
 		this.ActionEMail.Activated += new global::System.EventHandler (this.OnEMailActionActivated);
 		this.ActionPost.Activated += new global::System.EventHandler (this.OnActionPostActivated);
