@@ -60,6 +60,7 @@
     <Reference Include="NHibernate">
       <HintPath>..\..\QSProjects\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -90,6 +91,25 @@
     <Compile Include="Hmap\Client\ContactMap.cs" />
     <Compile Include="Hmap\Client\CounterpartyMap.cs" />
     <Compile Include="Hmap\Client\DeliveryPointMap.cs" />
+    <Compile Include="Dialogs\Client\CounterpartyDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyDlg.cs" />
+    <Compile Include="Dialogs\Client\CounterpartyContractsView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyContractsView.cs" />
+    <Compile Include="Domain\Client\CounterpartyContract.cs" />
+    <Compile Include="Domain\Company\Organization.cs" />
+    <Compile Include="Hmap\Company\OrganizationMap.cs" />
+    <Compile Include="Dialogs\Company\OrganizationDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Company.OrganizationDlg.cs" />
+    <Compile Include="Dialogs\Client\ContactsView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContactsView.cs" />
+    <Compile Include="ViewModel\ContactsVM.cs" />
+    <Compile Include="Dialogs\Client\ContactDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContactDlg.cs" />
+    <Compile Include="Dialogs\Client\DeliveryPointView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.DeliveryPointView.cs" />
+    <Compile Include="ViewModel\ClientDeliveryPointsVM.cs" />
+    <Compile Include="Dialogs\Client\DeliveryPointDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.DeliveryPointDlg.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -141,6 +161,18 @@
       <Project>{54F958F5-7E58-4C89-9A04-8835E63B97C3}</Project>
       <Name>System.Data.Bindings</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSWidgetLib\QSWidgetLib.csproj">
+      <Project>{5A2BB01E-E124-432E-8099-D1343D3897B9}</Project>
+      <Name>QSWidgetLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GMap.NET\GMap.NET.GtkSharp\GMap.NET.GtkSharp.csproj">
+      <Project>{E06DEF77-F933-42FB-AFD8-DB2D0D8D6A98}</Project>
+      <Name>GMap.NET.GtkSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GMap.NET\GMap.NET.Core\GMap.NET.Core.csproj">
+      <Project>{D0C39D9D-BED0-418B-9A5E-713176CAF40C}</Project>
+      <Name>GMap.NET.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
@@ -166,5 +198,7 @@
     <Folder Include="Repository\Company\" />
     <Folder Include="JournalFilters\" />
     <Folder Include="Hmap\Client\" />
+    <Folder Include="Dialogs\Client\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>
