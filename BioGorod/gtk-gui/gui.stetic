@@ -3434,7 +3434,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextAndIcon</property>
-                <property name="Icon">resource:Vodovoz.icons.buttons.menu.png</property>
+                <property name="Icon">resource:BioGorod.Icons.Buttons.menu.png</property>
                 <property name="Label" translatable="yes" />
                 <property name="UseUnderline">True</property>
                 <property name="UseMarkup">False</property>

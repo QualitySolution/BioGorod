@@ -148,7 +148,7 @@ namespace BioGorod.Dialogs.Client
 			this.menuActions.UseUnderline = true;
 			this.menuActions.UseMarkup = false;
 			global::Gtk.Image w5 = new global::Gtk.Image ();
-			w5.Pixbuf = global::Gdk.Pixbuf.LoadFromResource ("Vodovoz.icons.buttons.menu.png");
+			w5.Pixbuf = global::Gdk.Pixbuf.LoadFromResource ("BioGorod.Icons.Buttons.menu.png");
 			this.menuActions.Image = w5;
 			this.hbox1.Add (this.menuActions);
 			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.menuActions]));

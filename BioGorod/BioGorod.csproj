@@ -67,6 +67,7 @@
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Icons\logo.png" />
+    <EmbeddedResource Include="Icons\Buttons\menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
