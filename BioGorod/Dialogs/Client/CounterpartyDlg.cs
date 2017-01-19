@@ -7,6 +7,7 @@ using QSContacts;
 using QSOrmProject;
 using QSProjectsLib;
 using QSValidation;
+using QSWidgetLib;
 
 namespace BioGorod.Dialogs.Client
 {
@@ -68,6 +69,9 @@ namespace BioGorod.Dialogs.Client
 
 			yentryName.Binding.AddBinding(Entity, e => e.Name, w => w.Text).InitializeFromSource();
 			entryFullName.Binding.AddBinding(Entity, e => e.FullName, w => w.Text).InitializeFromSource();
+			var parallel = new ParallelEditing (entryFullName);
+			parallel.SubscribeOnChanges (yentryName);
+			parallel.GetParallelTextFunc = GenerateOfficialName;
 
 			comboDocumentsDelivery.ItemsEnum = typeof(DocumentsDelivery);
 			comboDocumentsDelivery.Binding.AddBinding(Entity, e => e.DocumentsDelivery, w => w.SelectedItem).InitializeFromSource();
@@ -117,6 +121,12 @@ namespace BioGorod.Dialogs.Client
 				return true;
 			}
 			return false;
+		}
+
+		string GenerateOfficialName (object arg)
+		{
+			var widget = arg as Gtk.Entry;
+			return widget.Text;
 		}
 
 		private bool CheckDuplicate()
