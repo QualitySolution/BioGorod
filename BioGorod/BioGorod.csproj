@@ -111,6 +111,9 @@
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyContactsView.cs" />
     <Compile Include="Repository\Client\CounterpartyRepository.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyAddressesView.cs" />
+    <Compile Include="ViewModel\CounterpartyVM.cs" />
+    <Compile Include="JournalFilters\CounterpartyFilter.cs" />
+    <Compile Include="gtk-gui\BioGorod.JournalFilters.CounterpartyFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

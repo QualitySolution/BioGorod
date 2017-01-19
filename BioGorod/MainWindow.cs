@@ -8,6 +8,7 @@ using QSBanks;
 using QSOrmProject;
 using QSContacts;
 using BioGorod.Domain.Company;
+using BioGorod.ViewModel;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -144,4 +145,13 @@ public partial class MainWindow: Gtk.Window
 			() => new OrmReference(typeof(Organization))
 		);
 	}
+
+	protected void OnActionCounterpartyActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			ReferenceRepresentation.GenerateHashName<CounterpartyVM>(),
+			() => new ReferenceRepresentation (new CounterpartyVM ())
+		);
+	}
+
 }

@@ -19,7 +19,7 @@ namespace BioGorod.Dialogs.Client
 					return;
 				counterpartyUoW = value;
 			//	treeCounterpartyContracts.RepresentationModel = new ViewModel.ContractsVM (value);
-				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
+//				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
 			}
 		}
 
