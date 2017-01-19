@@ -24,14 +24,14 @@ namespace BioGorod.Domain.Client
 
 		#region Свойства
 
-/*		private IList<CounterpartyContract> counterpartyContracts;
+		private IList<CounterpartyContract> counterpartyContracts;
 
 		[Display (Name = "Договоры")]
 		public virtual IList<CounterpartyContract> CounterpartyContracts {
 			get { return counterpartyContracts; }
 			set { SetField (ref counterpartyContracts, value, () => CounterpartyContracts); }
 		}
-*/
+
 		private IList<DeliveryPoint> deliveryPoints = new List<DeliveryPoint>();
 
 		[Display (Name = "Точки доставки")]
@@ -134,7 +134,7 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref documentsDelivery, value, () => DocumentsDelivery); }
 		}
 
-		bool cooperationCustomer;
+		bool cooperationCustomer = true;
 
 		[Display (Name = "Это покупатель")]
 		public virtual bool CooperationCustomer {

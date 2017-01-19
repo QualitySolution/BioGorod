@@ -100,16 +100,17 @@
     <Compile Include="Hmap\Company\OrganizationMap.cs" />
     <Compile Include="Dialogs\Company\OrganizationDlg.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Company.OrganizationDlg.cs" />
-    <Compile Include="Dialogs\Client\ContactsView.cs" />
-    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContactsView.cs" />
     <Compile Include="ViewModel\ContactsVM.cs" />
     <Compile Include="Dialogs\Client\ContactDlg.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContactDlg.cs" />
-    <Compile Include="Dialogs\Client\DeliveryPointView.cs" />
-    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.DeliveryPointView.cs" />
     <Compile Include="ViewModel\ClientDeliveryPointsVM.cs" />
     <Compile Include="Dialogs\Client\DeliveryPointDlg.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.DeliveryPointDlg.cs" />
+    <Compile Include="Dialogs\Client\CounterpartyContactsView.cs" />
+    <Compile Include="Dialogs\Client\CounterpartyAddressesView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyContactsView.cs" />
+    <Compile Include="Repository\Client\CounterpartyRepository.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyAddressesView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -200,5 +201,6 @@
     <Folder Include="Hmap\Client\" />
     <Folder Include="Dialogs\Client\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="Repository\Client\" />
   </ItemGroup>
 </Project>

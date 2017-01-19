@@ -7,11 +7,11 @@ using Gamma.Utilities;
 using GMap.NET;
 using GMap.NET.GtkSharp;
 using GMap.NET.GtkSharp.Markers;
+using GMap.NET.MapProviders;
 using QSOrmProject;
+using QSOsm.DTO;
 using QSProjectsLib;
 using QSValidation;
-using QSOsm.DTO;
-using GMap.NET.MapProviders;
 
 namespace BioGorod.Dialogs.Client
 {

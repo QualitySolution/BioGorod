@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Bindings.Collections.Generic;
 using BioGorod.Domain.Client;
 using BioGorod.ViewModel;
 using QSOrmProject;
@@ -9,9 +8,8 @@ using QSTDI;
 namespace BioGorod.Dialogs.Client
 {
 	[System.ComponentModel.ToolboxItem (true)]
-	public partial class DeliveryPointView : WidgetOnDialogBase
+	public partial class CounterpartyAddressesView : WidgetOnDialogBase
 	{
-		GenericObservableList<DeliveryPoint> deliveryPoints;
 
 		IUnitOfWorkGeneric<Counterparty> deliveryPointUoW;
 
@@ -23,13 +21,12 @@ namespace BioGorod.Dialogs.Client
 				deliveryPointUoW = value;
 				if (DeliveryPointUoW.Root.DeliveryPoints == null)
 					DeliveryPointUoW.Root.DeliveryPoints = new List<DeliveryPoint> ();
-				deliveryPoints = DeliveryPointUoW.Root.ObservableDeliveryPoints;
 				treeDeliveryPoints.RepresentationModel = new ViewModel.ClientDeliveryPointsVM (value);
 				treeDeliveryPoints.RepresentationModel.UpdateNodes ();
 			}
 		}
 
-		public DeliveryPointView ()
+		public CounterpartyAddressesView ()
 		{
 			this.Build ();
 			treeDeliveryPoints.Selection.Changed += OnSelectionChanged;

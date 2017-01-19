@@ -6,7 +6,7 @@ using QSTDI;
 namespace BioGorod.Dialogs.Client
 {
 	[System.ComponentModel.ToolboxItem (true)]
-	public partial class ContactsView : Gtk.Bin
+	public partial class CounterpartyContactsView : Gtk.Bin
 	{
 		private IUnitOfWorkGeneric<Counterparty> counterpartyUoW;
 
@@ -23,7 +23,7 @@ namespace BioGorod.Dialogs.Client
 			}
 		}
 
-		public ContactsView ()
+		public CounterpartyContactsView ()
 		{
 			this.Build ();
 			datatreeviewContacts.Selection.Changed += OnSelectionChanged;

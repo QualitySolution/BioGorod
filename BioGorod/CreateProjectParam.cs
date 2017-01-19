@@ -51,7 +51,8 @@ namespace BioGorod
 					//Клиент
 				OrmObjectMapping<Contact>.Create().Dialog <ContactDlg>()
 					.DefaultTableView().SearchColumn("Фамилия", x => x.Surname).SearchColumn("Имя", x => x.Name).SearchColumn("Отчество", x => x.Patronymic).End(),
-
+				OrmObjectMapping<DeliveryPoint>.Create().Dialog<DeliveryPointDlg>(),
+				OrmObjectMapping<Counterparty>.Create().Dialog<CounterpartyDlg>().DefaultTableView().SearchColumn("Название", x => x.FullName).End(),
 			};
 			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
 			OrmMain.ClassMappingList.AddRange (QSContactsMain.GetModuleMaping ());
