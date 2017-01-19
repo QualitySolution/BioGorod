@@ -57,16 +57,23 @@ namespace BioGorod.Dialogs.Client
 				UoWGeneric.Root.CounterpartyContracts = new List<CounterpartyContract> ();
 			}
 			//Other fields properties
-			validatedINN.ValidationMode = validatedKPP.ValidationMode = QSWidgetLib.ValidationType.numeric;
+			validatedINN.ValidationMode = validatedKPP.ValidationMode = validatedentryOGRN.ValidationMode = QSWidgetLib.ValidationType.numeric;
 			validatedINN.Binding.AddBinding(Entity, e => e.INN, w => w.Text).InitializeFromSource();
 			validatedKPP.Binding.AddBinding(Entity, e => e.KPP, w => w.Text).InitializeFromSource();
+			validatedentryOGRN.Binding.AddBinding(Entity, e => e.OGRN, w => w.Text).InitializeFromSource();
 
 			yentrySignFIO.Binding.AddBinding(Entity, e => e.SignatoryFIO, w => w.Text).InitializeFromSource();
 			yentrySignPost.Binding.AddBinding(Entity, e => e.SignatoryPost, w => w.Text).InitializeFromSource();
 			yentrySignBaseOf.Binding.AddBinding(Entity, e => e.SignatoryBaseOf, w => w.Text).InitializeFromSource();
 
-			entryFIO.Binding.AddBinding(Entity, e => e.Name, w => w.Text).InitializeFromSource();
+			yentryName.Binding.AddBinding(Entity, e => e.Name, w => w.Text).InitializeFromSource();
 			entryFullName.Binding.AddBinding(Entity, e => e.FullName, w => w.Text).InitializeFromSource();
+
+			comboDocumentsDelivery.ItemsEnum = typeof(DocumentsDelivery);
+			comboDocumentsDelivery.Binding.AddBinding(Entity, e => e.DocumentsDelivery, w => w.SelectedItem).InitializeFromSource();
+
+			referencePaymentManager.ItemsQuery = Repository.Company.EmployeeRepository.OfficeWorkersQuery ();
+			referencePaymentManager.Binding.AddBinding(Entity, e => e.PaymentManager, w => w.Subject).InitializeFromSource();
 
 			dataComment.Binding.AddBinding(Entity, e => e.Comment, w => w.Buffer.Text).InitializeFromSource();
 

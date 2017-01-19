@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Bindings.Collections.Generic;
-using QSOrmProject;
-using QSProjectsLib;
-using QSContacts;
+using System.Text.RegularExpressions;
 using BioGorod.Domain.Company;
 using Gamma.Utilities;
-using System.Text.RegularExpressions;
+using QSContacts;
+using QSOrmProject;
+using QSProjectsLib;
 
 namespace BioGorod.Domain.Client
 {
@@ -108,6 +108,14 @@ namespace BioGorod.Domain.Client
 		public virtual string KPP {
 			get { return kPP; }
 			set { SetField (ref kPP, value, () => KPP); }
+		}
+
+		string ogrn;
+
+		[Display (Name = "ОГРН")]
+		public virtual string OGRN {
+			get { return ogrn; }
+			set { SetField (ref ogrn, value, () => OGRN); }
 		}
 
 		string jurAddress;

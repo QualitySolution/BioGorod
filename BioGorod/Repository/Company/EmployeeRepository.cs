@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BioGorod.Domain.Company;
 using QSOrmProject;
+using NHibernate.Criterion;
 
 namespace BioGorod.Repository.Company
 {
@@ -15,6 +16,11 @@ namespace BioGorod.Repository.Company
 				.JoinAlias (e => e.User, () => userAlias)
 				.Where (() => userAlias.Id == userId)
 				.List ();
+		}
+
+		public static QueryOver<Employee> OfficeWorkersQuery ()
+		{
+			return QueryOver.Of<Employee> ().Where (e => e.Category == EmployeeCategory.office);
 		}
 	}
 }
