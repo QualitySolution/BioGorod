@@ -232,24 +232,41 @@ namespace BioGorod.Domain.Client
 
 		public virtual IEnumerable<ValidationResult> Validate (ValidationContext validationContext)
 		{
-				if (KPP.Length != 9 && KPP.Length != 0)
+			if (!String.IsNullOrWhiteSpace(KPP))
+			{
+				if(KPP.Length != 9)
 					yield return new ValidationResult ("Длина КПП должна равнятся 9-ти.",
 						new[] { this.GetPropertyName (o => o.KPP) });
-				if (INN.Length != 10 && INN.Length != 0)
+				if (!Regex.IsMatch (KPP, "^[0-9]*$"))
+					yield return new ValidationResult ("КПП может содержать только цифры.",
+						new[] { this.GetPropertyName (o => o.KPP) });
+			}
+			if (!String.IsNullOrWhiteSpace(INN))
+			{
+				if(INN.Length != 10)
 					yield return new ValidationResult ("Длина ИНН должна равнятся 10-ти.",
 						new[] { this.GetPropertyName (o => o.INN) });
+				if (!Regex.IsMatch (INN, "^[0-9]*$"))
+					yield return new ValidationResult ("ИНН может содержать только цифры.",
+						new[] { this.GetPropertyName (o => o.INN) });
+			}
+			if (!String.IsNullOrWhiteSpace(OGRN))
+			{
+				if(OGRN.Length != 13)
+					yield return new ValidationResult ("Длина ОГРН должна равнятся 13-ти.",
+						new[] { this.GetPropertyName (o => o.OGRN) });
+				if (!Regex.IsMatch (OGRN, "^[0-9]*$"))
+					yield return new ValidationResult ("ОГРН может содержать только цифры.",
+								new[] { this.GetPropertyName (o => o.OGRN) });
+			}
+
 /*				if (String.IsNullOrWhiteSpace (KPP))
 					yield return new ValidationResult ("Для организации необходимо заполнить КПП.",
 						new[] { this.GetPropertyName (o => o.KPP) });
 				if (String.IsNullOrWhiteSpace (INN))
 					yield return new ValidationResult ("Для организации необходимо заполнить ИНН.",
 						new[] { this.GetPropertyName (o => o.INN) });
-*/				if (!Regex.IsMatch (KPP, "^[0-9]*$"))
-					yield return new ValidationResult ("КПП может содержать только цифры.",
-						new[] { this.GetPropertyName (o => o.KPP) });
-				if (!Regex.IsMatch (INN, "^[0-9]*$"))
-					yield return new ValidationResult ("ИНН может содержать только цифры.",
-						new[] { this.GetPropertyName (o => o.INN) });
+*/				
 
 			if(IsArchive)
 			{
