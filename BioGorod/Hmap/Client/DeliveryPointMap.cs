@@ -32,7 +32,6 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.Latitude)		  .Column ("latitude");
 			Map (x => x.Longitude)		  .Column ("longitude");
 			Map (x => x.IsActive)		  .Column ("is_active");
-			Map (x => x.Phone)			  .Column ("phone");
 
 			References (x => x.Counterparty).Column ("counterparty_id");
 

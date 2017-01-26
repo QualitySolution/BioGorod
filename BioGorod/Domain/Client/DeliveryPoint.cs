@@ -205,14 +205,6 @@ namespace BioGorod.Domain.Client
 			}
 		}
 
-		string phone;
-
-		[Display (Name = "Телефон точки")]
-		public virtual string Phone {
-			get { return phone; }
-			set { SetField (ref phone, value, () => Phone); }
-		}
-
 		bool foundOnOsm;
 
 		[Display (Name = "Адрес найден на карте OSM")]
@@ -278,7 +270,6 @@ namespace BioGorod.Domain.Client
 			Building = String.Empty;
 			Room = String.Empty;
 			Comment = String.Empty;
-			Phone = String.Empty;
 		}
 
 		public virtual void AddContact(Contact contact)
