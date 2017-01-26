@@ -154,4 +154,11 @@ public partial class MainWindow: Gtk.Window
 		);
 	}
 
+	protected void OnActionAddressActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			ReferenceRepresentation.GenerateHashName<DeliveryPointsVM>(),
+			() => new ReferenceRepresentation (new DeliveryPointsVM ()).Buttons(ReferenceButtonMode.CanEdit | ReferenceButtonMode.CanDelete)
+		);
+	}
 }

@@ -136,6 +136,7 @@ public partial class MainWindow
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
+		this.Icon = global::Gdk.Pixbuf.LoadFromResource ("BioGorod.Icons.logo.ico");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox ();
@@ -195,6 +196,7 @@ public partial class MainWindow
 		this.ActionOrganization.Activated += new global::System.EventHandler (this.OnActionOrganizationActivated);
 		this.ActionEmployee.Activated += new global::System.EventHandler (this.OnActionEmployeeActivated);
 		this.ActionCounterparty.Activated += new global::System.EventHandler (this.OnActionCounterpartyActivated);
+		this.ActionAddress.Activated += new global::System.EventHandler (this.OnActionAddressActivated);
 		this.ActionPhoneType.Activated += new global::System.EventHandler (this.OnActionPhoneTypeActivated);
 		this.ActionEMail.Activated += new global::System.EventHandler (this.OnEMailActionActivated);
 		this.ActionPost.Activated += new global::System.EventHandler (this.OnActionPostActivated);

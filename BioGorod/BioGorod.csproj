@@ -106,6 +106,9 @@
     <Compile Include="ViewModel\CounterpartyVM.cs" />
     <Compile Include="JournalFilters\CounterpartyFilter.cs" />
     <Compile Include="gtk-gui\BioGorod.JournalFilters.CounterpartyFilter.cs" />
+    <Compile Include="ViewModel\DeliveryPointsVM.cs" />
+    <Compile Include="JournalFilters\DeliveryPointFilter.cs" />
+    <Compile Include="gtk-gui\BioGorod.JournalFilters.DeliveryPointFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
