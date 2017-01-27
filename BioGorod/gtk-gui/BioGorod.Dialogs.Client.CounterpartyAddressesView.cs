@@ -34,7 +34,7 @@ namespace BioGorod.Dialogs.Client
 			this.label10 = new global::Gtk.Label ();
 			this.label10.Name = "label10";
 			this.label10.Xalign = 0F;
-			this.label10.LabelProp = global::Mono.Unix.Catalog.GetString ("Точки доставки:");
+			this.label10.LabelProp = global::Mono.Unix.Catalog.GetString ("Адреса объектов:");
 			this.vbox1.Add (this.label10);
 			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.label10]));
 			w1.Position = 0;
