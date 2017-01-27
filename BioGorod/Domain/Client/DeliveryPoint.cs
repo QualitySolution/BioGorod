@@ -36,9 +36,7 @@ namespace BioGorod.Domain.Client
 			get { return addressAddition; }
 			set { SetField (ref addressAddition, value, () => АddressAddition); }
 		}
-
-		string compiledAddress;
-
+			
 		[Display (Name = "Полный адрес")]
 		public virtual string CompiledAddress {
 			get {
@@ -58,10 +56,8 @@ namespace BioGorod.Domain.Client
 
 				return address.TrimEnd (',', ' ');
 			}
-			set { SetField (ref compiledAddress, value, () => CompiledAddress); }
+			set { ; }
 		}
-
-		string shortAddress;
 
 		[Display (Name = "Сокращенный адрес")]
 		public virtual string ShortAddress {
@@ -80,7 +76,7 @@ namespace BioGorod.Domain.Client
 
 				return address.TrimEnd (',', ' ');
 			}
-			set { SetField (ref shortAddress, value, () => ShortAddress); }
+			set { ; }
 		}
 
 		string city;
@@ -265,7 +261,6 @@ namespace BioGorod.Domain.Client
 
 		public DeliveryPoint ()
 		{
-			CompiledAddress = String.Empty;
 			City = String.Empty;
 			Street = String.Empty;
 			Building = String.Empty;
