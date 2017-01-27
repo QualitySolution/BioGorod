@@ -212,6 +212,20 @@ namespace BioGorod.Dialogs.Client
 			}
 		}
 
+		protected void OnButtonActualFromLegalClicked(object sender, EventArgs e)
+		{
+			Entity.ActualAddress.CopyFrom(Entity.LegalAddress);
+		}
+
+		protected void OnButtonDocFromLegalClicked(object sender, EventArgs e)
+		{
+			Entity.DocDeliveryAddress.CopyFrom(Entity.LegalAddress);
+		}
+
+		protected void OnButtonDocFromActualClicked(object sender, EventArgs e)
+		{
+			Entity.DocDeliveryAddress.CopyFrom(Entity.ActualAddress);
+		}
 	}
 }
 
