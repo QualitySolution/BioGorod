@@ -8,6 +8,7 @@ using Gamma.Utilities;
 using QSContacts;
 using QSOrmProject;
 using QSProjectsLib;
+using QSOsm.Data;
 
 namespace BioGorod.Domain.Client
 {
@@ -118,20 +119,28 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref ogrn, value, () => OGRN); }
 		}
 
-		string jurAddress;
+		JsonAddress legalAddress;
 
 		[Display (Name = "Юридический адрес")]
-		public virtual string JurAddress {
-			get { return jurAddress; }
-			set { SetField (ref jurAddress, value, () => JurAddress); }
+		public virtual JsonAddress LegalAddress {
+			get { return legalAddress; }
+			set { SetField (ref legalAddress, value, () => LegalAddress); }
 		}
 
-		string address;
+		JsonAddress actualAddress;
 
 		[Display (Name = "Фактический адрес")]
-		public virtual string Address {
-			get { return address; }
-			set { SetField (ref address, value, () => Address); }
+		public virtual JsonAddress ActualAddress {
+			get { return actualAddress; }
+			set { SetField (ref actualAddress, value, () => ActualAddress); }
+		}
+
+		JsonAddress docDeliveryAddress;
+
+		[Display (Name = "Адрес доставки документов")]
+		public virtual JsonAddress DocDeliveryAddress {
+			get { return docDeliveryAddress; }
+			set { SetField (ref docDeliveryAddress, value, () => DocDeliveryAddress); }
 		}
 
 		DocumentsDelivery documentsDelivery;
@@ -226,6 +235,7 @@ namespace BioGorod.Domain.Client
 
 		public Counterparty ()
 		{
+			
 		}
 
 		#region IValidatableObject implementation

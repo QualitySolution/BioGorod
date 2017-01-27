@@ -1,6 +1,8 @@
 ﻿using System;
 using BioGorod.Domain.Client;
 using FluentNHibernate.Mapping;
+using QSOsm.Data;
+using NHibernate.JsonColumn;
 
 namespace BioGorod.Hmap.Client
 {
@@ -18,8 +20,9 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.Comment).Column ("comment");
 			Map (x => x.INN).Column ("inn");
 			Map (x => x.KPP).Column ("kpp");
-			Map (x => x.JurAddress).Column ("jur_address");
-			Map (x => x.Address).Column ("address");
+			Map (x => x.LegalAddress).Column ("legal_address").CustomType<JsonMappableType<JsonAddress>>();
+			Map (x => x.ActualAddress).Column ("actual_address").CustomType<JsonMappableType<JsonAddress>>();
+			Map (x => x.DocDeliveryAddress).Column ("doc_delivery_address").CustomType<JsonMappableType<JsonAddress>>();
 			Map (x => x.CooperationCustomer).Column ("cooperation_customer");
 			Map (x => x.CooperationSupplier).Column ("cooperation_supplier");
 			Map (x => x.CooperationPartner).Column ("cooperation_partner");
