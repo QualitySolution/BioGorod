@@ -43,7 +43,7 @@ namespace BioGorod.Domain.Client
 			get {
 				string address = String.Empty;
 				if (!String.IsNullOrWhiteSpace (City))
-					address += String.Format ("{0} {1}, ", GetShortNameOfLocalityType (LocalityType), City);
+					address += String.Format ("{0} {1}, ", AddressHelper.GetShortNameOfLocalityType (LocalityType), City);
 				if (!String.IsNullOrWhiteSpace (Street))
 					address += String.Format ("{0}, ", Street);
 				if (!String.IsNullOrWhiteSpace (Building))
@@ -51,7 +51,7 @@ namespace BioGorod.Domain.Client
 				if (!String.IsNullOrWhiteSpace (Letter))
 					address += String.Format ("лит.{0}, ", Letter);
 				if (!String.IsNullOrWhiteSpace (Room))
-					address += String.Format ("{0} {1}, ", GetShortNameOfRoomType (RoomType), Room);
+					address += String.Format ("{0} {1}, ", AddressHelper.GetShortNameOfRoomType (RoomType), Room);
 				if (!String.IsNullOrWhiteSpace (АddressAddition))
 					address += String.Format ("{0}, ", АddressAddition);
 
@@ -67,7 +67,7 @@ namespace BioGorod.Domain.Client
 			get {
 				string address = String.Empty;
 				if (!String.IsNullOrWhiteSpace (City) && City != "Санкт-Петербург")
-					address += String.Format ("{0} {1}, ", GetShortNameOfLocalityType (LocalityType), AddressHelper.ShortenCity(City));
+					address += String.Format ("{0} {1}, ", AddressHelper.GetShortNameOfLocalityType (LocalityType), AddressHelper.ShortenCity(City));
 				if (!String.IsNullOrWhiteSpace (Street))
 					address += String.Format ("{0}, ", AddressHelper.ShortenStreet(Street));
 				if (!String.IsNullOrWhiteSpace (Building))
@@ -75,7 +75,7 @@ namespace BioGorod.Domain.Client
 				if (!String.IsNullOrWhiteSpace (Letter))
 					address += String.Format ("лит.{0}, ", Letter);
 				if (!String.IsNullOrWhiteSpace (Room))
-					address += String.Format ("{0} {1}, ", GetShortNameOfRoomType (RoomType), Room);
+					address += String.Format ("{0} {1}, ", AddressHelper.GetShortNameOfRoomType (RoomType), Room);
 
 				return address.TrimEnd (',', ' ');
 			}
@@ -294,65 +294,6 @@ namespace BioGorod.Domain.Client
 			return point;
 		}
 
-		public static string GetShortNameOfRoomType (RoomType type)
-		{
-			switch (type) {
-				case RoomType.Apartment:
-					return "кв.";
-				case RoomType.Office: 
-					return "оф.";
-				case RoomType.Room:
-					return "пом.";
-				default:
-					throw new NotSupportedException ();
-			}
-		}
-
-		public static string GetShortNameOfLocalityType (LocalityType type)
-		{
-			switch (type) {
-				case LocalityType.allotments:
-					return "д.п.";
-				case LocalityType.city:
-					return "г.";
-				case LocalityType.farm:
-					return "фер.";
-				case LocalityType.hamlet:
-					return "дер.";
-				case LocalityType.isolated_dwelling:
-					return "х.";
-				case LocalityType.town:
-					return "г.";
-				case LocalityType.village:
-					return "н.п.";
-				default:
-					throw new NotSupportedException ();
-			}
-		}
-	}
-
-	public enum RoomType
-	{
-		[Display (Name = "Квартира")]
-		Apartment,
-		[Display (Name = "Офис")]
-		Office,
-		[Display (Name = "Помещение")]
-		Room
-	}
-
-	public class RoomTypeStringType : NHibernate.Type.EnumStringType
-	{
-		public RoomTypeStringType () : base (typeof(RoomType))
-		{
-		}
-	}
-
-	public class LocalityTypeStringType : NHibernate.Type.EnumStringType
-	{
-		public LocalityTypeStringType () : base (typeof(LocalityType))
-		{
-		}
 	}
 
 }

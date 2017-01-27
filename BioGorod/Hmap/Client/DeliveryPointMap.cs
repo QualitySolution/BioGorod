@@ -1,6 +1,7 @@
 ﻿using System;
 using BioGorod.Domain.Client;
 using FluentNHibernate.Mapping;
+using QSOsm.DTO;
 
 namespace BioGorod.Hmap.Client
 {
