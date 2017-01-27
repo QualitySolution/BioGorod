@@ -67,6 +67,18 @@ namespace BioGorod.Dialogs.Client
 			yentrySignPost.Binding.AddBinding(Entity, e => e.SignatoryPost, w => w.Text).InitializeFromSource();
 			yentrySignBaseOf.Binding.AddBinding(Entity, e => e.SignatoryBaseOf, w => w.Text).InitializeFromSource();
 
+			//Нужно что бы подстраховаться, если в базе будет NULL адрес не добавится вообще.
+			if (Entity.ActualAddress == null)
+				Entity.ActualAddress = new QSOsm.Data.JsonAddress();
+			if (Entity.LegalAddress == null)
+				Entity.LegalAddress = new QSOsm.Data.JsonAddress();
+			if (Entity.DocDeliveryAddress == null)
+				Entity.DocDeliveryAddress = new QSOsm.Data.JsonAddress();
+			
+			jsonaddressLegal.Binding.AddBinding(Entity, e => e.LegalAddress, w => w.Address).InitializeFromSource();
+			jsonaddressActual.Binding.AddBinding(Entity, e => e.ActualAddress, w => w.Address).InitializeFromSource();
+			jsonaddressDocDelivery.Binding.AddBinding(Entity, e => e.DocDeliveryAddress, w => w.Address).InitializeFromSource();
+
 			yentryName.Binding.AddBinding(Entity, e => e.Name, w => w.Text).InitializeFromSource();
 			entryFullName.Binding.AddBinding(Entity, e => e.FullName, w => w.Text).InitializeFromSource();
 			var parallel = new ParallelEditing (entryFullName);

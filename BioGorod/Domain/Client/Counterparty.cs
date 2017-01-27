@@ -119,7 +119,7 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref ogrn, value, () => OGRN); }
 		}
 
-		JsonAddress legalAddress;
+		JsonAddress legalAddress = new JsonAddress();
 
 		[Display (Name = "Юридический адрес")]
 		public virtual JsonAddress LegalAddress {
@@ -127,7 +127,7 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref legalAddress, value, () => LegalAddress); }
 		}
 
-		JsonAddress actualAddress;
+		JsonAddress actualAddress = new JsonAddress();
 
 		[Display (Name = "Фактический адрес")]
 		public virtual JsonAddress ActualAddress {
@@ -135,7 +135,7 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref actualAddress, value, () => ActualAddress); }
 		}
 
-		JsonAddress docDeliveryAddress;
+		JsonAddress docDeliveryAddress = new JsonAddress();
 
 		[Display (Name = "Адрес доставки документов")]
 		public virtual JsonAddress DocDeliveryAddress {
