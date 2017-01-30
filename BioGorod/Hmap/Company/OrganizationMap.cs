@@ -19,6 +19,7 @@ namespace BioGorod.Hmap.Company
 			Map (x => x.Email).Column ("email");
 			Map (x => x.Address).Column ("address");
 			Map (x => x.JurAddress).Column ("jur_address");
+			Map (x => x.PostAddress).Column ("post_address");
 			References (x => x.Leader).Column ("leader_id");
 			References (x => x.Buhgalter).Column ("buhgalter_id");
 			References (x => x.DefaultAccount).Column ("default_account_id");

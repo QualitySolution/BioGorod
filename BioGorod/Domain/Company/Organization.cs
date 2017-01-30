@@ -92,6 +92,14 @@ namespace BioGorod.Domain.Company
 			set { SetField (ref jurAddress, value, () => JurAddress); }
 		}
 
+		private string postAddress;
+
+		[Display (Name = "Почтовый адрес")]
+		public virtual string PostAddress {
+		    get { return postAddress; }
+		    set { SetField (ref postAddress, value, () => PostAddress); }
+		}
+
 		Employee leader;
 
 		[Display (Name = "Руководитель")]

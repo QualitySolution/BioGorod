@@ -47,6 +47,7 @@ namespace BioGorod.Dialogs.Company
 
 			datatextviewAddress.Binding.AddBinding(Entity, e => e.Address, w => w.Buffer.Text).InitializeFromSource();
 			datatextviewJurAddress.Binding.AddBinding(Entity, e => e.JurAddress, w => w.Buffer.Text).InitializeFromSource();
+			ytextPostAddress.Binding.AddBinding(Entity, e => e.PostAddress, w => w.Buffer.Text).InitializeFromSource();
 
 			notebookMain.Page = 0;
 			notebookMain.ShowTabs = false;
