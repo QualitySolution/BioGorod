@@ -102,23 +102,23 @@ namespace BioGorod.Dialogs.Client
 		
 		private global::QSContacts.PhonesView phonesView;
 		
-		private global::Gtk.Label label23;
+		private global::Gtk.Label label33;
 		
 		private global::Gtk.VBox vbox6;
 		
 		private global::Gtk.Table datatable4;
 		
-		private global::Gtk.Label label24;
+		private global::Gtk.Label label34;
 		
-		private global::Gtk.Label label25;
+		private global::Gtk.Label label35;
 		
-		private global::Gtk.Label label27;
+		private global::Gtk.Label label36;
 		
-		private global::Gtk.Label label28;
+		private global::Gtk.Label label37;
 		
-		private global::Gtk.Label label29;
+		private global::Gtk.Label label38;
 		
-		private global::Gtk.Label label32;
+		private global::Gtk.Label label39;
 		
 		private global::Gamma.Widgets.yValidatedEntry validatedentryOGRN;
 		
@@ -134,21 +134,21 @@ namespace BioGorod.Dialogs.Client
 		
 		private global::QSBanks.AccountsView accountsView;
 		
-		private global::Gtk.Label label26;
+		private global::Gtk.Label label40;
 		
 		private global::BioGorod.Dialogs.Client.CounterpartyContactsView contactsview1;
 		
-		private global::Gtk.Label label30;
+		private global::Gtk.Label label41;
 		
 		private global::BioGorod.Dialogs.Client.CounterpartyContractsView counterpartyContractsView;
 		
-		private global::Gtk.Label label34;
+		private global::Gtk.Label label43;
 		
 		private global::Gtk.VBox vbox9;
 		
 		private global::BioGorod.Dialogs.Client.CounterpartyAddressesView deliveryPointView;
 		
-		private global::Gtk.Label label40;
+		private global::Gtk.Label label45;
 
 		protected virtual void Build ()
 		{
@@ -252,7 +252,7 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox19 [this.radioContactPersons]));
 			w10.Position = 3;
 			// Container child hbox19.Gtk.Box+BoxChild
-			this.radioContracts = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("Договора"));
+			this.radioContracts = new global::Gtk.RadioButton (global::Mono.Unix.Catalog.GetString ("Договоры"));
 			this.radioContracts.CanFocus = true;
 			this.radioContracts.Name = "radioContracts";
 			this.radioContracts.DrawIndicator = false;
@@ -280,7 +280,7 @@ namespace BioGorod.Dialogs.Client
 			this.notebook1 = new global::Gtk.Notebook ();
 			this.notebook1.CanFocus = true;
 			this.notebook1.Name = "notebook1";
-			this.notebook1.CurrentPage = 1;
+			this.notebook1.CurrentPage = 0;
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.GtkScrolledWindow4 = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow4.Name = "GtkScrolledWindow4";
@@ -688,11 +688,11 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Notebook.NotebookChild w50 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.datatable2]));
 			w50.Position = 1;
 			// Notebook tab
-			this.label23 = new global::Gtk.Label ();
-			this.label23.Name = "label23";
-			this.label23.LabelProp = global::Mono.Unix.Catalog.GetString ("Контакты");
-			this.notebook1.SetTabLabel (this.datatable2, this.label23);
-			this.label23.ShowAll ();
+			this.label33 = new global::Gtk.Label ();
+			this.label33.Name = "label33";
+			this.label33.LabelProp = global::Mono.Unix.Catalog.GetString ("Контакты");
+			this.notebook1.SetTabLabel (this.datatable2, this.label33);
+			this.label33.ShowAll ();
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.vbox6 = new global::Gtk.VBox ();
 			this.vbox6.Name = "vbox6";
@@ -704,69 +704,69 @@ namespace BioGorod.Dialogs.Client
 			this.datatable4.RowSpacing = ((uint)(6));
 			this.datatable4.ColumnSpacing = ((uint)(6));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label24 = new global::Gtk.Label ();
-			this.label24.Name = "label24";
-			this.label24.Xalign = 1F;
-			this.label24.LabelProp = global::Mono.Unix.Catalog.GetString ("ФИО для договора:");
-			this.datatable4.Add (this.label24);
-			global::Gtk.Table.TableChild w51 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label24]));
+			this.label34 = new global::Gtk.Label ();
+			this.label34.Name = "label34";
+			this.label34.Xalign = 1F;
+			this.label34.LabelProp = global::Mono.Unix.Catalog.GetString ("На основании:");
+			this.datatable4.Add (this.label34);
+			global::Gtk.Table.TableChild w51 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label34]));
+			w51.TopAttach = ((uint)(2));
+			w51.BottomAttach = ((uint)(3));
 			w51.LeftAttach = ((uint)(2));
 			w51.RightAttach = ((uint)(3));
 			w51.XOptions = ((global::Gtk.AttachOptions)(4));
 			w51.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label25 = new global::Gtk.Label ();
-			this.label25.Name = "label25";
-			this.label25.Xalign = 1F;
-			this.label25.LabelProp = global::Mono.Unix.Catalog.GetString ("В лице:");
-			this.datatable4.Add (this.label25);
-			global::Gtk.Table.TableChild w52 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label25]));
-			w52.TopAttach = ((uint)(1));
-			w52.BottomAttach = ((uint)(2));
-			w52.LeftAttach = ((uint)(2));
-			w52.RightAttach = ((uint)(3));
+			this.label35 = new global::Gtk.Label ();
+			this.label35.Name = "label35";
+			this.label35.Xalign = 1F;
+			this.label35.LabelProp = global::Mono.Unix.Catalog.GetString ("ОГРН:");
+			this.datatable4.Add (this.label35);
+			global::Gtk.Table.TableChild w52 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label35]));
+			w52.TopAttach = ((uint)(2));
+			w52.BottomAttach = ((uint)(3));
 			w52.XOptions = ((global::Gtk.AttachOptions)(4));
 			w52.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label27 = new global::Gtk.Label ();
-			this.label27.Name = "label27";
-			this.label27.Xalign = 1F;
-			this.label27.LabelProp = global::Mono.Unix.Catalog.GetString ("ИНН:");
-			this.datatable4.Add (this.label27);
-			global::Gtk.Table.TableChild w53 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label27]));
+			this.label36 = new global::Gtk.Label ();
+			this.label36.Name = "label36";
+			this.label36.Xalign = 1F;
+			this.label36.LabelProp = global::Mono.Unix.Catalog.GetString ("КПП:");
+			this.datatable4.Add (this.label36);
+			global::Gtk.Table.TableChild w53 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label36]));
+			w53.TopAttach = ((uint)(1));
+			w53.BottomAttach = ((uint)(2));
 			w53.XOptions = ((global::Gtk.AttachOptions)(4));
 			w53.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label28 = new global::Gtk.Label ();
-			this.label28.Name = "label28";
-			this.label28.Xalign = 1F;
-			this.label28.LabelProp = global::Mono.Unix.Catalog.GetString ("КПП:");
-			this.datatable4.Add (this.label28);
-			global::Gtk.Table.TableChild w54 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label28]));
-			w54.TopAttach = ((uint)(1));
-			w54.BottomAttach = ((uint)(2));
+			this.label37 = new global::Gtk.Label ();
+			this.label37.Name = "label37";
+			this.label37.Xalign = 1F;
+			this.label37.LabelProp = global::Mono.Unix.Catalog.GetString ("ИНН:");
+			this.datatable4.Add (this.label37);
+			global::Gtk.Table.TableChild w54 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label37]));
 			w54.XOptions = ((global::Gtk.AttachOptions)(4));
 			w54.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label29 = new global::Gtk.Label ();
-			this.label29.Name = "label29";
-			this.label29.Xalign = 1F;
-			this.label29.LabelProp = global::Mono.Unix.Catalog.GetString ("ОГРН:");
-			this.datatable4.Add (this.label29);
-			global::Gtk.Table.TableChild w55 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label29]));
-			w55.TopAttach = ((uint)(2));
-			w55.BottomAttach = ((uint)(3));
+			this.label38 = new global::Gtk.Label ();
+			this.label38.Name = "label38";
+			this.label38.Xalign = 1F;
+			this.label38.LabelProp = global::Mono.Unix.Catalog.GetString ("В лице:");
+			this.datatable4.Add (this.label38);
+			global::Gtk.Table.TableChild w55 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label38]));
+			w55.TopAttach = ((uint)(1));
+			w55.BottomAttach = ((uint)(2));
+			w55.LeftAttach = ((uint)(2));
+			w55.RightAttach = ((uint)(3));
 			w55.XOptions = ((global::Gtk.AttachOptions)(4));
 			w55.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child datatable4.Gtk.Table+TableChild
-			this.label32 = new global::Gtk.Label ();
-			this.label32.Name = "label32";
-			this.label32.Xalign = 1F;
-			this.label32.LabelProp = global::Mono.Unix.Catalog.GetString ("На основании:");
-			this.datatable4.Add (this.label32);
-			global::Gtk.Table.TableChild w56 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label32]));
-			w56.TopAttach = ((uint)(2));
-			w56.BottomAttach = ((uint)(3));
+			this.label39 = new global::Gtk.Label ();
+			this.label39.Name = "label39";
+			this.label39.Xalign = 1F;
+			this.label39.LabelProp = global::Mono.Unix.Catalog.GetString ("ФИО для договора:");
+			this.datatable4.Add (this.label39);
+			global::Gtk.Table.TableChild w56 = ((global::Gtk.Table.TableChild)(this.datatable4 [this.label39]));
 			w56.LeftAttach = ((uint)(2));
 			w56.RightAttach = ((uint)(3));
 			w56.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -867,11 +867,11 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Notebook.NotebookChild w65 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox6]));
 			w65.Position = 2;
 			// Notebook tab
-			this.label26 = new global::Gtk.Label ();
-			this.label26.Name = "label26";
-			this.label26.LabelProp = global::Mono.Unix.Catalog.GetString ("Реквизиты");
-			this.notebook1.SetTabLabel (this.vbox6, this.label26);
-			this.label26.ShowAll ();
+			this.label40 = new global::Gtk.Label ();
+			this.label40.Name = "label40";
+			this.label40.LabelProp = global::Mono.Unix.Catalog.GetString ("Реквизиты");
+			this.notebook1.SetTabLabel (this.vbox6, this.label40);
+			this.label40.ShowAll ();
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.contactsview1 = new global::BioGorod.Dialogs.Client.CounterpartyContactsView ();
 			this.contactsview1.Events = ((global::Gdk.EventMask)(256));
@@ -880,11 +880,11 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Notebook.NotebookChild w66 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.contactsview1]));
 			w66.Position = 3;
 			// Notebook tab
-			this.label30 = new global::Gtk.Label ();
-			this.label30.Name = "label30";
-			this.label30.LabelProp = global::Mono.Unix.Catalog.GetString ("Контактные лица");
-			this.notebook1.SetTabLabel (this.contactsview1, this.label30);
-			this.label30.ShowAll ();
+			this.label41 = new global::Gtk.Label ();
+			this.label41.Name = "label41";
+			this.label41.LabelProp = global::Mono.Unix.Catalog.GetString ("Контактные лица");
+			this.notebook1.SetTabLabel (this.contactsview1, this.label41);
+			this.label41.ShowAll ();
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.counterpartyContractsView = new global::BioGorod.Dialogs.Client.CounterpartyContractsView ();
 			this.counterpartyContractsView.Events = ((global::Gdk.EventMask)(256));
@@ -893,11 +893,11 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Notebook.NotebookChild w67 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.counterpartyContractsView]));
 			w67.Position = 4;
 			// Notebook tab
-			this.label34 = new global::Gtk.Label ();
-			this.label34.Name = "label34";
-			this.label34.LabelProp = global::Mono.Unix.Catalog.GetString ("Договор");
-			this.notebook1.SetTabLabel (this.counterpartyContractsView, this.label34);
-			this.label34.ShowAll ();
+			this.label43 = new global::Gtk.Label ();
+			this.label43.Name = "label43";
+			this.label43.LabelProp = global::Mono.Unix.Catalog.GetString ("Договор");
+			this.notebook1.SetTabLabel (this.counterpartyContractsView, this.label43);
+			this.label43.ShowAll ();
 			// Container child notebook1.Gtk.Notebook+NotebookChild
 			this.vbox9 = new global::Gtk.VBox ();
 			this.vbox9.Name = "vbox9";
@@ -914,11 +914,11 @@ namespace BioGorod.Dialogs.Client
 			global::Gtk.Notebook.NotebookChild w69 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox9]));
 			w69.Position = 5;
 			// Notebook tab
-			this.label40 = new global::Gtk.Label ();
-			this.label40.Name = "label40";
-			this.label40.LabelProp = global::Mono.Unix.Catalog.GetString ("Точки доставки");
-			this.notebook1.SetTabLabel (this.vbox9, this.label40);
-			this.label40.ShowAll ();
+			this.label45 = new global::Gtk.Label ();
+			this.label45.Name = "label45";
+			this.label45.LabelProp = global::Mono.Unix.Catalog.GetString ("Точки доставки");
+			this.notebook1.SetTabLabel (this.vbox9, this.label45);
+			this.label45.ShowAll ();
 			this.vbox2.Add (this.notebook1);
 			global::Gtk.Box.BoxChild w70 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.notebook1]));
 			w70.Position = 3;
