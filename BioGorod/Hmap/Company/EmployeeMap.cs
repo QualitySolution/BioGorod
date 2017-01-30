@@ -17,6 +17,8 @@ namespace BioGorod
 			Map (x => x.Category).Column ("category").CustomType<EmployeeCategoryStringType> ();
 			Map (x => x.PassportSeria).Column ("passport_seria");
 			Map (x => x.PassportNumber).Column ("passport_number");
+			Map (x => x.PassportIssuedBy).Column ("passport_issued_by");
+			Map (x => x.PassportIssuedDate).Column ("passport_issued_date");
 			Map (x => x.DrivingNumber).Column ("driving_number");
 			Map (x => x.Photo).Column ("photo").CustomSqlType ("BinaryBlob").LazyLoad ();
 			Map (x => x.AddressRegistration).Column ("address_registration");

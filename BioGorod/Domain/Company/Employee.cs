@@ -66,6 +66,22 @@ namespace BioGorod.Domain.Company
 			set { SetField (ref passportNumber, value, () => PassportNumber); }
 		}
 
+		private string passportIssuedBy;
+
+		[Display (Name = "Кем выдан паспорт")]
+		public virtual string PassportIssuedBy {
+		    get { return passportIssuedBy; }
+		    set { SetField (ref passportIssuedBy, value, () => PassportIssuedBy); }
+		}
+
+		private DateTime? passportIssuedDate;
+
+		[Display (Name = "Когда выдан паспорт")]
+		public virtual DateTime? PassportIssuedDate {
+		    get { return passportIssuedDate; }
+		    set { SetField (ref passportIssuedDate, value, () => PassportIssuedDate); }
+		}
+
 		string drivingNumber;
 
 		[Display (Name = "Водительское удостоверение")]
