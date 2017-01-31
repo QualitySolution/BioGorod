@@ -192,6 +192,15 @@ namespace BioGorod.Domain.Client
 			set { SetField(ref contacts, value, () => Contacts); }
 		}
 
+		private IList<ContactAndPhonesView> contactAndPhones = new List<ContactAndPhonesView>();
+
+		[Display(Name = "Ответственные лица")]
+		public virtual IList<ContactAndPhonesView> ContactAndPhones
+		{
+			get { return contactAndPhones; }
+			set { SetField(ref contactAndPhones, value, () => ContactAndPhones); }
+		}
+
 		GenericObservableList<Contact> observableContacts;
 		//FIXME Кослыль пока не разберемся как научить hibernate работать с обновляемыми списками.
 		public virtual GenericObservableList<Contact> ObservableContacts {

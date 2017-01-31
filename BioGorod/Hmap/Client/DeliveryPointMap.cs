@@ -40,6 +40,11 @@ namespace BioGorod.Hmap.Client
 				.ParentKeyColumn("delivery_point_id")
 				.ChildKeyColumn("contact_person_id")
 				.LazyLoad();
+
+			HasManyToMany(x => x.ContactAndPhones).Table("counterparty_delivery_point_contacts")
+				.ParentKeyColumn("delivery_point_id")
+				.ChildKeyColumn("contact_person_id")
+				.LazyLoad();
 		}
 	}
 }

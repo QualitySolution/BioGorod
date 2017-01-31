@@ -3,6 +3,9 @@ using BioGorod.Domain.Client;
 using BioGorod.JournalFilters;
 using Gamma.ColumnConfig;
 using Gtk;
+using NHibernate;
+using NHibernate.Criterion;
+using NHibernate.Dialect.Function;
 using NHibernate.Transform;
 using QSOrmProject;
 using QSOrmProject.RepresentationModel;
@@ -27,6 +30,7 @@ namespace BioGorod.ViewModel
 			DeliveryPoint deliveryPointAlias = null;
 			Counterparty counterpartyAlias = null;
 			DeliveryPointVMNode resultAlias = null;
+			ContactAndPhonesView contactAlias = null;
 
 			var pointsQuery = UoW.Session.QueryOver<DeliveryPoint>(() => deliveryPointAlias);
 			if (Filter.RestrictOnlyNotFoundOsm)
@@ -34,13 +38,20 @@ namespace BioGorod.ViewModel
 
 			var deliveryPointslist = pointsQuery
 				.JoinAlias (c => c.Counterparty, () => counterpartyAlias, NHibernate.SqlCommand.JoinType.LeftOuterJoin)
+				.JoinAlias(c => c.ContactAndPhones, () => contactAlias, NHibernate.SqlCommand.JoinType.LeftOuterJoin)
 				.SelectList (list => list
-					.Select (() => deliveryPointAlias.Id).WithAlias (() => resultAlias.Id)
+					.SelectGroup (() => deliveryPointAlias.Id).WithAlias (() => resultAlias.Id)
 					.Select (() => deliveryPointAlias.CompiledAddress).WithAlias (() => resultAlias.CompiledAddress)
 					.Select (() => deliveryPointAlias.FoundOnOsm).WithAlias (() => resultAlias.FoundOnOsm)
 					.Select (() => deliveryPointAlias.IsFixedInOsm).WithAlias (() => resultAlias.FixedInOsm)
 					.Select (() => deliveryPointAlias.IsActive).WithAlias (() => resultAlias.IsActive)
 					.Select (() => counterpartyAlias.FullName).WithAlias (() => resultAlias.Client)
+					.Select (Projections.SqlFunction (
+						new SQLFunctionTemplate (NHibernateUtil.String, "GROUP_CONCAT( ?1 SEPARATOR ?2)"),
+						NHibernateUtil.String,
+						Projections.Property(() => contactAlias.NameAndPhones),
+						Projections.Constant ("\n"))
+					).WithAlias (() => resultAlias.Contacts)
 				)
 				.TransformUsing (Transformers.AliasToBean<DeliveryPointVMNode> ())
 				.List<DeliveryPointVMNode> ();
@@ -53,6 +64,7 @@ namespace BioGorod.ViewModel
 			//.AddColumn("Испр.").AddTextRenderer(x => x.FixedInOsm ? "Да": "")
 			.AddColumn ("Адрес").SetDataProperty (node => node.CompiledAddress)
 			.AddColumn("Клиент").AddTextRenderer(x => x.Client)
+			.AddColumn("Контакты").AddTextRenderer(x => x.Contacts)
 			.RowCells ().AddSetter<CellRendererText> ((c, n) => c.Foreground = n.RowColor)
 			.Finish ();
 
@@ -98,6 +110,10 @@ namespace BioGorod.ViewModel
 		[UseForSearch]
 		[SearchHighlight]
 		public string Client { get; set; }
+
+		[SearchHighlight]
+		[UseForSearch]
+		public string Contacts { get; set; }
 
 		public bool IsActive { get; set; }
 

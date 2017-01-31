@@ -115,6 +115,8 @@
     <Compile Include="ViewModel\DeliveryPointsVM.cs" />
     <Compile Include="JournalFilters\DeliveryPointFilter.cs" />
     <Compile Include="gtk-gui\BioGorod.JournalFilters.DeliveryPointFilter.cs" />
+    <Compile Include="Hmap\Client\ContactAndPhonesViewMap.cs" />
+    <Compile Include="Domain\Client\ContactAndPhonesView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
