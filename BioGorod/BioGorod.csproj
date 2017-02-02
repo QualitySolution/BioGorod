@@ -180,6 +180,10 @@
       <Project>{D0C39D9D-BED0-418B-9A5E-713176CAF40C}</Project>
       <Name>GMap.NET.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\QSFNS\QSFNS.csproj">
+      <Project>{22FCCEC7-A025-43A8-A05F-EEB60A4AAF3C}</Project>
+      <Name>QSFNS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">

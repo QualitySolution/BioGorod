@@ -226,6 +226,21 @@ namespace BioGorod.Dialogs.Client
 		{
 			Entity.DocDeliveryAddress.CopyFrom(Entity.ActualAddress);
 		}
+
+		protected void OnGetorginfo1FillButtonCliked(object sender, EventArgs e)
+		{
+			if(getorginfo1.SelectedParty != null)
+			{
+				var party = getorginfo1.SelectedParty;
+				Entity.FullName = party.name.full_with_opf;
+				Entity.Name = party.name.short_with_opf;
+				Entity.INN = party.inn;
+				Entity.KPP = party.kpp;
+				Entity.OGRN = party.ogrn;
+				Entity.SignatoryFIO = party.management.name;
+				Entity.SignatoryPost = party.management.post;
+			}
+		}
 	}
 }
 
