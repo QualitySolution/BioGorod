@@ -239,6 +239,8 @@ namespace BioGorod.Dialogs.Client
 				Entity.OGRN = party.ogrn;
 				Entity.SignatoryFIO = party.management.name;
 				Entity.SignatoryPost = party.management.post;
+				Entity.LegalAddress = new QSOsm.Data.JsonAddress();
+				Entity.LegalAddress.CopyFrom(party.address.data);
 			}
 		}
 	}
