@@ -93,7 +93,6 @@
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyDlg.cs" />
     <Compile Include="Dialogs\Client\CounterpartyContractsView.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.CounterpartyContractsView.cs" />
-    <Compile Include="Domain\Client\CounterpartyContract.cs" />
     <Compile Include="Domain\Company\Organization.cs" />
     <Compile Include="Hmap\Company\OrganizationMap.cs" />
     <Compile Include="Dialogs\Company\OrganizationDlg.cs" />
@@ -117,6 +116,20 @@
     <Compile Include="gtk-gui\BioGorod.JournalFilters.DeliveryPointFilter.cs" />
     <Compile Include="Hmap\Client\ContactAndPhonesViewMap.cs" />
     <Compile Include="Domain\Client\ContactAndPhonesView.cs" />
+    <Compile Include="Domain\Client\Contract.cs" />
+    <Compile Include="Domain\Client\ContractShortLease.cs" />
+    <Compile Include="Domain\Client\ContractLongLease.cs" />
+    <Compile Include="Domain\Client\ContractLongLeaseAddress.cs" />
+    <Compile Include="Domain\Client\ContractShortLeaseAddress.cs" />
+    <Compile Include="Domain\Client\ContractMaintenanceAddress.cs" />
+    <Compile Include="Hmap\Client\ContractMap.cs" />
+    <Compile Include="Hmap\Client\ContractLongLeaseMap.cs" />
+    <Compile Include="Hmap\Client\ContractLongLeaseAddressMap.cs" />
+    <Compile Include="Hmap\Client\ContractShortLeaseMap.cs" />
+    <Compile Include="Hmap\Client\ContractShortLeaseAddressMap.cs" />
+    <Compile Include="Hmap\Client\ContractMaintenanceMap.cs" />
+    <Compile Include="Domain\Client\ContractMaintenance.cs" />
+    <Compile Include="Hmap\Client\ContractMaintenanceAddressMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

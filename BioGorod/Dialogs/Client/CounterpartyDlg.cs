@@ -55,7 +55,7 @@ namespace BioGorod.Dialogs.Client
 				UoWGeneric.Root.Phones = new List<Phone> ();
 			phonesView.Phones = UoWGeneric.Root.Phones;
 			if (UoWGeneric.Root.CounterpartyContracts == null) {
-				UoWGeneric.Root.CounterpartyContracts = new List<CounterpartyContract> ();
+				UoWGeneric.Root.CounterpartyContracts = new List<Contract> ();
 			}
 			//Other fields properties
 			validatedINN.ValidationMode = validatedKPP.ValidationMode = validatedentryOGRN.ValidationMode = QSWidgetLib.ValidationType.numeric;

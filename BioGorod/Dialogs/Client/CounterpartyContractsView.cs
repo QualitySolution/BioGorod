@@ -46,7 +46,7 @@ namespace BioGorod.Dialogs.Client
 				return;
 
 			if (parentDlg.UoW.IsNew) {
-				if (CommonDialogs.SaveBeforeCreateSlaveEntity (parentDlg.EntityObject.GetType (), typeof(CounterpartyContract))) {
+				if (CommonDialogs.SaveBeforeCreateSlaveEntity (parentDlg.EntityObject.GetType (), typeof(Contract))) {
 					parentDlg.UoW.Save ();
 				} else
 					return;
@@ -73,7 +73,7 @@ namespace BioGorod.Dialogs.Client
 
 		protected void OnButtonDeleteClicked (object sender, EventArgs e)
 		{
-			if (OrmMain.DeleteObject (typeof(CounterpartyContract),
+			if (OrmMain.DeleteObject (typeof(Contract),
 				treeCounterpartyContracts.GetSelectedId ())) {
 				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
 			}

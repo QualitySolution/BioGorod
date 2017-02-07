@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using BioGorod.Domain.Company;
 using QSOrmProject;
 using QSProjectsLib;
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using BioGorod.Domain.Company;
 
 namespace BioGorod.Domain.Client
 {
@@ -14,19 +14,11 @@ namespace BioGorod.Domain.Client
 		Genitive = " договора",
 		Accusative = "договор"
 	)]
-	public class CounterpartyContract : BusinessObjectBase<CounterpartyContract>, IDomainObject, IValidatableObject
+	public class Contract : BusinessObjectBase<Contract>, IDomainObject, IValidatableObject
 	{
 		#region Сохраняемые поля
 
 		public virtual int Id { get; set; }
-
-		int maxDelay;
-
-		[Display (Name = "Максимальный срок отсрочки")]
-		public virtual int MaxDelay {
-			get { return maxDelay; }
-			set { SetField (ref maxDelay, value, () => MaxDelay); }
-		}
 
 		bool isArchive;
 
@@ -36,16 +28,13 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref isArchive, value, () => IsArchive); }
 		}
 
-		bool onCancellation;
-
-		[Display (Name = "На расторжении")]
-		public virtual bool OnCancellation {
-			get { return onCancellation; }
-			set { SetField (ref onCancellation, value, () => OnCancellation); }
-		}
+		private int number;
 
 		[Display (Name = "Номер")]
-		public virtual string Number { get { return Id > 0 ? Id.ToString () : "Не определен"; } set { } }
+		public virtual int Number {
+		    get { return number; }
+		    set { SetField (ref number, value, () => Number); }
+		}
 
 		DateTime issueDate;
 
@@ -73,6 +62,22 @@ namespace BioGorod.Domain.Client
 			protected set { SetField (ref counterparty, value, () => Counterparty); }
 		}
 
+		private bool haveOriginal;
+
+		[Display (Name = "Есть оригиналы")]
+		public virtual bool HaveOriginal {
+		    get { return haveOriginal; }
+		    set { SetField (ref haveOriginal, value, () => HaveOriginal); }
+		}
+
+		private bool haveScanned;
+
+		[Display (Name = "Есть сканы")]
+		public virtual bool HaveScanned {
+		    get { return haveScanned; }
+		    set { SetField (ref haveScanned, value, () => HaveScanned); }
+		}
+
 /*		DocTemplate contractTemplate;
 
 		[Display (Name = "Шаблон договора")]
@@ -93,7 +98,7 @@ namespace BioGorod.Domain.Client
 		#endregion
 
 		public virtual string Title { 
-			get { return String.Format ("Договор №{0} от {1:d}", Id, IssueDate); }
+			get { return String.Format ("Договор №{0} от {1:d}", Number, IssueDate); }
 		}
 
 		#region IValidatableObject implementation
@@ -114,9 +119,9 @@ namespace BioGorod.Domain.Client
 		#endregion
 
 		//Конструкторы
-		public static IUnitOfWorkGeneric<CounterpartyContract> Create (Counterparty counterparty)
+		public static IUnitOfWorkGeneric<Contract> Create (Counterparty counterparty)
 		{
-			var uow = UnitOfWorkFactory.CreateWithNewRoot<CounterpartyContract> ();
+			var uow = UnitOfWorkFactory.CreateWithNewRoot<Contract> ();
 			uow.Root.Counterparty = counterparty;
 			return uow;
 		}
@@ -142,21 +147,6 @@ namespace BioGorod.Domain.Client
 */		}
 
 		#endregion
-	}
-
-	public interface IContractSaved
-	{
-		event EventHandler<ContractSavedEventArgs> ContractSaved;
-	}
-
-	public class ContractSavedEventArgs : EventArgs
-	{
-		public CounterpartyContract Contract { get; private set; }
-
-		public ContractSavedEventArgs (CounterpartyContract contract)
-		{
-			Contract = contract;
-		}
 	}
 }
 

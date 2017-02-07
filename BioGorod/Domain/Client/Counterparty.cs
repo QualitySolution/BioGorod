@@ -25,10 +25,10 @@ namespace BioGorod.Domain.Client
 
 		#region Свойства
 
-		private IList<CounterpartyContract> counterpartyContracts;
+		private IList<Contract> counterpartyContracts;
 
 		[Display (Name = "Договоры")]
-		public virtual IList<CounterpartyContract> CounterpartyContracts {
+		public virtual IList<Contract> CounterpartyContracts {
 			get { return counterpartyContracts; }
 			set { SetField (ref counterpartyContracts, value, () => CounterpartyContracts); }
 		}
