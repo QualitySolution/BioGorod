@@ -4,9 +4,9 @@ using FluentNHibernate.Mapping;
 
 namespace BioGorod.Hmap.Client
 {
-	public class ContractLongLeaseAddressMap : ClassMap<ContractLongLeaseAddress>
+	public class ContractShortLeaseAddressMap : ClassMap<ContractShortLeaseAddress>
 	{
-		public ContractLongLeaseAddressMap ()
+		public ContractShortLeaseAddressMap ()
 		{
 			Table ("contracts_short_addresses");
 
