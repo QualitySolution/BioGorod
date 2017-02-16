@@ -109,6 +109,7 @@ namespace BioGorod.Dialogs.Client
 				this.Child.ShowAll ();
 			}
 			this.Hide ();
+			this.datatreeviewContacts.RowActivated += new global::Gtk.RowActivatedHandler (this.OnDatatreeviewContactsRowActivated);
 			this.buttonAdd.Clicked += new global::System.EventHandler (this.OnButtonAddClicked);
 			this.buttonEdit.Clicked += new global::System.EventHandler (this.OnButtonEditClicked);
 			this.buttonDelete.Clicked += new global::System.EventHandler (this.OnButtonDeleteClicked);

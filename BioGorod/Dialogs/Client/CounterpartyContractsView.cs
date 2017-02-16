@@ -2,11 +2,12 @@
 using QSOrmProject;
 using BioGorod.Domain.Client;
 using QSTDI;
+using BioGorod.ViewModel;
 
 namespace BioGorod.Dialogs.Client
 {
 	[System.ComponentModel.ToolboxItem(true)]
-	public partial class CounterpartyContractsView : Gtk.Bin
+	public partial class CounterpartyContractsView : WidgetOnDialogBase
 	{
 		private IUnitOfWorkGeneric<Counterparty> counterpartyUoW;
 
@@ -18,8 +19,8 @@ namespace BioGorod.Dialogs.Client
 				if (counterpartyUoW == value)
 					return;
 				counterpartyUoW = value;
-			//	treeCounterpartyContracts.RepresentationModel = new ViewModel.ContractsVM (value);
-//				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
+				treeCounterpartyContracts.RepresentationModel = new ViewModel.ContractsVM (value);
+				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
 			}
 		}
 
@@ -27,6 +28,7 @@ namespace BioGorod.Dialogs.Client
 		{
 			this.Build ();
 			treeCounterpartyContracts.Selection.Changed += OnSelectionChanged;
+			buttonAdd.ItemsEnum = typeof(ContractType);
 		}
 
 		void OnSelectionChanged (object sender, EventArgs e)
@@ -35,35 +37,19 @@ namespace BioGorod.Dialogs.Client
 			buttonEdit.Sensitive = buttonDelete.Sensitive = selected;
 		}
 
-		void OnButtonAddClicked (object sender, EventArgs e)
-		{
-			ITdiTab mytab = TdiHelper.FindMyTab (this);
-			if (mytab == null)
-				return;
-
-			var parentDlg = OrmMain.FindMyDialog (this);
-			if (parentDlg == null)
-				return;
-
-			if (parentDlg.UoW.IsNew) {
-				if (CommonDialogs.SaveBeforeCreateSlaveEntity (parentDlg.EntityObject.GetType (), typeof(Contract))) {
-					parentDlg.UoW.Save ();
-				} else
-					return;
-			}
-
-//			ITdiDialog dlg = new CounterpartyContractDlg (CounterpartyUoW.Root);
-//			mytab.TabParent.AddTab (dlg, mytab);
-		}
-
 		protected void OnButtonEditClicked (object sender, EventArgs e)
 		{
-			ITdiTab mytab = TdiHelper.FindMyTab (this);
-			if (mytab == null)
-				return;
+			var selected = treeCounterpartyContracts.GetSelectedObject<ContractsVMNode>();
+			ITdiDialog dlg = null;
+			switch (selected.ContractType)
+			{
+				case ContractType.ShortLease:
+					dlg = new ContractShortLeaseDlg (selected.Id);
+					break;
 
-//			ITdiDialog dlg = new CounterpartyContractDlg (treeCounterpartyContracts.GetSelectedId ());
-//			mytab.TabParent.AddTab (dlg, mytab);
+			}
+
+			MyTab.TabParent.AddTab (dlg, MyTab);
 		}
 
 		protected void OnTreeCounterpartyContractsRowActivated (object o, Gtk.RowActivatedArgs args)
@@ -77,6 +63,26 @@ namespace BioGorod.Dialogs.Client
 				treeCounterpartyContracts.GetSelectedId ())) {
 				treeCounterpartyContracts.RepresentationModel.UpdateNodes ();
 			}
+		}
+
+		protected void OnButtonAddEnumItemClicked(object sender, EnumItemClickedEventArgs e)
+		{
+			if (MyOrmDialog.UoW.IsNew) {
+				if (CommonDialogs.SaveBeforeCreateSlaveEntity (MyOrmDialog.EntityObject.GetType (), typeof(Contract))) {
+					MyOrmDialog.UoW.Save ();
+				} else
+					return;
+			}
+			ITdiDialog dlg = null;
+
+			switch ((ContractType)e.ItemEnum)
+			{
+				case ContractType.ShortLease:
+					dlg = new ContractShortLeaseDlg (CounterpartyUoW.Root);
+					break;
+			}
+
+			MyTab.TabParent.AddTab (dlg, MyTab);
 		}
 	}
 }

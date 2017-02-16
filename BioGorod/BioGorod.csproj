@@ -130,6 +130,9 @@
     <Compile Include="Hmap\Client\ContractMaintenanceMap.cs" />
     <Compile Include="Domain\Client\ContractMaintenance.cs" />
     <Compile Include="Hmap\Client\ContractMaintenanceAddressMap.cs" />
+    <Compile Include="Dialogs\Client\ContractShortLeaseDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractShortLeaseDlg.cs" />
+    <Compile Include="ViewModel\ContractsVM.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

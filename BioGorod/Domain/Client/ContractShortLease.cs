@@ -18,6 +18,7 @@ namespace BioGorod.Domain.Client
 		private int cabineCount;
 
 		[Display (Name = "Количество кабин")]
+		[PropertyChangedAlso("TotalCost")]
 		public virtual int CabineCount {
 		    get { return cabineCount; }
 		    set { SetField (ref cabineCount, value, () => CabineCount); }
@@ -66,6 +67,7 @@ namespace BioGorod.Domain.Client
 		private decimal cabineCost;
 
 		[Display (Name = "Стоимость кабины")]
+		[PropertyChangedAlso("TotalCost")]
 		public virtual decimal CabineCost {
 		    get { return cabineCost; }
 		    set { SetField (ref cabineCost, value, () => CabineCost); }
@@ -74,17 +76,19 @@ namespace BioGorod.Domain.Client
 		private decimal deliveryCost;
 
 		[Display (Name = "Стоимость доставки")]
+		[PropertyChangedAlso("TotalCost")]
 		public virtual decimal DeliveryCost {
 		    get { return deliveryCost; }
 		    set { SetField (ref deliveryCost, value, () => DeliveryCost); }
 		}
 
-		 private decimal totalCost;
+		 //private decimal totalCost;
 
 		 [Display (Name = "Общая стоимость")]
 		 public virtual decimal TotalCost {
-		     get { return totalCost; }
-		     set { SetField (ref totalCost, value, () => TotalCost); }
+			get { return DeliveryCost + CabineCount * CabineCost; }
+			set{}
+		     //set { SetField (ref totalCost, value, () => TotalCost); }
 		}
 
 		private IList<ContractShortLeaseAddress> addresses;
@@ -94,6 +98,13 @@ namespace BioGorod.Domain.Client
 			get { return addresses; }
 			set { SetField (ref addresses, value, () => Addresses); }
 		}
-	}
+
+/*		public static IUnitOfWorkGeneric<ContractShortLease> Create (Counterparty counterparty)
+		{
+			var uow = UnitOfWorkFactory.CreateWithNewRoot<ContractShortLease> ();
+			uow.Root.Counterparty = counterparty;
+			return uow;
+		}
+*/	}
 }
 

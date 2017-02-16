@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using BioGorod.Domain.Company;
 using QSOrmProject;
 using QSProjectsLib;
+using NHibernate.Criterion;
 
 namespace BioGorod.Domain.Client
 {
@@ -14,7 +15,7 @@ namespace BioGorod.Domain.Client
 		Genitive = " договора",
 		Accusative = "договор"
 	)]
-	public class Contract : BusinessObjectBase<Contract>, IDomainObject, IValidatableObject
+	public class Contract : BusinessObjectBase<Contract>, IDomainObject//, IValidatableObject
 	{
 		#region Сохраняемые поля
 
@@ -98,7 +99,10 @@ namespace BioGorod.Domain.Client
 		#endregion
 
 		public virtual string Title { 
-			get { return String.Format ("Договор №{0} от {1:d}", Number, IssueDate); }
+			get { 
+				var att = this.GetType().GetCustomAttributes(typeof(OrmSubjectAttribute), false);
+				var name = StringWorks.StringToTitleCase((att[0] as OrmSubjectAttribute).Nominative);
+				return String.Format ("{0} №{1} от {2:d}", name, Number, IssueDate); }
 		}
 
 		#region IValidatableObject implementation
@@ -119,10 +123,11 @@ namespace BioGorod.Domain.Client
 		#endregion
 
 		//Конструкторы
-		public static IUnitOfWorkGeneric<Contract> Create (Counterparty counterparty)
+		public static IUnitOfWorkGeneric<TContract> Create<TContract> (Counterparty counterparty) where TContract : Contract, new()
 		{
-			var uow = UnitOfWorkFactory.CreateWithNewRoot<Contract> ();
+			var uow = UnitOfWorkFactory.CreateWithNewRoot<TContract> ();
 			uow.Root.Counterparty = counterparty;
+			uow.Root.Organization = uow.Session.QueryOver<Organization>().Take(1).SingleOrDefault();
 			return uow;
 		}
 
@@ -146,7 +151,27 @@ namespace BioGorod.Domain.Client
 			}
 */		}
 
+		public virtual void CreateContractNumber<TContract>() where TContract : Contract
+		{
+			if (Number > 0)
+				return;
+
+			int lastNumber = UoW.Session.QueryOver<TContract>()
+				.Select(Projections.Max<TContract>(c => c.Number))
+				.SingleOrDefault<int>();
+			Number = lastNumber + 1;
+		}
+
 		#endregion
+	}
+
+	public enum ContractType{
+		[Display(Name="Долгосрочная аренда")]
+		LongLease,
+		[Display(Name="Короткосрочная аренда")]
+		ShortLease,
+		[Display(Name="Обслуживание")]
+		Maintenance,
 	}
 }
 
