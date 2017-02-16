@@ -83,6 +83,8 @@ namespace BioGorod.Dialogs.Client
 		private global::Gamma.GtkWidgets.ySpinButton yspinCabineCount;
 		
 		private global::Gamma.GtkWidgets.ySpinButton yspinDeliveryCost;
+		
+		private global::BioGorod.Dialogs.Client.ContractShortLeaseAdressesView contractshortleaseadressesview1;
 
 		protected virtual void Build ()
 		{
@@ -567,6 +569,13 @@ namespace BioGorod.Dialogs.Client
 			w41.Position = 2;
 			w41.Expand = false;
 			w41.Fill = false;
+			// Container child vbox1.Gtk.Box+BoxChild
+			this.contractshortleaseadressesview1 = new global::BioGorod.Dialogs.Client.ContractShortLeaseAdressesView ();
+			this.contractshortleaseadressesview1.Events = ((global::Gdk.EventMask)(256));
+			this.contractshortleaseadressesview1.Name = "contractshortleaseadressesview1";
+			this.vbox1.Add (this.contractshortleaseadressesview1);
+			global::Gtk.Box.BoxChild w42 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.contractshortleaseadressesview1]));
+			w42.Position = 3;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

@@ -133,6 +133,8 @@
     <Compile Include="Dialogs\Client\ContractShortLeaseDlg.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractShortLeaseDlg.cs" />
     <Compile Include="ViewModel\ContractsVM.cs" />
+    <Compile Include="Dialogs\Client\ContractShortLeaseAdressesView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractShortLeaseAdressesView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

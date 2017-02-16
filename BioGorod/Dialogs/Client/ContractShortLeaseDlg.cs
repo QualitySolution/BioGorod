@@ -55,6 +55,8 @@ namespace BioGorod.Dialogs.Client
 			ylabelTotalCost.Binding.AddFuncBinding(Entity, e => String.Format("{0:C}", e.TotalCost), w => w.LabelProp).InitializeFromSource();
 
 			ytextAdditionalInfo.Binding.AddBinding(Entity, e => e.AdditionalInfo, w => w.Buffer.Text).InitializeFromSource();
+
+			contractshortleaseadressesview1.ContractUoW = UoWGeneric;
 		}
 
 		public override bool Save ()

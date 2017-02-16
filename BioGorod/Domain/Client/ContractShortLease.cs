@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using QSOrmProject;
 using QSProjectsLib;
+using System.Data.Bindings.Collections.Generic;
 
 namespace BioGorod.Domain.Client
 {
@@ -99,12 +100,29 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref addresses, value, () => Addresses); }
 		}
 
-/*		public static IUnitOfWorkGeneric<ContractShortLease> Create (Counterparty counterparty)
-		{
-			var uow = UnitOfWorkFactory.CreateWithNewRoot<ContractShortLease> ();
-			uow.Root.Counterparty = counterparty;
-			return uow;
+		GenericObservableList<ContractShortLeaseAddress> observableAddresses;
+		//FIXME Кослыль пока не разберемся как научить hibernate работать с обновляемыми списками.
+		public virtual GenericObservableList<ContractShortLeaseAddress> ObservableAddresses {
+			get {
+				if (observableAddresses == null)
+					observableAddresses = new GenericObservableList<ContractShortLeaseAddress> (Addresses);
+				return observableAddresses;
+			}
 		}
-*/	}
+
+		#region Функции
+
+		public virtual void AddAddress(DeliveryPoint point)
+		{
+			var address = new ContractShortLeaseAddress
+			{
+				Contract = this,
+				DeliveryPoint = point
+			};
+			ObservableAddresses.Add(address);
+		}
+
+		#endregion
+	}
 }
 
