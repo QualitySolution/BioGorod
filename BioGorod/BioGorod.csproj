@@ -139,6 +139,10 @@
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractLongLeaseDlg.cs" />
     <Compile Include="Dialogs\Client\ContractLongLeaseAdressesView.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractLongLeaseAdressesView.cs" />
+    <Compile Include="Dialogs\Client\ContractMaintenanceDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractMaintenanceDlg.cs" />
+    <Compile Include="Dialogs\Client\ContractMaintenanceAddressesView.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractMaintenanceAddressesView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

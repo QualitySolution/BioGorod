@@ -33,6 +33,21 @@ namespace BioGorod.Domain.Client
 				return observableAddresses;
 			}
 		}
+
+		#region Функции
+
+		public virtual void AddAddress(DeliveryPoint point)
+		{
+			var address = new ContractMaintenanceAddress()
+				{
+					Contract = this,
+					DeliveryPoint = point
+				};
+			ObservableAddresses.Add(address);
+		}
+
+		#endregion
+
 	}
 }
 

@@ -13,10 +13,10 @@ namespace BioGorod.Hmap.Client
 			Id (x => x.Id).Column ("id").GeneratedBy.Native ();
 
 			Map (x => x.StartAt).Column ("start_at");
-			Map (x => x.CabineStdCost).Column ("cabine_std_cost");
-			Map (x => x.CabineWinterCost).Column ("cabine_winter_cost");
-			Map (x => x.AdditionalServiceStdCost).Column ("additional_maintenance_std_cost");
-			Map (x => x.AdditionalServiceWinterCost).Column ("additional_maintenance_winter_cost");
+			Map (x => x.MaintenanceStdCost).Column ("maintenance_std_cost");
+			Map (x => x.MaintenanceWinterCost).Column ("maintenance_winter_cost");
+			Map (x => x.AdditionalMaintenanceStdCost).Column ("additional_maintenance_std_cost");
+			Map (x => x.AdditionalMaintenanceWinterCost).Column ("additional_maintenance_winter_cost");
 			Map (x => x.MaintenanceCount).Column ("maintenance_count");
 			Map (x => x.Info).Column ("info");
 			Map (x => x.CabineCount).Column ("cabine_count");

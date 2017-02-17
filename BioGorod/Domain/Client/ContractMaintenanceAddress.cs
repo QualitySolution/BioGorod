@@ -32,36 +32,36 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref startAt, value, () => StartAt); }
 		}
 
-		private decimal cabineStdCost;
+		private decimal maintenanceStdCost;
 
-		[Display (Name = "Стоимость кабины(стандарт)")]
-		public virtual decimal CabineStdCost {
-		    get { return cabineStdCost; }
-		    set { SetField (ref cabineStdCost, value, () => CabineStdCost); }
+		[Display (Name = "Стоимость планового ТО(стандарт)")]
+		public virtual decimal MaintenanceStdCost {
+		    get { return maintenanceStdCost; }
+		    set { SetField (ref maintenanceStdCost, value, () => MaintenanceStdCost); }
 		}
 
-		private decimal cabineWinterCost;
+		private decimal maintenanceWinterCost;
 
-		[Display (Name = "Стоимость кабины(зимний)")]
-		public virtual decimal CabineWinterCost {
-		    get { return cabineWinterCost; }
-		    set { SetField (ref cabineWinterCost, value, () => CabineWinterCost); }
+		[Display (Name = "Стоимость планового ТО(зимний)")]
+		public virtual decimal MaintenanceWinterCost {
+		    get { return maintenanceWinterCost; }
+		    set { SetField (ref maintenanceWinterCost, value, () => MaintenanceWinterCost); }
 		}
 
-		private decimal additionalServiceStdCost;
+		private decimal additionalMaintenanceStdCost;
 
 		[Display (Name = "Стоимость доп. ТО(стандарт)")]
-		public virtual decimal AdditionalServiceStdCost {
-		    get { return additionalServiceStdCost; }
-		    set { SetField (ref additionalServiceStdCost, value, () => AdditionalServiceStdCost); }
+		public virtual decimal AdditionalMaintenanceStdCost {
+		    get { return additionalMaintenanceStdCost; }
+		    set { SetField (ref additionalMaintenanceStdCost, value, () => AdditionalMaintenanceStdCost); }
 		}
 
-		private decimal additionalServiceWinterCost;
+		private decimal additionalMaintenanceWinterCost;
 
 		[Display (Name = "Стоимость доп. ТО(зимний)")]
-		public virtual decimal AdditionalServiceWinterCost {
-		    get { return additionalServiceWinterCost; }
-		    set { SetField (ref additionalServiceWinterCost, value, () => AdditionalServiceWinterCost); }
+		public virtual decimal AdditionalMaintenanceWinterCost {
+		    get { return additionalMaintenanceWinterCost; }
+		    set { SetField (ref additionalMaintenanceWinterCost, value, () => AdditionalMaintenanceWinterCost); }
 		}
 
 		private int maintenanceCount;
