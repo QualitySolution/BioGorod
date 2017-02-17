@@ -46,6 +46,9 @@ namespace BioGorod.Dialogs.Client
 				case ContractType.ShortLease:
 					dlg = new ContractShortLeaseDlg (selected.Id);
 					break;
+				case ContractType.LongLease:
+					dlg = new ContractLongLeaseDlg (selected.Id);
+					break;
 
 			}
 
@@ -80,6 +83,10 @@ namespace BioGorod.Dialogs.Client
 				case ContractType.ShortLease:
 					dlg = new ContractShortLeaseDlg (CounterpartyUoW.Root);
 					break;
+				case ContractType.LongLease:
+					dlg = new ContractLongLeaseDlg (CounterpartyUoW.Root);
+					break;
+
 			}
 
 			MyTab.TabParent.AddTab (dlg, MyTab);

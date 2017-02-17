@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Bindings.Collections.Generic;
 using QSOrmProject;
 using QSProjectsLib;
 
@@ -21,6 +22,16 @@ namespace BioGorod.Domain.Client
 		public virtual IList<ContractMaintenanceAddress> Addresses {
 		    get { return addresses; }
 		    set { SetField (ref addresses, value, () => Addresses); }
+		}
+
+		GenericObservableList<ContractMaintenanceAddress> observableAddresses;
+		//FIXME Кослыль пока не разберемся как научить hibernate работать с обновляемыми списками.
+		public virtual GenericObservableList<ContractMaintenanceAddress> ObservableAddresses {
+			get {
+				if (observableAddresses == null)
+					observableAddresses = new GenericObservableList<ContractMaintenanceAddress> (Addresses);
+				return observableAddresses;
+			}
 		}
 	}
 }

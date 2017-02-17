@@ -166,10 +166,10 @@ namespace BioGorod.Domain.Client
 	}
 
 	public enum ContractType{
-		[Display(Name="Долгосрочная аренда")]
-		LongLease,
 		[Display(Name="Короткосрочная аренда")]
 		ShortLease,
+		[Display(Name="Долгосрочная аренда")]
+		LongLease,
 		[Display(Name="Обслуживание")]
 		Maintenance,
 	}
