@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Bindings.Collections.Generic;
+using System.Linq;
 using QSOrmProject;
 using QSProjectsLib;
-using System.Data.Bindings.Collections.Generic;
 
 namespace BioGorod.Domain.Client
 {
@@ -16,6 +17,8 @@ namespace BioGorod.Domain.Client
 	)]
 	public class ContractShortLease : Contract
 	{
+		protected static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger ();
+
 		private int cabineCount;
 
 		[Display (Name = "Количество кабин")]
@@ -114,6 +117,12 @@ namespace BioGorod.Domain.Client
 
 		public virtual void AddAddress(DeliveryPoint point)
 		{
+			if(Addresses.Any(x => x.DeliveryPoint.Id == point.Id))
+			{
+				logger.Warn("Адрес '{0}' уже добавлен, пропускаем.", point.CompiledAddress);
+				return;
+			}
+
 			var address = new ContractShortLeaseAddress
 			{
 				Contract = this,
