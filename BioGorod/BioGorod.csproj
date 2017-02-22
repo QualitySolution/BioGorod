@@ -143,6 +143,12 @@
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractMaintenanceDlg.cs" />
     <Compile Include="Dialogs\Client\ContractMaintenanceAddressesView.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractMaintenanceAddressesView.cs" />
+    <Compile Include="Domain\Company\Cabine.cs" />
+    <Compile Include="Domain\Company\CabineColor.cs" />
+    <Compile Include="Dialogs\Company\CabineDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Company.CabineDlg.cs" />
+    <Compile Include="Hmap\Company\CabineMap.cs" />
+    <Compile Include="Hmap\Company\CabineColorMap.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

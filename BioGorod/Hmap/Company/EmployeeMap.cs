@@ -1,7 +1,7 @@
 ﻿using FluentNHibernate.Mapping;
 using BioGorod.Domain.Company;
 
-namespace BioGorod
+namespace BioGorod.Hmap.Company
 {
 	public class EmployeeMap : ClassMap<Employee>
 	{

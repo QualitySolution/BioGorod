@@ -161,4 +161,20 @@ public partial class MainWindow: Gtk.Window
 			() => new ReferenceRepresentation (new DeliveryPointsVM ()).Buttons(ReferenceButtonMode.CanEdit | ReferenceButtonMode.CanDelete)
 		);
 	}
+
+	protected void OnActionCabineColorActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<CabineColor>(),
+			() => new OrmReference(typeof(CabineColor))
+		);
+	}
+
+	protected void OnActionCabinesActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<Cabine>(),
+			() => new OrmReference(typeof(Cabine))
+		);
+	}
 }

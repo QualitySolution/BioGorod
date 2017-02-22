@@ -49,6 +49,10 @@ public partial class MainWindow
 	
 	private global::Gtk.Action ActionPost;
 	
+	private global::Gtk.Action ActionCabines;
+	
+	private global::Gtk.Action ActionCabineColor;
+	
 	private global::Gtk.VBox vbox1;
 	
 	private global::Gtk.MenuBar menubar1;
@@ -132,6 +136,12 @@ public partial class MainWindow
 		this.ActionPost = new global::Gtk.Action ("ActionPost", global::Mono.Unix.Catalog.GetString ("Должности"), null, null);
 		this.ActionPost.ShortLabel = global::Mono.Unix.Catalog.GetString ("Должности");
 		w1.Add (this.ActionPost, null);
+		this.ActionCabines = new global::Gtk.Action ("ActionCabines", global::Mono.Unix.Catalog.GetString ("Кабины"), null, null);
+		this.ActionCabines.ShortLabel = global::Mono.Unix.Catalog.GetString ("Кабины");
+		w1.Add (this.ActionCabines, null);
+		this.ActionCabineColor = new global::Gtk.Action ("ActionCabineColor", global::Mono.Unix.Catalog.GetString ("Цвета кабин"), null, null);
+		this.ActionCabineColor.ShortLabel = global::Mono.Unix.Catalog.GetString ("Цвета кабин");
+		w1.Add (this.ActionCabineColor, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -143,7 +153,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action12' action='Action12'><menu name='Action7' action='Action7'><menuitem name='ActionOrganization' action='ActionOrganization'/><menuitem name='ActionEmployee' action='ActionEmployee'/><menuitem name='ActionCars' action='ActionCars'/></menu><menu name='Action11' action='Action11'><menuitem name='ActionCounterparty' action='ActionCounterparty'/><menuitem name='ActionAddress' action='ActionAddress'/><separator/><menuitem name='ActionPost' action='ActionPost'/><separator/><menuitem name='ActionPhoneType' action='ActionPhoneType'/><menuitem name='ActionEMail' action='ActionEMail'/></menu><menu name='Action6' action='Action6'><menuitem name='ActionBanks' action='ActionBanks'/><menuitem name='ActionBankUpdate' action='ActionBankUpdate'/></menu></menu><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='Action' action='Action'><menuitem name='ActionPassword' action='ActionPassword'/><menuitem name='ActionUsers' action='ActionUsers'/><separator/><menuitem name='quitAction' action='quitAction'/></menu><menu name='Action12' action='Action12'><menu name='Action7' action='Action7'><menuitem name='ActionOrganization' action='ActionOrganization'/><menuitem name='ActionEmployee' action='ActionEmployee'/><menuitem name='ActionCars' action='ActionCars'/><separator/><menuitem name='ActionCabines' action='ActionCabines'/><menuitem name='ActionCabineColor' action='ActionCabineColor'/></menu><menu name='Action11' action='Action11'><menuitem name='ActionCounterparty' action='ActionCounterparty'/><menuitem name='ActionAddress' action='ActionAddress'/><separator/><menuitem name='ActionPost' action='ActionPost'/><separator/><menuitem name='ActionPhoneType' action='ActionPhoneType'/><menuitem name='ActionEMail' action='ActionEMail'/></menu><menu name='Action6' action='Action6'><menuitem name='ActionBanks' action='ActionBanks'/><menuitem name='ActionBankUpdate' action='ActionBankUpdate'/></menu></menu><menu name='Action3' action='Action3'><menuitem name='ActionHistory' action='ActionHistory'/><menuitem name='ActionCheckUpdate' action='ActionCheckUpdate'/><separator/><menuitem name='aboutAction' action='aboutAction'/></menu></menubar></ui>");
 		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 		this.menubar1.Name = "menubar1";
 		this.vbox1.Add (this.menubar1);
@@ -200,5 +210,7 @@ public partial class MainWindow
 		this.ActionPhoneType.Activated += new global::System.EventHandler (this.OnActionPhoneTypeActivated);
 		this.ActionEMail.Activated += new global::System.EventHandler (this.OnEMailActionActivated);
 		this.ActionPost.Activated += new global::System.EventHandler (this.OnActionPostActivated);
+		this.ActionCabines.Activated += new global::System.EventHandler (this.OnActionCabinesActivated);
+		this.ActionCabineColor.Activated += new global::System.EventHandler (this.OnActionCabineColorActivated);
 	}
 }

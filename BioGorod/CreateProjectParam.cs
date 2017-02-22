@@ -48,11 +48,17 @@ namespace BioGorod
 				OrmObjectMapping<Employee>.Create().Dialog<EmployeeDlg>().JournalFilter<EmployeeFilter>()
 					.DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Ф.И.О.", x => x.FullName).Column("Категория", x => x.Category.GetEnumTitle()).OrderAsc(x => x.LastName).OrderAsc(x => x.Name).OrderAsc(x => x.Patronymic).End(),
 				OrmObjectMapping<Organization>.Create().Dialog<OrganizationDlg>().DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Название", x => x.Name).End(),
+				OrmObjectMapping<Cabine>.Create().Dialog<CabineDlg>()
+					.DefaultTableView().SearchColumn("Номер", x => x.Number).SearchColumn("Название", x => x.Name).Column("Цвет", x => x.Color.Name).End(),
+					OrmObjectMapping<CabineColor>.Create().DefaultTableView().Column("Код", x => x.Id.ToString()).SearchColumn("Название", x => x.Name).End(),
 					//Клиент
 				OrmObjectMapping<Contact>.Create().Dialog <ContactDlg>()
 					.DefaultTableView().SearchColumn("Фамилия", x => x.Surname).SearchColumn("Имя", x => x.Name).SearchColumn("Отчество", x => x.Patronymic).End(),
 				OrmObjectMapping<DeliveryPoint>.Create().Dialog<DeliveryPointDlg>(),
 				OrmObjectMapping<Counterparty>.Create().Dialog<CounterpartyDlg>().DefaultTableView().SearchColumn("Название", x => x.FullName).End(),
+					OrmObjectMapping<ContractLongLease>.Create().Dialog<ContractLongLeaseDlg>(),
+					OrmObjectMapping<ContractShortLease>.Create().Dialog<ContractShortLeaseDlg>(),
+					OrmObjectMapping<ContractMaintenance>.Create().Dialog<ContractMaintenanceDlg>(),
 			};
 			OrmMain.ClassMappingList.AddRange (QSBanks.QSBanksMain.GetModuleMaping ());
 			OrmMain.ClassMappingList.AddRange (QSContactsMain.GetModuleMaping ());
