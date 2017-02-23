@@ -183,6 +183,22 @@ namespace BioGorod.Domain.Client
 			set { SetField (ref isArchive, value, () => IsArchive); }
 		}
 
+		private bool haveArbitration;
+
+		[Display (Name = "Есть арбитражные дела")]
+		public virtual bool HaveArbitration {
+		    get { return haveArbitration; }
+		    set { SetField (ref haveArbitration, value, () => HaveArbitration); }
+		}
+
+		private bool requirePrepayment;
+
+		[Display (Name = "Предоплата обязательна")]
+		public virtual bool RequirePrepayment {
+		    get { return requirePrepayment; }
+		    set { SetField (ref requirePrepayment, value, () => RequirePrepayment); }
+		}
+
 		IList<Phone> phones;
 
 		[Display (Name = "Телефоны")]

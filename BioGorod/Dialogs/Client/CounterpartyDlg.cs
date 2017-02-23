@@ -94,6 +94,8 @@ namespace BioGorod.Dialogs.Client
 			dataComment.Binding.AddBinding(Entity, e => e.Comment, w => w.Buffer.Text).InitializeFromSource();
 
 			ycheckIsArchived.Binding.AddBinding(Entity, e => e.IsArchive, w => w.Active).InitializeFromSource();
+			checkHaveArbitration.Binding.AddBinding(Entity, e => e.HaveArbitration, w => w.Active).InitializeFromSource();
+			checkRequirePrepayment.Binding.AddBinding(Entity, e => e.RequirePrepayment, w => w.Active).InitializeFromSource();
 
 			checkCustomer.Binding.AddBinding(Entity, e => e.CooperationCustomer, w => w.Active).InitializeFromSource();
 			checkSupplier.Binding.AddBinding(Entity, e => e.CooperationSupplier, w => w.Active).InitializeFromSource();
