@@ -24,6 +24,8 @@ namespace BioGorod.Domain.Client
 		string letter;
 
 		[Display (Name = "Литера")]
+		[StringLength(2)]
+		[PropertyChangedAlso ("CompiledAddress", "ShortAddress")]
 		public virtual string Letter {
 			get { return letter; }
 			set { SetField (ref letter, value, () => Letter); }

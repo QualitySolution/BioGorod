@@ -103,6 +103,8 @@ namespace BioGorod.Dialogs.Client
 				.AddSource (Entity)
 				.AddBinding (entity => entity.Building, widget => widget.House)
 				.InitializeFromSource ();
+			
+			yentryLitter.Binding.AddBinding(Entity, e => e.Letter, w => w.Text).InitializeFromSource ();
 
 			//make actions menu
 			var menu = new Gtk.Menu ();
