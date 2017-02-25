@@ -84,6 +84,7 @@ namespace BioGorod.Dialogs.Client
 			var parallel = new ParallelEditing (entryFullName);
 			parallel.SubscribeOnChanges (yentryName);
 			parallel.GetParallelTextFunc = GenerateOfficialName;
+			yentryInternalName.Binding.AddBinding(Entity, e => e.InternalName, w => w.Text).InitializeFromSource();
 
 			comboDocumentsDelivery.ItemsEnum = typeof(DocumentsDelivery);
 			comboDocumentsDelivery.Binding.AddBinding(Entity, e => e.DocumentsDelivery, w => w.SelectedItem).InitializeFromSource();
@@ -244,6 +245,11 @@ namespace BioGorod.Dialogs.Client
 				Entity.LegalAddress = new QSOsm.Data.JsonAddress();
 				Entity.LegalAddress.CopyFrom(party.address.data);
 			}
+		}
+
+		protected void OnButtonNameToInternalNameClicked(object sender, EventArgs e)
+		{
+			Entity.InternalName = Entity.Name;
 		}
 	}
 }

@@ -64,6 +64,7 @@ namespace BioGorod.Domain.Client
 		string name;
 
 		[Required (ErrorMessage = "Название контрагента должно быть заполнено.")]
+		[StringLength(150)]
 		[Display (Name = "Название")]
 		public virtual string Name {
 			get { return name; }
@@ -75,9 +76,19 @@ namespace BioGorod.Domain.Client
 		string fullName;
 
 		[Display (Name = "Полное название")]
+		[StringLength(300)]
 		public virtual string FullName {
 			get { return fullName; }
 			set { SetField (ref fullName, value, () => FullName); }
+		}
+
+		private string internalName;
+
+		[Display (Name = "Внутреннее наименование")]
+		[StringLength(150)]
+		public virtual string InternalName {
+		    get { return internalName; }
+		    set { SetField (ref internalName, value, () => InternalName); }
 		}
 
 		string code1c;

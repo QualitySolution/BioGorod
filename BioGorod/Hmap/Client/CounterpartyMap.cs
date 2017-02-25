@@ -18,6 +18,7 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.RequirePrepayment).Column ("require_prepayment");
 			Map (x => x.Name).Column ("name");
 			Map (x => x.FullName).Column ("full_name");
+			Map (x => x.InternalName).Column ("internal_name");
 			Map (x => x.Code1c).Column ("code_1c");
 			Map (x => x.Comment).Column ("comment");
 			Map (x => x.INN).Column ("inn");
