@@ -161,34 +161,16 @@ namespace BioGorod.Dialogs.Client
 				notebook1.CurrentPage = 0;
 		}
 
-		protected void OnRadioContactsToggled (object sender, EventArgs e)
-		{
-			if (radioContacts.Active)
-				notebook1.CurrentPage = 1;
-		}
-
-		protected void OnRadioDetailsToggled (object sender, EventArgs e)
-		{
-			if (radioDetails.Active)
-				notebook1.CurrentPage = 2;
-		}
-
 		protected void OnRadioContactPersonsToggled (object sender, EventArgs e)
 		{
-			if (radioContactPersons.Active)
-				notebook1.CurrentPage = 3;
+			if (radioContactAndAddresses.Active)
+				notebook1.CurrentPage = 1;
 		}
 
 		protected void OnRadioContractsToggled (object sender, EventArgs e)
 		{
 			if (radioContracts.Active)
-				notebook1.CurrentPage = 4;
-		}
-
-		protected void OnRadioDeliveryPointToggled (object sender, EventArgs e)
-		{
-			if (radioDeliveryPoint.Active)
-				notebook1.CurrentPage = 5;
+				notebook1.CurrentPage = 2;
 		}
 
 		protected void OnYentrySignPostFocusInEvent(object o, Gtk.FocusInEventArgs args)
