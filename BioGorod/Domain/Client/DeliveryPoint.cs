@@ -15,7 +15,7 @@ namespace BioGorod.Domain.Client
 		Nominative = "адрес объекта",
 		Accusative = "адрес объекта"
 	)]
-	public class DeliveryPoint : PropertyChangedBase, IDomainObject
+	public class DeliveryPoint : PropertyChangedBase, IDomainObject, IValidatableObject
 	{
 		#region Свойства
 
@@ -110,7 +110,6 @@ namespace BioGorod.Domain.Client
 		string street;
 
 		[Display (Name = "Улица")]
-		[Required (ErrorMessage = "Улица должна быть заполнена.")]
 		[StringLength(50)]
 		public virtual string Street {
 			get { return street; }
@@ -129,7 +128,6 @@ namespace BioGorod.Domain.Client
 		string building;
 
 		[Display (Name = "Номер дома")]
-		[Required (ErrorMessage = "Номер дома должен быть заполнен.")]
 		public virtual string Building {
 			get { return building; }
 			set { SetField (ref building, value, () => Building); }
@@ -278,6 +276,20 @@ namespace BioGorod.Domain.Client
 			Room = String.Empty;
 			Comment = String.Empty;
 		}
+
+		#region IValidatableObject implementation
+
+		public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+		{
+			if(String.IsNullOrWhiteSpace(АddressAddition) && (String.IsNullOrWhiteSpace(Street) || String.IsNullOrWhiteSpace(Building)))
+			{
+				yield return new ValidationResult (
+					"У адреса должны быть заполены: поля улица и дом или поле с дополнительной информацией.",
+					new[] { this.GetPropertyName (o => o.АddressAddition), this.GetPropertyName (o => o.Street), this.GetPropertyName (o => o.Building) });
+			}
+		}
+
+		#endregion
 
 		public virtual void AddContact(Contact contact)
 		{
