@@ -57,6 +57,15 @@ namespace BioGorod.Dialogs.Client
 			ytextAdditionalInfo.Binding.AddBinding(Entity, e => e.AdditionalInfo, w => w.Buffer.Text).InitializeFromSource();
 
 			contractshortleaseadressesview1.ContractUoW = UoWGeneric;
+
+			//Настраиваем виджет шаблона
+			if (Entity.ContractTemplate == null)
+				Entity.UpdateContractTemplate(UoW);
+
+			if (Entity.ContractTemplate != null)
+				(Entity.ContractTemplate.DocParser as DocTemplates.ShortLeaseParser).RootObject = Entity;
+			templatewidget1.Binding.AddBinding(Entity, e => e.ContractTemplate, w => w.Template).InitializeFromSource();
+			templatewidget1.Binding.AddBinding(Entity, e => e.ChangedTemplateFile, w => w.ChangedDoc).InitializeFromSource();
 		}
 
 		public override bool Save ()
@@ -65,7 +74,7 @@ namespace BioGorod.Dialogs.Client
 			if (valid.RunDlgIfNotValid ((Gtk.Window)this.Toplevel))
 				return false;
 
-			Entity.CreateContractNumber<ContractShortLease>();
+			Contract.CreateContractNumber(Entity);
 
 			logger.Info ("Сохраняем договор...");
 			UoWGeneric.Save ();

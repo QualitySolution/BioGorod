@@ -4688,7 +4688,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractShortLeaseDlg" design-size="670 453">
+  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractShortLeaseDlg" design-size="810 558">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -4759,7 +4759,7 @@
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
             <property name="NRows">3</property>
-            <property name="NColumns">4</property>
+            <property name="NColumns">5</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
@@ -4881,6 +4881,26 @@
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
                 <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="QSDocTemplates.TemplateWidget" id="templatewidget1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+              <packing>
+                <property name="BottomAttach">3</property>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
+                <property name="AutoSize">False</property>
+                <property name="XOptions">0</property>
+                <property name="YOptions">0</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">False</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">False</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>
@@ -5557,7 +5577,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractLongLeaseDlg" design-size="670 453">
+  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractLongLeaseDlg" design-size="810 453">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -5628,7 +5648,7 @@
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
             <property name="NRows">3</property>
-            <property name="NColumns">4</property>
+            <property name="NColumns">5</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
@@ -5750,6 +5770,26 @@
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
                 <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="QSDocTemplates.TemplateWidget" id="templatewidget1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+              <packing>
+                <property name="BottomAttach">3</property>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
+                <property name="AutoSize">False</property>
+                <property name="XOptions">0</property>
+                <property name="YOptions">0</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">False</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">False</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>
@@ -6139,7 +6179,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractMaintenanceDlg" design-size="523 300">
+  <widget class="Gtk.Bin" id="BioGorod.Dialogs.Client.ContractMaintenanceDlg" design-size="810 364">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -6210,7 +6250,7 @@
           <widget class="Gtk.Table" id="table1">
             <property name="MemberName" />
             <property name="NRows">3</property>
-            <property name="NColumns">4</property>
+            <property name="NColumns">5</property>
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
@@ -6332,6 +6372,26 @@
                 <property name="XShrink">False</property>
                 <property name="YExpand">False</property>
                 <property name="YFill">True</property>
+                <property name="YShrink">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="QSDocTemplates.TemplateWidget" id="templatewidget1">
+                <property name="MemberName" />
+                <property name="Events">ButtonPressMask</property>
+              </widget>
+              <packing>
+                <property name="BottomAttach">3</property>
+                <property name="LeftAttach">4</property>
+                <property name="RightAttach">5</property>
+                <property name="AutoSize">False</property>
+                <property name="XOptions">0</property>
+                <property name="YOptions">0</property>
+                <property name="XExpand">False</property>
+                <property name="XFill">False</property>
+                <property name="XShrink">False</property>
+                <property name="YExpand">False</property>
+                <property name="YFill">False</property>
                 <property name="YShrink">False</property>
               </packing>
             </child>

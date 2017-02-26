@@ -28,6 +28,8 @@ namespace BioGorod.Dialogs.Client
 		
 		private global::Gtk.Label label6;
 		
+		private global::QSDocTemplates.TemplateWidget templatewidget1;
+		
 		private global::Gtk.VBox vbox2;
 		
 		private global::Gamma.GtkWidgets.yCheckButton ycheckOrigin;
@@ -102,7 +104,7 @@ namespace BioGorod.Dialogs.Client
 			w6.Expand = false;
 			w6.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(4)), false);
+			this.table1 = new global::Gtk.Table (((uint)(3)), ((uint)(5)), false);
 			this.table1.Name = "table1";
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
@@ -175,6 +177,17 @@ namespace BioGorod.Dialogs.Client
 			w12.XOptions = ((global::Gtk.AttachOptions)(4));
 			w12.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
+			this.templatewidget1 = new global::QSDocTemplates.TemplateWidget ();
+			this.templatewidget1.Events = ((global::Gdk.EventMask)(256));
+			this.templatewidget1.Name = "templatewidget1";
+			this.table1.Add (this.templatewidget1);
+			global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1 [this.templatewidget1]));
+			w13.BottomAttach = ((uint)(3));
+			w13.LeftAttach = ((uint)(4));
+			w13.RightAttach = ((uint)(5));
+			w13.XOptions = ((global::Gtk.AttachOptions)(0));
+			w13.YOptions = ((global::Gtk.AttachOptions)(0));
+			// Container child table1.Gtk.Table+TableChild
 			this.vbox2 = new global::Gtk.VBox ();
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
@@ -186,10 +199,10 @@ namespace BioGorod.Dialogs.Client
 			this.ycheckOrigin.DrawIndicator = true;
 			this.ycheckOrigin.UseUnderline = true;
 			this.vbox2.Add (this.ycheckOrigin);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.ycheckOrigin]));
-			w13.Position = 0;
-			w13.Expand = false;
-			w13.Fill = false;
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.ycheckOrigin]));
+			w14.Position = 0;
+			w14.Expand = false;
+			w14.Fill = false;
 			// Container child vbox2.Gtk.Box+BoxChild
 			this.ycheckScanned = new global::Gamma.GtkWidgets.yCheckButton ();
 			this.ycheckScanned.CanFocus = true;
@@ -198,18 +211,18 @@ namespace BioGorod.Dialogs.Client
 			this.ycheckScanned.DrawIndicator = true;
 			this.ycheckScanned.UseUnderline = true;
 			this.vbox2.Add (this.ycheckScanned);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.ycheckScanned]));
-			w14.Position = 1;
-			w14.Expand = false;
-			w14.Fill = false;
+			global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.ycheckScanned]));
+			w15.Position = 1;
+			w15.Expand = false;
+			w15.Fill = false;
 			this.table1.Add (this.vbox2);
-			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.vbox2]));
-			w15.TopAttach = ((uint)(2));
-			w15.BottomAttach = ((uint)(3));
-			w15.LeftAttach = ((uint)(3));
-			w15.RightAttach = ((uint)(4));
-			w15.XOptions = ((global::Gtk.AttachOptions)(4));
-			w15.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.table1 [this.vbox2]));
+			w16.TopAttach = ((uint)(2));
+			w16.BottomAttach = ((uint)(3));
+			w16.LeftAttach = ((uint)(3));
+			w16.RightAttach = ((uint)(4));
+			w16.XOptions = ((global::Gtk.AttachOptions)(4));
+			w16.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.ycheckArchive = new global::Gamma.GtkWidgets.yCheckButton ();
 			this.ycheckArchive.CanFocus = true;
@@ -218,12 +231,12 @@ namespace BioGorod.Dialogs.Client
 			this.ycheckArchive.DrawIndicator = true;
 			this.ycheckArchive.UseUnderline = true;
 			this.table1.Add (this.ycheckArchive);
-			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.table1 [this.ycheckArchive]));
-			w16.TopAttach = ((uint)(1));
-			w16.BottomAttach = ((uint)(2));
-			w16.LeftAttach = ((uint)(3));
-			w16.RightAttach = ((uint)(4));
-			w16.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w17 = ((global::Gtk.Table.TableChild)(this.table1 [this.ycheckArchive]));
+			w17.TopAttach = ((uint)(1));
+			w17.BottomAttach = ((uint)(2));
+			w17.LeftAttach = ((uint)(3));
+			w17.RightAttach = ((uint)(4));
+			w17.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.ydateIssue = new global::Gamma.Widgets.yDatePicker ();
 			this.ydateIssue.Events = ((global::Gdk.EventMask)(256));
@@ -233,57 +246,57 @@ namespace BioGorod.Dialogs.Client
 			this.ydateIssue.IsEditable = true;
 			this.ydateIssue.AutoSeparation = true;
 			this.table1.Add (this.ydateIssue);
-			global::Gtk.Table.TableChild w17 = ((global::Gtk.Table.TableChild)(this.table1 [this.ydateIssue]));
-			w17.LeftAttach = ((uint)(1));
-			w17.RightAttach = ((uint)(2));
-			w17.XOptions = ((global::Gtk.AttachOptions)(4));
-			w17.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.table1 [this.ydateIssue]));
+			w18.LeftAttach = ((uint)(1));
+			w18.RightAttach = ((uint)(2));
+			w18.XOptions = ((global::Gtk.AttachOptions)(4));
+			w18.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.yentryreferenceCounterparty = new global::Gamma.Widgets.yEntryReferenceVM ();
 			this.yentryreferenceCounterparty.Events = ((global::Gdk.EventMask)(256));
 			this.yentryreferenceCounterparty.Name = "yentryreferenceCounterparty";
 			this.table1.Add (this.yentryreferenceCounterparty);
-			global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.table1 [this.yentryreferenceCounterparty]));
-			w18.TopAttach = ((uint)(2));
-			w18.BottomAttach = ((uint)(3));
-			w18.LeftAttach = ((uint)(1));
-			w18.RightAttach = ((uint)(2));
-			w18.XOptions = ((global::Gtk.AttachOptions)(4));
-			w18.YOptions = ((global::Gtk.AttachOptions)(0));
+			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.yentryreferenceCounterparty]));
+			w19.TopAttach = ((uint)(2));
+			w19.BottomAttach = ((uint)(3));
+			w19.LeftAttach = ((uint)(1));
+			w19.RightAttach = ((uint)(2));
+			w19.XOptions = ((global::Gtk.AttachOptions)(4));
+			w19.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child table1.Gtk.Table+TableChild
 			this.yentryreferenceOrg = new global::Gamma.Widgets.yEntryReference ();
 			this.yentryreferenceOrg.Events = ((global::Gdk.EventMask)(256));
 			this.yentryreferenceOrg.Name = "yentryreferenceOrg";
 			this.table1.Add (this.yentryreferenceOrg);
-			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.table1 [this.yentryreferenceOrg]));
-			w19.TopAttach = ((uint)(1));
-			w19.BottomAttach = ((uint)(2));
-			w19.LeftAttach = ((uint)(1));
-			w19.RightAttach = ((uint)(2));
-			w19.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.table1 [this.yentryreferenceOrg]));
+			w20.TopAttach = ((uint)(1));
+			w20.BottomAttach = ((uint)(2));
+			w20.LeftAttach = ((uint)(1));
+			w20.RightAttach = ((uint)(2));
+			w20.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
 			this.ylabelNumber = new global::Gamma.GtkWidgets.yLabel ();
 			this.ylabelNumber.Name = "ylabelNumber";
 			this.ylabelNumber.Xalign = 0F;
 			this.ylabelNumber.LabelProp = global::Mono.Unix.Catalog.GetString ("ylabel1");
 			this.table1.Add (this.ylabelNumber);
-			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.table1 [this.ylabelNumber]));
-			w20.LeftAttach = ((uint)(3));
-			w20.RightAttach = ((uint)(4));
-			w20.XOptions = ((global::Gtk.AttachOptions)(4));
-			w20.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.table1 [this.ylabelNumber]));
+			w21.LeftAttach = ((uint)(3));
+			w21.RightAttach = ((uint)(4));
+			w21.XOptions = ((global::Gtk.AttachOptions)(4));
+			w21.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.vbox1.Add (this.table1);
-			global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.table1]));
-			w21.Position = 1;
-			w21.Expand = false;
-			w21.Fill = false;
+			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.table1]));
+			w22.Position = 1;
+			w22.Expand = false;
+			w22.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.contractmaintenanceaddressesview1 = new global::BioGorod.Dialogs.Client.ContractMaintenanceAddressesView ();
 			this.contractmaintenanceaddressesview1.Events = ((global::Gdk.EventMask)(256));
 			this.contractmaintenanceaddressesview1.Name = "contractmaintenanceaddressesview1";
 			this.vbox1.Add (this.contractmaintenanceaddressesview1);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.contractmaintenanceaddressesview1]));
-			w22.Position = 2;
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.contractmaintenanceaddressesview1]));
+			w23.Position = 2;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

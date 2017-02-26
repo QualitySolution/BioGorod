@@ -158,6 +158,7 @@
     <Compile Include="DocTemplates\LongLeaseParser.cs" />
     <Compile Include="DocTemplates\MaintenanceParser.cs" />
     <Compile Include="DocTemplates\ShortLeaseParser.cs" />
+    <Compile Include="Repository\Client\DocTemplateRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

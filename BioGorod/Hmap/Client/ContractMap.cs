@@ -18,6 +18,7 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.HaveOriginal).Column ("have_original");
 			Map (x => x.HaveScanned).Column ("have_scanned");
 			Map (x => x.IsArchive).Column ("is_archive");
+			Map (x => x.ContractType).Column ("type").CustomType<ContractTypeStringType>();
 			Map(x => x.ChangedTemplateFile).Column("doc_changed_template").LazyLoad();
 			References(x => x.ContractTemplate).Column("doc_template_id");
 			References (x => x.Organization).Column ("org_id");

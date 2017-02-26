@@ -20,7 +20,7 @@ namespace BioGorod.Domain.Client
 
 		public virtual event EventHandler<AddressesChangedEventArgs> AddressesChanged;
 
-		private IList<ContractLongLeaseAddress> addresses;
+		private IList<ContractLongLeaseAddress> addresses = new List<ContractLongLeaseAddress>();
 
 		[Display (Name = "Адреса")]
 		public virtual IList<ContractLongLeaseAddress> Addresses {

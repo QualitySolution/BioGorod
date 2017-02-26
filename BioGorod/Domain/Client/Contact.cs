@@ -7,7 +7,7 @@ using QSProjectsLib;
 
 namespace BioGorod.Domain.Client
 {
-	[OrmSubject (Gender = QSProjectsLib.GrammaticalGender.Masculine,
+	[OrmSubject (Gender = GrammaticalGender.Masculine,
 		NominativePlural = "контакты",
 		Nominative = "контакт",
 		Accusative = "контакта",

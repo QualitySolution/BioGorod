@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using BioGorod.Domain.Company;
 using QSOrmProject;
 using QSProjectsLib;
-using NHibernate.Criterion;
 
 namespace BioGorod.Domain.Client
 {
@@ -20,6 +19,8 @@ namespace BioGorod.Domain.Client
 		#region Сохраняемые поля
 
 		public virtual int Id { get; set; }
+
+		public virtual ContractType ContractType { get; set; }
 
 		bool isArchive;
 
@@ -100,7 +101,7 @@ namespace BioGorod.Domain.Client
 
 		public virtual string Title { 
 			get { 
-				var att = this.GetType().GetCustomAttributes(typeof(OrmSubjectAttribute), false);
+				var att = this.GetType().GetCustomAttributes(typeof(OrmSubjectAttribute), true);
 				var name = StringWorks.StringToTitleCase((att[0] as OrmSubjectAttribute).Nominative);
 				return String.Format ("{0} №{1} от {2:d}", name, Number, IssueDate); }
 		}
@@ -135,31 +136,23 @@ namespace BioGorod.Domain.Client
 
 		public virtual void UpdateContractTemplate(IUnitOfWork uow)
 		{
-/*			if (Organization == null)
+			var newTemplate = Repository.Client.DocTemplateRepository.GetTemplate(uow, ContractType);
+			if(!DomainHelper.EqualDomainObjects(newTemplate, ContractTemplate))
 			{
-				ContractTemplate = null;
+				ContractTemplate = newTemplate;
 				ChangedTemplateFile = null;
 			}
-			else
-			{
-				var newTemplate = Repository.Client.DocTemplateRepository.GetTemplate(uow, TemplateType.Contract, Organization);
-				if(!DomainHelper.EqualDomainObjects(newTemplate, ContractTemplate))
-				{
-					ContractTemplate = newTemplate;
-					ChangedTemplateFile = null;
-				}
-			}
-*/		}
+		}
 
-		public virtual void CreateContractNumber<TContract>() where TContract : Contract
+		public static void CreateContractNumber<TContract>(TContract contract) where TContract : Contract
 		{
-			if (Number > 0)
+			if (contract.Number > 0)
 				return;
 
-			int lastNumber = UoW.Session.QueryOver<TContract>()
-				.Select(Projections.Max<TContract>(c => c.Number))
+			int lastNumber = contract.UoW.Session.QueryOver<TContract>()
+				.Select(NHibernate.Criterion.Projections.Max<TContract>(c => c.Number))
 				.SingleOrDefault<int>();
-			Number = lastNumber + 1;
+			contract.Number = lastNumber + 1;
 		}
 
 		#endregion
@@ -180,6 +173,5 @@ namespace BioGorod.Domain.Client
 		{
 		}
 	}
-
 }
 
