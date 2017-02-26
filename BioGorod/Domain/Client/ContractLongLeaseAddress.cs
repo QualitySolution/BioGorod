@@ -85,6 +85,7 @@ namespace BioGorod.Domain.Client
 
 		#region Вычисляемые
 
+		[Display (Name = "Кабинки")]
 		public virtual string CabinesText{
 			get{
 				return String.Join(", ", Cabines.Select(x => x.Number));

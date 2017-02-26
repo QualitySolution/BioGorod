@@ -9,6 +9,7 @@ using QSOrmProject;
 using QSContacts;
 using BioGorod.Domain.Company;
 using BioGorod.ViewModel;
+using BioGorod.Domain.Client;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -175,6 +176,14 @@ public partial class MainWindow: Gtk.Window
 		tdiMain.OpenTab(
 			OrmReference.GenerateHashName<Cabine>(),
 			() => new OrmReference(typeof(Cabine))
+		);
+	}
+
+	protected void OnActionDocTemplatesActivated(object sender, EventArgs e)
+	{
+		tdiMain.OpenTab(
+			OrmReference.GenerateHashName<DocTemplate>(),
+			() => new OrmReference(typeof(DocTemplate))
 		);
 	}
 }

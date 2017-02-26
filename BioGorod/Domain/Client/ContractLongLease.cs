@@ -46,6 +46,12 @@ namespace BioGorod.Domain.Client
 			}
 		}
 
+		public virtual IList<ContractLongLeaseAddress> LastAddresses{
+			get{
+				return GetAddressesAtDate(LastAddressesChanges);
+			}
+		}
+
 		#endregion
 
 		#region Функции

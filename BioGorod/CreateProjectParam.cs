@@ -55,6 +55,7 @@ namespace BioGorod
 				OrmObjectMapping<Contact>.Create().Dialog <ContactDlg>()
 					.DefaultTableView().SearchColumn("Фамилия", x => x.Surname).SearchColumn("Имя", x => x.Name).SearchColumn("Отчество", x => x.Patronymic).End(),
 				OrmObjectMapping<DeliveryPoint>.Create().Dialog<DeliveryPointDlg>(),
+				OrmObjectMapping<DocTemplate>.Create().Dialog<DocTemplateDlg>().DefaultTableView().SearchColumn("Название", x => x.Name).Column("Тип", x => x.TemplateType.GetEnumTitle()).End(),
 				OrmObjectMapping<Counterparty>.Create().Dialog<CounterpartyDlg>().DefaultTableView().SearchColumn("Название", x => x.FullName).End(),
 					OrmObjectMapping<ContractLongLease>.Create().Dialog<ContractLongLeaseDlg>(),
 					OrmObjectMapping<ContractShortLease>.Create().Dialog<ContractShortLeaseDlg>(),

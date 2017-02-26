@@ -151,6 +151,13 @@
     <Compile Include="Hmap\Company\CabineColorMap.cs" />
     <Compile Include="Dialogs\Client\ContractLongLeaseAddressRemoveCabineDlg.cs" />
     <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractLongLeaseAddressRemoveCabineDlg.cs" />
+    <Compile Include="Dialogs\Client\DocTemplateDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.DocTemplateDlg.cs" />
+    <Compile Include="Domain\Client\DocTemplate.cs" />
+    <Compile Include="Hmap\Client\DocTemplateMap.cs" />
+    <Compile Include="DocTemplates\LongLeaseParser.cs" />
+    <Compile Include="DocTemplates\MaintenanceParser.cs" />
+    <Compile Include="DocTemplates\ShortLeaseParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -218,6 +225,10 @@
       <Project>{22FCCEC7-A025-43A8-A05F-EEB60A4AAF3C}</Project>
       <Name>QSFNS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QSProjects\Modules\QSDocTemplates\QSDocTemplates.csproj">
+      <Project>{55CD5E7C-3164-4A5D-9DA8-F29F5E9D170C}</Project>
+      <Name>QSDocTemplates</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="NLog.config">
@@ -247,5 +258,6 @@
     <Folder Include="Dialogs\Client\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Repository\Client\" />
+    <Folder Include="DocTemplates\" />
   </ItemGroup>
 </Project>

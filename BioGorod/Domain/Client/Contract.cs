@@ -79,14 +79,14 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref haveScanned, value, () => HaveScanned); }
 		}
 
-/*		DocTemplate contractTemplate;
+		DocTemplate contractTemplate;
 
 		[Display (Name = "Шаблон договора")]
 		public virtual DocTemplate ContractTemplate {
 			get { return contractTemplate; }
 			protected set { SetField (ref contractTemplate, value, () => ContractTemplate); }
 		}
-*/
+
 		byte[] changedTemplateFile;
 
 		[Display (Name = "Измененный договор")]
@@ -173,5 +173,13 @@ namespace BioGorod.Domain.Client
 		[Display(Name="Обслуживание")]
 		Maintenance,
 	}
+
+	public class ContractTypeStringType : NHibernate.Type.EnumStringType
+	{
+		public ContractTypeStringType () : base (typeof(ContractType))
+		{
+		}
+	}
+
 }
 
