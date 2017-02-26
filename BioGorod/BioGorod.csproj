@@ -149,6 +149,8 @@
     <Compile Include="gtk-gui\BioGorod.Dialogs.Company.CabineDlg.cs" />
     <Compile Include="Hmap\Company\CabineMap.cs" />
     <Compile Include="Hmap\Company\CabineColorMap.cs" />
+    <Compile Include="Dialogs\Client\ContractLongLeaseAddressRemoveCabineDlg.cs" />
+    <Compile Include="gtk-gui\BioGorod.Dialogs.Client.ContractLongLeaseAddressRemoveCabineDlg.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

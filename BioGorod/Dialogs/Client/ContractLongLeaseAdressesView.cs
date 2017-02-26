@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Bindings.Collections.Generic;
 using System.Linq;
 using BioGorod.Domain.Client;
+using BioGorod.Domain.Company;
 using Gamma.GtkWidgets;
 using Gtk;
 using QSOrmProject;
@@ -28,7 +29,8 @@ namespace BioGorod.Dialogs.Client
 			set
 			{
 				canEdit = value;
-				buttonAdd.Sensitive = buttonDelete.Sensitive = buttonNewDate.Sensitive = CanEdit;
+				buttonAddAddress.Sensitive = buttonNewDate.Sensitive = CanEdit;
+				YtreeviewAddresses_Selection_Changed(null, null);
 			}
 		}
 
@@ -38,7 +40,7 @@ namespace BioGorod.Dialogs.Client
 
 			ytreeviewAddresses.ColumnsConfig = ColumnsConfigFactory.Create<ContractLongLeaseAddress>()
 				.AddColumn("Адрес").AddTextRenderer(x => x.DeliveryPoint.CompiledAddress)
-				.AddColumn("Кабинки")
+				.AddColumn("Кабинки").AddTextRenderer(x => x.CabinesText)
 				.AddColumn("Количество ТО")
 					.AddNumericRenderer(x => x.MaintenanceCount).Editing()
 					.Adjustment(new Adjustment(1, 1, 4, 1, 1, 1))
@@ -69,7 +71,8 @@ namespace BioGorod.Dialogs.Client
 		void YtreeviewAddresses_Selection_Changed (object sender, EventArgs e)
 		{
 			var selected = ytreeviewAddresses.GetSelectedObject<ContractLongLeaseAddress>();
-			buttonDelete.Sensitive = selected != null && CanEdit;
+			buttonDeleteAddress.Sensitive = buttonAddCabine.Sensitive = selected != null && CanEdit;
+			buttonDeleteCabine.Sensitive = selected != null && selected.Cabines.Count > 0 && CanEdit;
 		}
 
 		private IUnitOfWorkGeneric<ContractLongLease> contractUoW;
@@ -152,6 +155,33 @@ namespace BioGorod.Dialogs.Client
 			addresses.ForEach(x => Contract.Addresses.Remove(x));
 			var dlg = MyOrmDialog as ContractLongLeaseDlg;
 			dlg.RemoveTab(this);
+		}
+
+		protected void OnButtonAddCabineClicked(object sender, EventArgs e)
+		{
+			var dlgNewCabine = new OrmReference(typeof(Cabine));
+			dlgNewCabine.Tag = ytreeviewAddresses.GetSelectedObject<ContractLongLeaseAddress>();
+			dlgNewCabine.ObjectSelected += DlgNewCabine_ObjectSelected;;
+			dlgNewCabine.Mode = OrmReferenceMode.MultiSelect;
+			MyTab.TabParent.AddSlaveTab(MyTab, dlgNewCabine);
+		}
+
+		void DlgNewCabine_ObjectSelected (object sender, OrmReferenceObjectSectedEventArgs e)
+		{
+			var address = (sender as OrmReference).Tag as ContractLongLeaseAddress;
+			address.AddCabine(e.GetEntities<Cabine>().ToArray());
+		}
+
+		protected void OnButtonDeleteCabineClicked(object sender, EventArgs e)
+		{
+			var address = ytreeviewAddresses.GetSelectedObject<ContractLongLeaseAddress>();
+			var removeCabineDlg = new ContractLongLeaseAddressRemoveCabineDlg(address.Cabines.ToArray());
+			removeCabineDlg.Show();
+			if(removeCabineDlg.Run() == (int)ResponseType.Ok)
+			{
+				address.RemoveCabine(removeCabineDlg.SelectedCabines.ToArray());
+			}
+			removeCabineDlg.Destroy();
 		}
 	}
 }

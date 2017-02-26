@@ -21,6 +21,11 @@ namespace BioGorod.Hmap.Client
 
 			References (x => x.Contract).Column ("contract_id");
 			References (x => x.DeliveryPoint).Column ("delivery_point_id");
+
+			HasManyToMany(x => x.Cabines).Table ("contracts_long_cabines")
+				.ParentKeyColumn ("contract_long_address_id")
+				.ChildKeyColumn ("cabine_id")
+				.Not.LazyLoad ();
 		}
 	}}
 

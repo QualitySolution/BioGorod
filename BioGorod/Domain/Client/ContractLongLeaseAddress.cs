@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using BioGorod.Domain.Company;
 using QSOrmProject;
 
 namespace BioGorod.Domain.Client
@@ -22,6 +25,14 @@ namespace BioGorod.Domain.Client
 		public virtual DeliveryPoint DeliveryPoint {
 			get { return deliveryPoint; }
 			set { SetField (ref deliveryPoint, value, () => DeliveryPoint); }
+		}
+
+		private IList<Cabine> cabines = new List<Cabine>();
+
+		[Display (Name = "Кабинки")]
+		public virtual IList<Cabine> Cabines {
+		    get { return cabines; }
+		    set { SetField (ref cabines, value, () => Cabines); }
 		}
 
 		private DateTime? startAt;
@@ -72,10 +83,22 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref maintenanceCount, value, () => MaintenanceCount); }
 		}
 
+		#region Вычисляемые
+
+		public virtual string CabinesText{
+			get{
+				return String.Join(", ", Cabines.Select(x => x.Number));
+			}
+		}
+
+		#endregion
+
 		public ContractLongLeaseAddress()
 		{
 			
 		}
+
+		#region Функции
 
 		public virtual ContractLongLeaseAddress Copy(DateTime newDate)
 		{
@@ -91,6 +114,28 @@ namespace BioGorod.Domain.Client
 				StartAt = newDate
 			};
 		}
+
+		public virtual void AddCabine(params Cabine[] cabines)
+		{
+			foreach (var cabine in cabines)
+			{
+				if (Cabines.Any(x => x.Id == cabine.Id))
+					continue;
+				Cabines.Add(cabine);
+			}
+			OnPropertyChanged(() => CabinesText);
+		}
+
+		public virtual void RemoveCabine(params Cabine[] cabines)
+		{
+			foreach (var cabine in cabines)
+			{
+				Cabines.Remove(cabine);
+			}
+			OnPropertyChanged(() => CabinesText);
+		}
+
+		#endregion
 	}
 }
 

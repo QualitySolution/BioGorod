@@ -22,9 +22,15 @@ namespace BioGorod.Dialogs.Client
 		
 		private global::Gtk.HBox hbox3;
 		
-		private global::Gtk.Button buttonAdd;
+		private global::Gtk.Button buttonAddAddress;
 		
-		private global::Gtk.Button buttonDelete;
+		private global::Gtk.Button buttonDeleteAddress;
+		
+		private global::Gtk.VSeparator vseparator1;
+		
+		private global::Gtk.Button buttonAddCabine;
+		
+		private global::Gtk.Button buttonDeleteCabine;
 
 		protected virtual void Build ()
 		{
@@ -110,38 +116,74 @@ namespace BioGorod.Dialogs.Client
 			this.hbox3.Name = "hbox3";
 			this.hbox3.Spacing = 6;
 			// Container child hbox3.Gtk.Box+BoxChild
-			this.buttonAdd = new global::Gtk.Button ();
-			this.buttonAdd.CanFocus = true;
-			this.buttonAdd.Name = "buttonAdd";
-			this.buttonAdd.UseUnderline = true;
-			this.buttonAdd.Label = global::Mono.Unix.Catalog.GetString ("Добавить");
+			this.buttonAddAddress = new global::Gtk.Button ();
+			this.buttonAddAddress.CanFocus = true;
+			this.buttonAddAddress.Name = "buttonAddAddress";
+			this.buttonAddAddress.UseUnderline = true;
+			this.buttonAddAddress.Label = global::Mono.Unix.Catalog.GetString ("Добавить адрес");
 			global::Gtk.Image w10 = new global::Gtk.Image ();
 			w10.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-add", global::Gtk.IconSize.Menu);
-			this.buttonAdd.Image = w10;
-			this.hbox3.Add (this.buttonAdd);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonAdd]));
+			this.buttonAddAddress.Image = w10;
+			this.hbox3.Add (this.buttonAddAddress);
+			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonAddAddress]));
 			w11.Position = 0;
 			w11.Expand = false;
 			w11.Fill = false;
 			// Container child hbox3.Gtk.Box+BoxChild
-			this.buttonDelete = new global::Gtk.Button ();
-			this.buttonDelete.CanFocus = true;
-			this.buttonDelete.Name = "buttonDelete";
-			this.buttonDelete.UseUnderline = true;
-			this.buttonDelete.Label = global::Mono.Unix.Catalog.GetString ("Удалить");
+			this.buttonDeleteAddress = new global::Gtk.Button ();
+			this.buttonDeleteAddress.CanFocus = true;
+			this.buttonDeleteAddress.Name = "buttonDeleteAddress";
+			this.buttonDeleteAddress.UseUnderline = true;
+			this.buttonDeleteAddress.Label = global::Mono.Unix.Catalog.GetString ("Удалить адрес");
 			global::Gtk.Image w12 = new global::Gtk.Image ();
 			w12.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-delete", global::Gtk.IconSize.Menu);
-			this.buttonDelete.Image = w12;
-			this.hbox3.Add (this.buttonDelete);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonDelete]));
+			this.buttonDeleteAddress.Image = w12;
+			this.hbox3.Add (this.buttonDeleteAddress);
+			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonDeleteAddress]));
 			w13.Position = 1;
 			w13.Expand = false;
 			w13.Fill = false;
-			this.vbox3.Add (this.hbox3);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.hbox3]));
+			// Container child hbox3.Gtk.Box+BoxChild
+			this.vseparator1 = new global::Gtk.VSeparator ();
+			this.vseparator1.Name = "vseparator1";
+			this.hbox3.Add (this.vseparator1);
+			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.vseparator1]));
 			w14.Position = 2;
 			w14.Expand = false;
 			w14.Fill = false;
+			// Container child hbox3.Gtk.Box+BoxChild
+			this.buttonAddCabine = new global::Gtk.Button ();
+			this.buttonAddCabine.CanFocus = true;
+			this.buttonAddCabine.Name = "buttonAddCabine";
+			this.buttonAddCabine.UseUnderline = true;
+			this.buttonAddCabine.Label = global::Mono.Unix.Catalog.GetString ("Добавить кабинки");
+			global::Gtk.Image w15 = new global::Gtk.Image ();
+			w15.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-add", global::Gtk.IconSize.Menu);
+			this.buttonAddCabine.Image = w15;
+			this.hbox3.Add (this.buttonAddCabine);
+			global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonAddCabine]));
+			w16.Position = 3;
+			w16.Expand = false;
+			w16.Fill = false;
+			// Container child hbox3.Gtk.Box+BoxChild
+			this.buttonDeleteCabine = new global::Gtk.Button ();
+			this.buttonDeleteCabine.CanFocus = true;
+			this.buttonDeleteCabine.Name = "buttonDeleteCabine";
+			this.buttonDeleteCabine.UseUnderline = true;
+			this.buttonDeleteCabine.Label = global::Mono.Unix.Catalog.GetString ("Убрать кабинки");
+			global::Gtk.Image w17 = new global::Gtk.Image ();
+			w17.Pixbuf = global::Stetic.IconLoader.LoadIcon (this, "gtk-delete", global::Gtk.IconSize.Menu);
+			this.buttonDeleteCabine.Image = w17;
+			this.hbox3.Add (this.buttonDeleteCabine);
+			global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.buttonDeleteCabine]));
+			w18.Position = 4;
+			w18.Expand = false;
+			w18.Fill = false;
+			this.vbox3.Add (this.hbox3);
+			global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.hbox3]));
+			w19.Position = 2;
+			w19.Expand = false;
+			w19.Fill = false;
 			this.Add (this.vbox3);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
@@ -150,8 +192,10 @@ namespace BioGorod.Dialogs.Client
 			this.ydateSinceDate.DateChanged += new global::System.EventHandler (this.OnYdateSinceDateDateChanged);
 			this.buttonDeleteDate.Clicked += new global::System.EventHandler (this.OnButtonDeleteDateClicked);
 			this.buttonNewDate.Clicked += new global::System.EventHandler (this.OnButtonNewDateClicked);
-			this.buttonAdd.Clicked += new global::System.EventHandler (this.OnButtonAddClicked);
-			this.buttonDelete.Clicked += new global::System.EventHandler (this.OnButtonDeleteClicked);
+			this.buttonAddAddress.Clicked += new global::System.EventHandler (this.OnButtonAddClicked);
+			this.buttonDeleteAddress.Clicked += new global::System.EventHandler (this.OnButtonDeleteClicked);
+			this.buttonAddCabine.Clicked += new global::System.EventHandler (this.OnButtonAddCabineClicked);
+			this.buttonDeleteCabine.Clicked += new global::System.EventHandler (this.OnButtonDeleteCabineClicked);
 		}
 	}
 }
