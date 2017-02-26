@@ -44,7 +44,9 @@ namespace BioGorod.Dialogs.Client
 		
 		private global::Gamma.GtkWidgets.yLabel ylabelNumber;
 		
-		private global::BioGorod.Dialogs.Client.ContractLongLeaseAdressesView contractlongleaseadressesview1;
+		private global::Gtk.Notebook notebookAddresses;
+		
+		private global::Gtk.Label label7;
 
 		protected virtual void Build ()
 		{
@@ -278,12 +280,22 @@ namespace BioGorod.Dialogs.Client
 			w21.Expand = false;
 			w21.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.contractlongleaseadressesview1 = new global::BioGorod.Dialogs.Client.ContractLongLeaseAdressesView ();
-			this.contractlongleaseadressesview1.Events = ((global::Gdk.EventMask)(256));
-			this.contractlongleaseadressesview1.Name = "contractlongleaseadressesview1";
-			this.vbox1.Add (this.contractlongleaseadressesview1);
-			global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.contractlongleaseadressesview1]));
-			w22.Position = 2;
+			this.notebookAddresses = new global::Gtk.Notebook ();
+			this.notebookAddresses.CanFocus = true;
+			this.notebookAddresses.Name = "notebookAddresses";
+			this.notebookAddresses.CurrentPage = 0;
+			// Notebook tab
+			global::Gtk.Label w22 = new global::Gtk.Label ();
+			w22.Visible = true;
+			this.notebookAddresses.Add (w22);
+			this.label7 = new global::Gtk.Label ();
+			this.label7.Name = "label7";
+			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString ("page1");
+			this.notebookAddresses.SetTabLabel (w22, this.label7);
+			this.label7.ShowAll ();
+			this.vbox1.Add (this.notebookAddresses);
+			global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebookAddresses]));
+			w23.Position = 2;
 			this.Add (this.vbox1);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

@@ -76,6 +76,21 @@ namespace BioGorod.Domain.Client
 		{
 			
 		}
+
+		public virtual ContractLongLeaseAddress Copy(DateTime newDate)
+		{
+			return new ContractLongLeaseAddress
+			{
+				Contract = this.Contract,
+				AdditionalServiceStdCost = this.AdditionalServiceStdCost,
+				AdditionalServiceWinterCost = this.AdditionalServiceWinterCost,
+				CabineStdCost = this.CabineStdCost,
+				CabineWinterCost = this.CabineWinterCost,
+				DeliveryPoint = this.DeliveryPoint,
+				MaintenanceCount = this.MaintenanceCount,
+				StartAt = newDate
+			};
+		}
 	}
 }
 

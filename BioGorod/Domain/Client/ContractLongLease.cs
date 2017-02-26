@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Bindings.Collections.Generic;
 using System.Linq;
 using QSOrmProject;
 using QSProjectsLib;
@@ -19,6 +18,8 @@ namespace BioGorod.Domain.Client
 	{
 		protected static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger ();
 
+		public virtual event EventHandler<AddressesChangedEventArgs> AddressesChanged;
+
 		private IList<ContractLongLeaseAddress> addresses;
 
 		[Display (Name = "Адреса")]
@@ -27,21 +28,32 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref addresses, value, () => Addresses); }
 		}
 
-		GenericObservableList<ContractLongLeaseAddress> observableAddresses;
-		//FIXME Кослыль пока не разберемся как научить hibernate работать с обновляемыми списками.
-		public virtual GenericObservableList<ContractLongLeaseAddress> ObservableAddresses {
-			get {
-				if (observableAddresses == null)
-					observableAddresses = new GenericObservableList<ContractLongLeaseAddress> (Addresses);
-				return observableAddresses;
+		#region Расчетные
+
+		public virtual IEnumerable<DateTime> ChangesDates
+		{
+			get{
+				return Addresses.Where(x => x.StartAt.HasValue).Select(x => x.StartAt.Value).Distinct();
 			}
 		}
+
+		public virtual DateTime? LastAddressesChanges{
+			get{
+				if (ChangesDates.Any())
+					return ChangesDates.Max();
+				else
+					return null;
+			}
+		}
+
+		#endregion
 
 		#region Функции
 
 		public virtual void AddAddress(DeliveryPoint point)
 		{
-			if(Addresses.Any(x => x.DeliveryPoint.Id == point.Id))
+			var last = LastAddressesChanges;
+			if(Addresses.Any(x => x.DeliveryPoint.Id == point.Id && x.StartAt == last))
 			{
 				logger.Warn("Адрес '{0}' уже добавлен, пропускаем.", point.CompiledAddress);
 				return;
@@ -50,12 +62,52 @@ namespace BioGorod.Domain.Client
 			var address = new ContractLongLeaseAddress()
 				{
 					Contract = this,
-					DeliveryPoint = point
+					DeliveryPoint = point,
+					StartAt = last
 				};
-			ObservableAddresses.Add(address);
+			Addresses.Add(address);
+			OnAddressesChanged(last);
+		}
+
+		public virtual void RemoveAddress(ContractLongLeaseAddress address)
+		{
+			Addresses.Remove(address);
+			OnAddressesChanged(address.StartAt);
+		}
+
+		public virtual void CopyAddressesToNewDate(DateTime date)
+		{
+			DateTime? lastDate = null;
+			if (ChangesDates.Any())
+				lastDate = ChangesDates.Max();
+			var list = GetAddressesAtDate(lastDate);
+			foreach(var old in list)
+			{
+				Addresses.Add(old.Copy(date));
+			}
+		}
+
+		public virtual List<ContractLongLeaseAddress> GetAddressesAtDate(DateTime? since)
+		{
+			return Addresses.Where(x => x.StartAt == since).ToList();
+		}
+
+		private void OnAddressesChanged(DateTime? date)
+		{
+			if(AddressesChanged != null)
+			{
+				AddressesChanged(this, new AddressesChangedEventArgs
+					{
+						AtDate = date
+					});
+			}
 		}
 
 		#endregion
+	}
+
+	public class AddressesChangedEventArgs : EventArgs{
+		public DateTime? AtDate { get; set;}
 	}
 }
 

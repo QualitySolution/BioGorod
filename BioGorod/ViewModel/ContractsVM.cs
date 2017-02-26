@@ -103,7 +103,7 @@ namespace BioGorod.ViewModel
 
 		protected override bool NeedUpdateFunc(object updatedSubject)
 		{
-			var contract = updatedSubject as Contact;
+			var contract = updatedSubject as Contract;
 			return Counterparty.Id == contract.Counterparty.Id;
 		}
 
