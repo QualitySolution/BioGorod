@@ -5,6 +5,9 @@ using NHibernate.Transform;
 using QSContacts;
 using QSOrmProject;
 using QSOrmProject.RepresentationModel;
+using NHibernate.Criterion;
+using NHibernate.Dialect.Function;
+using NHibernate;
 
 namespace BioGorod.ViewModel
 {
@@ -49,13 +52,11 @@ namespace BioGorod.ViewModel
 			Counterparty counterpartyAlias = null;
 			Contact contactAlias = null;
 			ContactsVMNode resultAlias = null;
-			DeliveryPoint deliveryPointAlias = null;
 			Post postAlias = null;
 			Phone phoneAlias = null;
 
 			var contactslist = UoW.Session.QueryOver<Contact> (() => contactAlias)
 				.JoinAlias (c => c.Counterparty, () => counterpartyAlias)
-				.JoinAlias (c => c.DeliveryPoints, () => deliveryPointAlias, NHibernate.SqlCommand.JoinType.LeftOuterJoin)
 				.JoinAlias (c => c.Post, () => postAlias, NHibernate.SqlCommand.JoinType.LeftOuterJoin)
 				.JoinAlias (c => c.Phones, () => phoneAlias, NHibernate.SqlCommand.JoinType.LeftOuterJoin)
 				.Where (() => counterpartyAlias.Id == Counterparty.Id)
@@ -66,10 +67,11 @@ namespace BioGorod.ViewModel
 					.Select (() => contactAlias.Surname).WithAlias (() => resultAlias.Surname)
 					.Select (() => contactAlias.Comment).WithAlias (() => resultAlias.Comment)
 					.Select (() => postAlias.Name).WithAlias (() => resultAlias.Post)
-					.Select (() => deliveryPointAlias.CompiledAddress).WithAlias (() => resultAlias.DeliveryPoint)
-					.SelectCount (() => deliveryPointAlias.Id).WithAlias (() => resultAlias.DeliveryPointsCount)
-					.Select (() => phoneAlias.Number).WithAlias (() => resultAlias.Number)
-					.Select (() => phoneAlias.NumberType).WithAlias (() => resultAlias.NumberType)
+					.Select (Projections.SqlFunction (
+						new SQLFunctionTemplate (NHibernateUtil.String, "GROUP_CONCAT( ?1 SEPARATOR ?2)"),
+						NHibernateUtil.String,
+						Projections.Property(() => phoneAlias.Number),
+						Projections.Constant ("\n"))).WithAlias (() => resultAlias.Phones)
 				)
 				.TransformUsing (Transformers.AliasToBean<ContactsVMNode> ())
 				.List<ContactsVMNode> ();
@@ -78,10 +80,9 @@ namespace BioGorod.ViewModel
 		}
 
 		IColumnsConfig columnsConfig = FluentColumnsConfig<ContactsVMNode>.Create ()
-			.AddColumn ("Имя").SetDataProperty (node => node.FullName)
 			.AddColumn ("Должность").SetDataProperty (node => node.Post)
-			.AddColumn ("Курируемые точки").SetDataProperty (node => node.PointCurator)
-			.AddColumn ("Телефон").SetDataProperty (node => node.MainPhone)
+			.AddColumn ("Имя").SetDataProperty (node => node.FullName)
+			.AddColumn ("Телефоны").SetDataProperty (node => node.Phones)
 			.AddColumn ("Комментарий").SetDataProperty (node => node.Comment)
 			.Finish ();
 
@@ -126,32 +127,7 @@ namespace BioGorod.ViewModel
 
 		public string Post { get; set; }
 
-		public string DeliveryPoint { get; set; }
-
-		public int DeliveryPointsCount { get; set; }
-
-		public string PointCurator {
-			get {
-				if (DeliveryPointsCount <= 0)
-					return String.Empty;
-				if (DeliveryPointsCount == 1)
-					return DeliveryPoint;
-				return String.Format ("{0} и еще {1}", DeliveryPoint, DeliveryPointsCount);
-			}
-		}
-
-		public string Number { get; set; }
-
-		public PhoneType NumberType { get; set; }
-
-		public string MainPhone { 
-			get { 
-				if (Number != String.Empty)
-					return String.Format ("{0} {1}", NumberType != null ? NumberType.Name + " " : String.Empty, Number);
-				else
-					return String.Empty; 
-			} 
-		}
+		public string Phones { get; set; }
 
 		public string Comment { get; set; }
 	}}
