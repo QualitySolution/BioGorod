@@ -161,7 +161,7 @@ namespace BioGorod.Dialogs.Client
 		{
 			var dlgNewCabine = new OrmReference(typeof(Cabine));
 			dlgNewCabine.Tag = ytreeviewAddresses.GetSelectedObject<ContractLongLeaseAddress>();
-			dlgNewCabine.ObjectSelected += DlgNewCabine_ObjectSelected;;
+			dlgNewCabine.ObjectSelected += DlgNewCabine_ObjectSelected;
 			dlgNewCabine.Mode = OrmReferenceMode.MultiSelect;
 			MyTab.TabParent.AddSlaveTab(MyTab, dlgNewCabine);
 		}

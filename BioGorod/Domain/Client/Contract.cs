@@ -20,7 +20,7 @@ namespace BioGorod.Domain.Client
 
 		public virtual int Id { get; set; }
 
-		public virtual ContractType ContractType { get; set; }
+		public virtual ContractType ContractType { get{ return GetContractType(this);} }
 
 		bool isArchive;
 
@@ -153,6 +153,18 @@ namespace BioGorod.Domain.Client
 				.Select(NHibernate.Criterion.Projections.Max<TContract>(c => c.Number))
 				.SingleOrDefault<int>();
 			contract.Number = lastNumber + 1;
+		}
+
+		public static ContractType GetContractType(Contract contract)
+		{
+			if (contract is ContractLongLease)
+				return ContractType.LongLease;
+			else if (contract is ContractShortLease)
+				return ContractType.ShortLease;
+			else if (contract is ContractMaintenance)
+				return ContractType.Maintenance;
+
+			throw new InvalidCastException();
 		}
 
 		#endregion

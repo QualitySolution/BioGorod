@@ -91,7 +91,7 @@ namespace BioGorod.Domain.Client
 		 [Display (Name = "Общая стоимость")]
 		 public virtual decimal TotalCost {
 			get { return DeliveryCost + CabineCount * CabineCost; }
-			set{}
+			set { ; }
 		     //set { SetField (ref totalCost, value, () => TotalCost); }
 		}
 
