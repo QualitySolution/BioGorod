@@ -19,6 +19,7 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.IsFired)	.Column ("fired");
 
 			Map (x => x.NameAndPhones)	.Column ("name_and_phones");
+			Map (x => x.PostNameAndPhones).Column ("post_name_and_phones");
 			Map (x => x.PhonesDigits)	.Column ("phons_digits");
 
 			References (x => x.Post)		.Column ("post_id");

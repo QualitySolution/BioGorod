@@ -63,7 +63,7 @@ namespace BioGorod.ViewModel
 					.Select (Projections.SqlFunction (
 						new SQLFunctionTemplate (NHibernateUtil.String, "GROUP_CONCAT( ?1 SEPARATOR ?2)"),
 						NHibernateUtil.String,
-						Projections.Property(() => contactAlias.NameAndPhones),
+						Projections.Property(() => contactAlias.PostNameAndPhones),
 						Projections.Constant ("\n"))
 					).WithAlias (() => resultAlias.Contacts)
 				)

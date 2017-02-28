@@ -99,6 +99,13 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref nameAndPhones, value, () => NameAndPhones); }
 		}
 
+		private string postNameAndPhones;
+
+		public virtual string PostNameAndPhones {
+			get { return postNameAndPhones; }
+			set { SetField (ref postNameAndPhones, value, () => PostNameAndPhones); }
+		}
+
 		private string phonesDigits;
 
 		public virtual string PhonesDigits {
