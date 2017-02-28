@@ -225,7 +225,10 @@ namespace BioGorod.Dialogs.Client
 				Entity.SignatoryFIO = party.management.name;
 				Entity.SignatoryPost = party.management.post;
 				Entity.LegalAddress = new QSOsm.Data.JsonAddress();
-				Entity.LegalAddress.CopyFrom(party.address.data);
+				if(party.address.data != null)
+					Entity.LegalAddress.CopyFrom(party.address.data);
+				else
+					Entity.LegalAddress.FillFromText(party.address.value);
 			}
 		}
 
