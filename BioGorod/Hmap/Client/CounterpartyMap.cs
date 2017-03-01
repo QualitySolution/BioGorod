@@ -34,6 +34,7 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.SignatoryBaseOf).Column ("signatory_base_of");
 			Map (x => x.DocumentsDelivery).Column ("documents_delivery").CustomType<DocumentsDeliveryStringType> ();
 			References (x => x.PaymentManager).Column ("payment_manager_id");
+			References (x => x.DefaultAccount).Column ("default_account_id");
 			HasMany (x => x.Phones).Cascade.AllDeleteOrphan ().LazyLoad ()
 				.KeyColumn ("counterparty_id");
 			HasMany (x => x.Accounts).Cascade.AllDeleteOrphan ().LazyLoad ()

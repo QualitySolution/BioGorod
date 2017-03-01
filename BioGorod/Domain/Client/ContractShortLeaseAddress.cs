@@ -8,10 +8,10 @@ namespace BioGorod.Domain.Client
 	{
 		public virtual int Id { get; set; }
 
-		private Contract contract;
+		private ContractShortLease contract;
 
 		[Display (Name = "Договор")]
-		public virtual Contract Contract {
+		public virtual ContractShortLease Contract {
 		    get { return contract; }
 		    set { SetField (ref contract, value, () => Contract); }
 		}
