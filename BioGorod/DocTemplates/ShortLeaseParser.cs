@@ -1,6 +1,7 @@
 ﻿using System;
-using QSDocTemplates;
+using System.Linq;
 using BioGorod.Domain.Client;
+using QSDocTemplates;
 
 namespace BioGorod.DocTemplates
 {
@@ -52,6 +53,8 @@ namespace BioGorod.DocTemplates
 			AddField(x => x.Counterparty.DocDeliveryAddress.PrintAddress, x => x.Counterparty.DocDeliveryAddress, PatternFieldType.FString);
 			AddField(x => x.Counterparty.INN, PatternFieldType.FString);
 			AddField(x => x.Counterparty.KPP, PatternFieldType.FString);
+			AddField(x => String.Join(", ", x.Counterparty.Emails.Select(e => e.Address)), x => x.Counterparty.Emails, PatternFieldType.FString);
+			AddField(x => String.Join(", ", x.Counterparty.Phones.Select(p => p.Number)), x => x.Counterparty.Phones, PatternFieldType.FString);
 			//Расчетный счет
 			AddField(x => x.Counterparty.DefaultAccount.Number, PatternFieldType.FString);
 			AddField(x => x.Counterparty.DefaultAccount.InBank.Bik, PatternFieldType.FString);
