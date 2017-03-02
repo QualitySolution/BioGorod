@@ -37,8 +37,9 @@ namespace BioGorod.DocTemplates
 			//Клиент
 			AddField(x => x.Counterparty.Name, PatternFieldType.FString);
 			AddField(x => x.Counterparty.FullName, PatternFieldType.FString);
-			AddField(x => x.Counterparty.ActualAddress, PatternFieldType.FString);
-			AddField(x => x.Counterparty.LegalAddress, PatternFieldType.FString);
+			AddField(x => x.Counterparty.ActualAddress.PrintAddress, x => x.Counterparty.ActualAddress, PatternFieldType.FString);
+			AddField(x => x.Counterparty.LegalAddress.PrintAddress, x => x.Counterparty.LegalAddress, PatternFieldType.FString);
+			AddField(x => x.Counterparty.DocDeliveryAddress.PrintAddress, x => x.Counterparty.DocDeliveryAddress, PatternFieldType.FString);
 			AddField(x => x.Counterparty.INN, PatternFieldType.FString);
 			AddField(x => x.Counterparty.KPP, PatternFieldType.FString);
 			//Расчетный счет
