@@ -81,7 +81,7 @@ namespace BioGorod.ViewModel
 
 		IColumnsConfig columnsConfig = FluentColumnsConfig<ContactsVMNode>.Create ()
 			.AddColumn ("Должность").SetDataProperty (node => node.Post)
-			.AddColumn ("Имя").SetDataProperty (node => node.FullName)
+			.AddColumn ("Ф.И.О.").SetDataProperty (node => node.FullName)
 			.AddColumn ("Телефоны").SetDataProperty (node => node.Phones)
 			.AddColumn ("Комментарий").SetDataProperty (node => node.Comment)
 			.Finish ();
