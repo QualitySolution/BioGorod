@@ -459,7 +459,7 @@ namespace BioGorod.Dialogs.Client
 			this.buttonDocFromActual.CanFocus = true;
 			this.buttonDocFromActual.Name = "buttonDocFromActual";
 			this.buttonDocFromActual.UseUnderline = true;
-			this.buttonDocFromActual.Label = global::Mono.Unix.Catalog.GetString ("Как физический");
+			this.buttonDocFromActual.Label = global::Mono.Unix.Catalog.GetString ("Как фактический");
 			this.hbox8.Add (this.buttonDocFromActual);
 			global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.hbox8 [this.buttonDocFromActual]));
 			w28.Position = 1;

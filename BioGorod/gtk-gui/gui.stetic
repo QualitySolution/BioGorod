@@ -1536,7 +1536,7 @@
                                     <property name="Tooltip" translatable="yes">Скопировать из физического адреса.</property>
                                     <property name="CanFocus">True</property>
                                     <property name="Type">TextOnly</property>
-                                    <property name="Label" translatable="yes">Как физический</property>
+                                    <property name="Label" translatable="yes">Как фактический</property>
                                     <property name="UseUnderline">True</property>
                                     <signal name="Clicked" handler="OnButtonDocFromActualClicked" />
                                   </widget>
