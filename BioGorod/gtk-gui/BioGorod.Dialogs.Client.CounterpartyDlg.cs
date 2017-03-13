@@ -477,6 +477,7 @@ namespace BioGorod.Dialogs.Client
 			this.jsonaddressActual = new global::QSOsm.JsonAddressEntry ();
 			this.jsonaddressActual.Events = ((global::Gdk.EventMask)(256));
 			this.jsonaddressActual.Name = "jsonaddressActual";
+			this.jsonaddressActual.HideFloor = false;
 			this.table4.Add (this.jsonaddressActual);
 			global::Gtk.Table.TableChild w30 = ((global::Gtk.Table.TableChild)(this.table4 [this.jsonaddressActual]));
 			w30.TopAttach = ((uint)(10));
@@ -489,6 +490,7 @@ namespace BioGorod.Dialogs.Client
 			this.jsonaddressDocDelivery = new global::QSOsm.JsonAddressEntry ();
 			this.jsonaddressDocDelivery.Events = ((global::Gdk.EventMask)(256));
 			this.jsonaddressDocDelivery.Name = "jsonaddressDocDelivery";
+			this.jsonaddressDocDelivery.HideFloor = false;
 			this.table4.Add (this.jsonaddressDocDelivery);
 			global::Gtk.Table.TableChild w31 = ((global::Gtk.Table.TableChild)(this.table4 [this.jsonaddressDocDelivery]));
 			w31.TopAttach = ((uint)(11));
@@ -501,6 +503,7 @@ namespace BioGorod.Dialogs.Client
 			this.jsonaddressLegal = new global::QSOsm.JsonAddressEntry ();
 			this.jsonaddressLegal.Events = ((global::Gdk.EventMask)(256));
 			this.jsonaddressLegal.Name = "jsonaddressLegal";
+			this.jsonaddressLegal.HideFloor = true;
 			this.table4.Add (this.jsonaddressLegal);
 			global::Gtk.Table.TableChild w32 = ((global::Gtk.Table.TableChild)(this.table4 [this.jsonaddressLegal]));
 			w32.TopAttach = ((uint)(9));

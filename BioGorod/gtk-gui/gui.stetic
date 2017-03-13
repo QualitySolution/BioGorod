@@ -1568,6 +1568,7 @@
                               <widget class="QSOsm.JsonAddressEntry" id="jsonaddressActual">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="HideFloor">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">10</property>
@@ -1589,6 +1590,7 @@
                               <widget class="QSOsm.JsonAddressEntry" id="jsonaddressDocDelivery">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="HideFloor">False</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">11</property>
@@ -1610,6 +1612,7 @@
                               <widget class="QSOsm.JsonAddressEntry" id="jsonaddressLegal">
                                 <property name="MemberName" />
                                 <property name="Events">ButtonPressMask</property>
+                                <property name="HideFloor">True</property>
                               </widget>
                               <packing>
                                 <property name="TopAttach">9</property>
