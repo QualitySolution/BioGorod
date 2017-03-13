@@ -59,6 +59,7 @@ namespace BioGorod.ViewModel
 				.SelectList (list => list
 					.SelectGroup (() => deliveryPointAlias.Id).WithAlias (() => resultAlias.Id)
 					.Select (() => deliveryPointAlias.CompiledAddress).WithAlias (() => resultAlias.CompiledAddress)
+					.Select (() => deliveryPointAlias.Comment).WithAlias (() => resultAlias.Comment)
 					.Select (() => deliveryPointAlias.IsActive).WithAlias (() => resultAlias.IsActive)
 					.Select (Projections.SqlFunction (
 						new SQLFunctionTemplate (NHibernateUtil.String, "GROUP_CONCAT( ?1 SEPARATOR ?2)"),
@@ -76,6 +77,7 @@ namespace BioGorod.ViewModel
 		IColumnsConfig columnsConfig = FluentColumnsConfig<ClientDeliveryPointVMNode>.Create ()
 			.AddColumn ("Название").SetDataProperty (node => node.CompiledAddress)
 			.AddColumn("Контакты").AddTextRenderer(x => x.Contacts)
+			.AddColumn("Комментарий").AddTextRenderer(x => x.Comment)
 			.RowCells ().AddSetter<CellRendererText> ((c, n) => c.Foreground = n.RowColor)
 			.Finish ();
 
@@ -120,6 +122,8 @@ namespace BioGorod.ViewModel
 		public string RowColor { get { return IsActive ? "black" : "grey"; } }
 
 		public string Contacts { get; set; }
+
+		public string Comment { get; set; }
 	}
 }
 
