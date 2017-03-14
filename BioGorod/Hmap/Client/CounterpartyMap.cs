@@ -14,11 +14,14 @@ namespace BioGorod.Hmap.Client
 
 			Id (x => x.Id).Column ("id").GeneratedBy.Native ();
 			Map (x => x.IsArchive).Column ("is_archive");
-			Map (x => x.HaveArbitration).Column ("have_arbitration");
-			Map (x => x.RequirePrepayment).Column ("require_prepayment");
 			Map (x => x.Name).Column ("name");
 			Map (x => x.FullName).Column ("full_name");
 			Map (x => x.InternalName).Column ("internal_name");
+			Map (x => x.HaveArbitration).Column ("have_arbitration");
+			Map (x => x.RequirePrepayment).Column ("require_prepayment");
+			Map (x => x.ContourFocus).Column ("сontour_focus");
+			Map (x => x.MassRegistration).Column ("mass_registration");
+			Map (x => x.CannotFindSince).Column ("cannot_find");
 			Map (x => x.Code1c).Column ("code_1c");
 			Map (x => x.Comment).Column ("comment");
 			Map (x => x.INN).Column ("inn");

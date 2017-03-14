@@ -210,6 +210,30 @@ namespace BioGorod.Domain.Client
 		    set { SetField (ref requirePrepayment, value, () => RequirePrepayment); }
 		}
 
+		private bool сontourFocus;
+
+		[Display (Name = "Контур.Фокус")]
+		public virtual bool ContourFocus {
+		    get { return сontourFocus; }
+		    set { SetField (ref сontourFocus, value, () => ContourFocus); }
+		}
+
+		private bool massRegistration;
+
+		[Display (Name = "Адрес \"массовой\" регистрации")]
+		public virtual bool MassRegistration {
+		    get { return massRegistration; }
+		    set { SetField (ref massRegistration, value, () => MassRegistration); }
+		}
+
+		private DateTime? cannotFindSince;
+
+		[Display (Name = "Не возможно разыскать c")]
+		public virtual DateTime? CannotFindSince {
+		    get { return cannotFindSince; }
+		    set { SetField (ref cannotFindSince, value, () => CannotFindSince); }
+		}
+
 		IList<Phone> phones;
 
 		[Display (Name = "Телефоны")]

@@ -97,6 +97,9 @@ namespace BioGorod.Dialogs.Client
 			ycheckIsArchived.Binding.AddBinding(Entity, e => e.IsArchive, w => w.Active).InitializeFromSource();
 			checkHaveArbitration.Binding.AddBinding(Entity, e => e.HaveArbitration, w => w.Active).InitializeFromSource();
 			checkRequirePrepayment.Binding.AddBinding(Entity, e => e.RequirePrepayment, w => w.Active).InitializeFromSource();
+			ycheckContourFocus.Binding.AddBinding(Entity, e => e.ContourFocus, w => w.Active).InitializeFromSource();
+			ycheckMassRegistration.Binding.AddBinding(Entity, e => e.MassRegistration, w => w.Active).InitializeFromSource();
+			ydateCannotFind.Binding.AddBinding(Entity, e => e.CannotFindSince, w => w.DateOrNull).InitializeFromSource();
 
 			checkCustomer.Binding.AddBinding(Entity, e => e.CooperationCustomer, w => w.Active).InitializeFromSource();
 			checkSupplier.Binding.AddBinding(Entity, e => e.CooperationSupplier, w => w.Active).InitializeFromSource();
