@@ -85,7 +85,7 @@ namespace BioGorod.Domain.Client
 		[Display (Name = "Шаблон договора")]
 		public virtual DocTemplate ContractTemplate {
 			get { return contractTemplate; }
-			protected set { SetField (ref contractTemplate, value, () => ContractTemplate); }
+			set { SetField (ref contractTemplate, value, () => ContractTemplate); }
 		}
 
 		byte[] changedTemplateFile;

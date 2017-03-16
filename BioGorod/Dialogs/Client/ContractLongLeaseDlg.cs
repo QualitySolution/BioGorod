@@ -2,6 +2,7 @@
 using System.Linq;
 using BioGorod.Domain.Client;
 using BioGorod.Domain.Company;
+using QSDocTemplates;
 using QSOrmProject;
 using QSValidation;
 
@@ -43,12 +44,26 @@ namespace BioGorod.Dialogs.Client
 			ycheckOrigin.Binding.AddBinding(Entity, e => e.HaveOriginal, w => w.Active).InitializeFromSource();
 			ycheckScanned.Binding.AddBinding(Entity, e => e.HaveScanned, w => w.Active).InitializeFromSource();
 
-			//Настраиваем виджет шаблона
-			if (Entity.ContractTemplate == null)
-				Entity.UpdateContractTemplate(UoW);
+			var templates = Repository.Client.DocTemplateRepository.GetTemplates(UoW, Entity.ContractType);
 
 			if (Entity.ContractTemplate != null)
-				(Entity.ContractTemplate.DocParser as DocTemplates.LongLeaseParser).RootObject = Entity;
+			{
+				var old = templates.FirstOrDefault(x => x.Id == Entity.ContractTemplate.Id);
+				if (old != null)
+					templates.Remove(old);
+				templates.Add(Entity.ContractTemplate);
+			}
+			else if(templates.Count == 1)
+			{
+				Entity.ContractTemplate = templates[0];
+			}
+
+			foreach(var temp in templates)
+			{
+				(temp.DocParser as DocTemplates.LongLeaseParser).RootObject = Entity;
+			}
+
+			templatewidget1.AvailableTemplates = templates.Cast<IDocTemplate>().ToList();
 			templatewidget1.Binding.AddBinding(Entity, e => e.ContractTemplate, w => w.Template).InitializeFromSource();
 			templatewidget1.Binding.AddBinding(Entity, e => e.ChangedTemplateFile, w => w.ChangedDoc).InitializeFromSource();
 
