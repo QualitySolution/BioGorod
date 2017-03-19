@@ -66,7 +66,8 @@ namespace BioGorod.DocTemplates
 			AddField(x => x.Counterparty.SignatoryBaseOf, PatternFieldType.FString);
 
 			AddTable("Адреса", x => x.Addresses)
-				.AddColumn(x => x.DeliveryPoint, PatternFieldType.FString);
+				.AddColumn(x => x.DeliveryPoint.CompiledAddress, x => x.DeliveryPoint, PatternFieldType.FString);
+			
 			SortFields();
 		}
 

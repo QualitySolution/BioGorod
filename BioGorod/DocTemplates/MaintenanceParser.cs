@@ -57,13 +57,15 @@ namespace BioGorod.DocTemplates
 			AddField(x => x.Counterparty.SignatoryBaseOf, PatternFieldType.FString);
 
 			AddTable("Адреса", x => x.Addresses)
-				.AddColumn(x => x.DeliveryPoint, PatternFieldType.FString)
+				.AddColumn(x => x.DeliveryPoint.CompiledAddress, x => x.DeliveryPoint, PatternFieldType.FString)
 				.AddColumn(x => x.CabineCount, PatternFieldType.FNumber)
 				.AddColumn(x => x.Info, PatternFieldType.FString)
 				.AddColumn(x => x.AdditionalMaintenanceStdCost, PatternFieldType.FCurrency)
 				.AddColumn(x => x.AdditionalMaintenanceWinterCost, PatternFieldType.FCurrency)
 				.AddColumn(x => x.MaintenanceStdCost, PatternFieldType.FCurrency)
 				.AddColumn(x => x.MaintenanceWinterCost, PatternFieldType.FCurrency)
+				.AddColumn(x => x.MaintenanceStdCost * x.CabineCount, "СтоимостьПлановогоТОВсегоСтандарт", PatternFieldType.FCurrency)
+				.AddColumn(x => x.MaintenanceWinterCost * x.CabineCount, "СтоимостьПлановогоТОВсегоЗимний", PatternFieldType.FCurrency)
 				.AddColumn(x => x.MaintenanceCount, PatternFieldType.FNumber);
 
 			SortFields();
