@@ -11,9 +11,9 @@ namespace BioGorod.Domain.Client
 	[OrmSubject (
 		Gender = GrammaticalGender.Masculine,
 		NominativePlural = "договоры контрагента",
-		Nominative = "договор короткосрочной аренды",
-		Genitive = " договора короткосрочной аренды",
-		Accusative = "договор короткосрочной аренды"
+		Nominative = "договор краткосрочной аренды",
+		Genitive = " договора краткосрочной аренды",
+		Accusative = "договор краткосрочной аренды"
 	)]
 	public class ContractShortLease : Contract
 	{
