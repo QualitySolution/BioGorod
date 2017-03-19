@@ -292,6 +292,17 @@ namespace BioGorod.Domain.Client
 
 		#endregion
 
+		#region Расчетные
+
+		[Display (Name = "Фамилия и инициалы директора")]
+		public virtual string SignatoryFWithInitials{
+			get{
+				return StringWorks.PersonNameWithInitials(SignatoryFIO);
+			}
+		}
+
+		#endregion
+
 		public Counterparty ()
 		{
 			

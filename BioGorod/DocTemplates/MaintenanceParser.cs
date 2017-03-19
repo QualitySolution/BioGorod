@@ -53,6 +53,8 @@ namespace BioGorod.DocTemplates
 			AddField(x => x.Counterparty.DefaultAccount.InBank.Name, PatternFieldType.FString);
 			//Директор клиента
 			AddField(x => x.Counterparty.SignatoryFIO, PatternFieldType.FString);
+			AddField(x => x.Counterparty.SignatoryFWithInitials, PatternFieldType.FString);
+			AddField(x => x.Counterparty.SignatoryFIOGenetivus, PatternFieldType.FString);
 			AddField(x => x.Counterparty.SignatoryPost, PatternFieldType.FString);
 			AddField(x => x.Counterparty.SignatoryBaseOf, PatternFieldType.FString);
 
