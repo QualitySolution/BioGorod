@@ -33,6 +33,7 @@ namespace BioGorod.Hmap.Client
 			Map (x => x.CooperationSupplier).Column ("cooperation_supplier");
 			Map (x => x.CooperationPartner).Column ("cooperation_partner");
 			Map (x => x.SignatoryFIO).Column ("signatory_FIO");
+			Map (x => x.SignatoryFIOGenetivus).Column ("signatory_FIO_genetivus");
 			Map (x => x.SignatoryPost).Column ("signatory_post");
 			Map (x => x.SignatoryBaseOf).Column ("signatory_base_of");
 			Map (x => x.DocumentsDelivery).Column ("documents_delivery").CustomType<DocumentsDeliveryStringType> ();

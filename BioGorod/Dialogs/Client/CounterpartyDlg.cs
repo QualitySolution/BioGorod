@@ -64,6 +64,7 @@ namespace BioGorod.Dialogs.Client
 			validatedentryOGRN.Binding.AddBinding(Entity, e => e.OGRN, w => w.Text).InitializeFromSource();
 
 			yentrySignFIO.Binding.AddBinding(Entity, e => e.SignatoryFIO, w => w.Text).InitializeFromSource();
+			yentrySignFIOGenetivus.Binding.AddBinding(Entity, e => e.SignatoryFIOGenetivus, w => w.Text).InitializeFromSource();
 			yentrySignPost.Binding.AddBinding(Entity, e => e.SignatoryPost, w => w.Text).InitializeFromSource();
 			yentrySignBaseOf.Binding.AddBinding(Entity, e => e.SignatoryBaseOf, w => w.Text).InitializeFromSource();
 

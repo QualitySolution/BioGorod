@@ -260,10 +260,18 @@ namespace BioGorod.Domain.Client
 
 		string signatoryFIO;
 
-		[Display (Name = "ФИО подписанта")]
+		[Display (Name = "ФИО Директора")]
 		public virtual string SignatoryFIO {
 			get { return signatoryFIO; }
 			set { SetField (ref signatoryFIO, value, () => SignatoryFIO); }
+		}
+
+		string signatoryFIOGenetivus;
+
+		[Display (Name = "ФИО в родительном падеже")]
+		public virtual string SignatoryFIOGenetivus {
+			get { return signatoryFIOGenetivus; }
+			set { SetField (ref signatoryFIOGenetivus, value, () => SignatoryFIOGenetivus); }
 		}
 
 		string signatoryPost;
